@@ -1,0 +1,40 @@
+{
+  "scope": "8_real_frames_5M_points_each_complete_coloring_steady_state",
+  "rows": [
+    {
+      "backend": "cpu",
+      "workers": 4,
+      "frames": 8,
+      "points_per_frame": 5000000,
+      "seconds": 3.8606735939974897,
+      "frames_per_second": 2.0721772522904462,
+      "accepted": true,
+      "equivalent": true
+    },
+    {
+      "backend": "rocm",
+      "workers": 1,
+      "frames": 8,
+      "points_per_frame": 5000000,
+      "seconds": 3.443900099999155,
+      "frames_per_second": 2.3229477533340654,
+      "accepted": true,
+      "equivalent": true
+    },
+    {
+      "backend": "rocm",
+      "workers": 2,
+      "frames": 8,
+      "points_per_frame": 5000000,
+      "seconds": 2.0710800960077904,
+      "frames_per_second": 3.8627187888197967,
+      "accepted": true,
+      "equivalent": true
+    }
+  ],
+  "recommended_backend": "rocm",
+  "recommended_workers": 2,
+  "speedup_vs_cpu4": 1.8640870536293193,
+  "approved": true,
+  "physical_commands": 0
+}

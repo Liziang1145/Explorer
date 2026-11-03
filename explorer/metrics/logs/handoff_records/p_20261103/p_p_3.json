@@ -1,0 +1,56 @@
+[
+  {
+    "url": "/core-metrics.js?v=5",
+    "file": "core-metrics.js",
+    "bytes": 20559,
+    "sha256": "818db72c984fedc318e1f7cf1876a2726a75a5b9254cbd9bdf295aecdf0290f4"
+  },
+  {
+    "url": "/vla-panel.js?v=3",
+    "file": "vla-panel.js",
+    "bytes": 9379,
+    "sha256": "e3886a5921cb56919ac7933eb673bbc829e5514883b52319f21c99bececa9dd8"
+  },
+  {
+    "url": "/submissions.js?v=3",
+    "file": "submissions.js",
+    "bytes": 25946,
+    "sha256": "2040624a3863c2e9cd39bcfc0e584814d2c370c8fd6b5de9d98a8956c40b0843"
+  },
+  {
+    "url": "/aipc-shell.js",
+    "file": "aipc-shell.js",
+    "bytes": 11561,
+    "sha256": "91d9ca2f449e4138261fc1967eb861c65c4dbf68a00a91f2f9cbf61ad44fb1be"
+  },
+  {
+    "url": "/mapping-assets/navigation-nav.js?v=20261031b",
+    "file": "mapping-assets__navigation-nav.js",
+    "bytes": 25114,
+    "sha256": "c158d7b2af0d2c4f3a046b4ee93414c9abaf354000bb30f24ca6433f4eea8063"
+  },
+  {
+    "url": "/mapping-assets/navigation-drive.js?v=20261031b",
+    "file": "mapping-assets__navigation-drive.js",
+    "bytes": 21193,
+    "sha256": "b0505840156238be7d0866194fffb2a0cb91132687cd6a88849ed4502ec58a53"
+  },
+  {
+    "url": "/mapping-console.js?v=20261029-1",
+    "file": "mapping-console.js",
+    "bytes": 2652,
+    "sha256": "ed834cc2d09b04ed9d9d2bfb6433437248ca8d968b33a3b0468acf1f455a57aa"
+  },
+  {
+    "url": "/docs/CORE_METRICS_METHODS_20261102.md",
+    "file": "docs__CORE_METRICS_METHODS_20261102.md",
+    "bytes": 13530,
+    "sha256": "a724c86ea32bb090cacd7e18a8fee570002e4f9c3f809b12727854f3dbb6bcb5"
+  },
+  {
+    "url": "/docs/VLA_LATENCY_METHODS_20261103.md",
+    "file": "docs__VLA_LATENCY_METHODS_20261103.md",
+    "bytes": 7856,
+    "sha256": "21020ace5b4b22876f9d56e2b88fc2ca8959a5224d1e648ee7282b25da3326d9"
+  }
+]

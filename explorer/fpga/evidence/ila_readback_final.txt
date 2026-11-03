@@ -1,0 +1,2 @@
+0 Native 1024 512 511 {/can_path0/debug_bus /ila_can_lifecycle0/probe0}
+1 Native 1024 512 511 {/can_path1/debug_bus /ila_can_lifecycle1/probe0}

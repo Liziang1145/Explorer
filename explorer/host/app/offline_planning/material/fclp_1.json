@@ -1,0 +1,96 @@
+{
+  "method": "FCL三角形网格，左臂全TOPP-RA轨迹×固定右臂64组零件",
+  "results": [
+    {
+      "other_arm": "right_zero",
+      "checks": 9472,
+      "worst": {
+        "distance_mm": 207.84755499206395,
+        "left_link": 2,
+        "right_link": 2,
+        "case": "planned_147"
+      },
+      "passes_no_intersection": true,
+      "passes_20mm_margin": true
+    },
+    {
+      "other_arm": "right_start",
+      "checks": 9472,
+      "worst": {
+        "distance_mm": 202.2854350676904,
+        "left_link": 2,
+        "right_link": 2,
+        "case": "planned_147"
+      },
+      "passes_no_intersection": true,
+      "passes_20mm_margin": true
+    }
+  ],
+  "limitations": [
+    "右臂保持固定",
+    "左臂每指开合0mm；另做最大开合关键点复核",
+    "不含底盘和支架精确网格"
+  ],
+  "opening_checks": [
+    {
+      "case": "planned_000",
+      "other_arm": "right_zero",
+      "opening_each_mm": 35.0,
+      "minimum_mm": 208.25119845869943
+    },
+    {
+      "case": "planned_000",
+      "other_arm": "right_start",
+      "opening_each_mm": 35.0,
+      "minimum_mm": 202.95948927916092
+    },
+    {
+      "case": "planned_060",
+      "other_arm": "right_zero",
+      "opening_each_mm": 35.0,
+      "minimum_mm": 225.1220788159741
+    },
+    {
+      "case": "planned_060",
+      "other_arm": "right_start",
+      "opening_each_mm": 35.0,
+      "minimum_mm": 221.44172341608564
+    },
+    {
+      "case": "planned_120",
+      "other_arm": "right_zero",
+      "opening_each_mm": 35.0,
+      "minimum_mm": 209.31983789496428
+    },
+    {
+      "case": "planned_120",
+      "other_arm": "right_start",
+      "opening_each_mm": 35.0,
+      "minimum_mm": 204.65046537441685
+    },
+    {
+      "case": "planned_140",
+      "other_arm": "right_zero",
+      "opening_each_mm": 35.0,
+      "minimum_mm": 207.85563407777167
+    },
+    {
+      "case": "planned_140",
+      "other_arm": "right_start",
+      "opening_each_mm": 35.0,
+      "minimum_mm": 202.3991272374821
+    },
+    {
+      "case": "planned_147",
+      "other_arm": "right_zero",
+      "opening_each_mm": 35.0,
+      "minimum_mm": 207.84755499206395
+    },
+    {
+      "case": "planned_147",
+      "other_arm": "right_start",
+      "opening_each_mm": 35.0,
+      "minimum_mm": 202.2854350676904
+    }
+  ]
+}

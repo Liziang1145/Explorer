@@ -1,0 +1,4 @@
+{
+  "upstream": "http://192.168.137.2:8097",
+  "token": "<PROVISION_ON_TARGET>"
+}

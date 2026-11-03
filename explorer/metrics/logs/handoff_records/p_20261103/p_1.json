@@ -1,0 +1,44 @@
+[
+  {
+    "url": "http://192.168.6.206:8091/",
+    "file": "07_实验记录\\五项链路网页核验_20261103\\index.html",
+    "http": 200,
+    "bytes": 1079,
+    "sha256": "1bdab1ea0d82de00fdcec78ad62f473b634a6745144011fd27867826d20e2686"
+  },
+  {
+    "url": "http://192.168.6.206:8091/core-metrics.html",
+    "file": "07_实验记录\\五项链路网页核验_20261103\\core-metrics.html",
+    "http": 200,
+    "bytes": 16986,
+    "sha256": "4fbc1860f8bc57bbd1615207c95bb497975712ef91b9aaca67b996315a7c0d64"
+  },
+  {
+    "url": "http://192.168.6.206:8091/submissions.html?queue=vr",
+    "file": "07_实验记录\\五项链路网页核验_20261103\\submissions.html_queue_vr",
+    "http": 200,
+    "bytes": 6445,
+    "sha256": "ce1affed0d2e9b568d4fbce79e0a221fc6c06282237ed4a626e2e96e254d0a7f"
+  },
+  {
+    "url": "http://192.168.6.206:8091/monitor-navigation.html",
+    "file": "07_实验记录\\五项链路网页核验_20261103\\monitor-navigation.html",
+    "http": 200,
+    "bytes": 7547,
+    "sha256": "cedcb6d992ae3640701fe901c824653732923617fb8c5946c1db8025077df103"
+  },
+  {
+    "url": "http://192.168.6.206:8091/submissions.html?queue=ground",
+    "file": "07_实验记录\\五项链路网页核验_20261103\\submissions.html_queue_ground",
+    "http": 200,
+    "bytes": 6445,
+    "sha256": "ce1affed0d2e9b568d4fbce79e0a221fc6c06282237ed4a626e2e96e254d0a7f"
+  },
+  {
+    "url": "http://192.168.6.206:8091/submissions.html?queue=aipc-general",
+    "file": "07_实验记录\\五项链路网页核验_20261103\\submissions.html_queue_aipc-general",
+    "http": 200,
+    "bytes": 6445,
+    "sha256": "ce1affed0d2e9b568d4fbce79e0a221fc6c06282237ed4a626e2e96e254d0a7f"
+  }
+]

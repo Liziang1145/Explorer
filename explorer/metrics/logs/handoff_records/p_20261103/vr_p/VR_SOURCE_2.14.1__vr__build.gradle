@@ -1,0 +1,55 @@
+plugins { id 'com.android.application' version '9.2.1' }
+android {
+    namespace 'com.tanluzhe.controlterminal.vr'
+    compileSdk 36
+    defaultConfig {
+        applicationId 'com.tanluzhe.controlterminal.vr'
+        minSdk 24
+        targetSdk 24
+        versionCode 25
+        versionName '2.14.1'
+        ndk { abiFilters 'arm64-v8a' }
+        testInstrumentationRunner 'com.tanluzhe.controlterminal.vr.v2.V2SmokeInstrumentation'
+        testInstrumentationRunner = providers.gradleProperty('httpSmoke').isPresent() ? 'com.tanluzhe.controlterminal.vr.v2.HttpConnectionInstrumentation' : testInstrumentationRunner
+        testInstrumentationRunner = providers.gradleProperty('uiSmoke').isPresent() ? 'com.tanluzhe.controlterminal.vr.v2.VrInteractionInstrumentation' : testInstrumentationRunner
+        testInstrumentationRunner = providers.gradleProperty('handoffSmoke').isPresent() ? 'com.tanluzhe.controlterminal.vr.v2.HandoffInstrumentation' : testInstrumentationRunner
+    }
+    sourceSets {
+        main {
+            java.srcDirs=['src/main/java','../shared/src/main/java']
+            assets.srcDirs=['src/main/assets','../shared/src/main/assets']
+            jniLibs.srcDirs=['build/generated/runtime/jniLibs','build/generated/v2jni']
+        }
+    }
+    packaging { jniLibs { useLegacyPackaging = true; keepDebugSymbols += ['**/*.so'] } }
+    buildFeatures { buildConfig = true }
+    buildTypes {
+        debug { manifestPlaceholders = [debugReceiverEnabled:'true'] }
+        release { manifestPlaceholders = [debugReceiverEnabled:'false'] }
+    }
+}
+def prepare = tasks.register('prepareOpenXrRuntime', Exec) {
+    workingDir rootProject.projectDir.parentFile
+    commandLine providers.gradleProperty('python').getOrElse('python'), 'tools/prepare_openxr_runtime.py'
+    inputs.files('../tools/prepare_openxr_runtime.py','../tools/v2_deps/openxr-loader-arm64.so','openxr-runtime.json')
+    outputs.dir('build/generated/runtime')
+}
+tasks.named('preBuild').configure { dependsOn prepare }
+
+dependencies {
+    implementation 'androidx.media3:media3-exoplayer:1.8.0'
+    implementation 'androidx.media3:media3-datasource-okhttp:1.8.0'
+    implementation files('../tools/v2_deps/webrtc-144.7559.09.aar')
+}
+def v2native = tasks.register('buildV2Engine', Exec) {
+    dependsOn prepare
+    workingDir rootProject.projectDir.parentFile
+    commandLine providers.gradleProperty('python').getOrElse('python'), 'tools/build_v2_native.py'
+    inputs.file('src/main/cpp/terminal_v2.cpp')
+    inputs.file('src/main/cpp/view_capture_math.h')
+    inputs.files(fileTree('src/main/cpp') { include '**/*.h' })
+    inputs.files(fileTree('../shared/src/main/cpp') { include '**/*.h' })
+    inputs.file('../tools/build_v2_native.py')
+    outputs.dir('build/generated/v2jni')
+}
+tasks.named('preBuild').configure { dependsOn v2native }

@@ -1,0 +1,83 @@
+[
+  {
+    "target": "放置拾取位置1",
+    "xyz_m": [
+      -0.12901135626273438,
+      -0.21471095321828182,
+      0.19964467324053037
+    ],
+    "status": "ok",
+    "error": null,
+    "cold_or_warm": "cold",
+    "total_s": 44.01602699999785,
+    "ik_s": 0.0005306000020937063,
+    "ik_s_calls": 1,
+    "rrt_s": 0.001993599951674696,
+    "rrt_s_calls": 1,
+    "collision_pose_s": 42.27301769999758,
+    "collision_pose_s_calls": 508,
+    "toppra_s": 0.06178649999492336,
+    "toppra_s_calls": 1,
+    "other_s": 1.6786986000515753,
+    "direct": true,
+    "path_nodes": 112,
+    "duration_s": 4.507858208666604,
+    "mesh_pose_checks": 508,
+    "mesh_distance_checks": 10639,
+    "minimum_mesh_clearance_cm": 1.1613762153907201
+  },
+  {
+    "target": "放置拾取位置2",
+    "xyz_m": [
+      -0.12373370041803833,
+      -0.20592745888104685,
+      0.19159346584982956
+    ],
+    "status": "ok",
+    "error": null,
+    "cold_or_warm": "warm",
+    "total_s": 52.23943429999781,
+    "ik_s": 0.0009228000053553842,
+    "ik_s_calls": 1,
+    "rrt_s": 0.002289199983351864,
+    "rrt_s_calls": 1,
+    "collision_pose_s": 52.20203880001645,
+    "collision_pose_s_calls": 508,
+    "toppra_s": 0.00032300000020768493,
+    "toppra_s_calls": 1,
+    "other_s": 0.03386049999244278,
+    "direct": true,
+    "path_nodes": 112,
+    "duration_s": 4.507858208666604,
+    "mesh_pose_checks": 508,
+    "mesh_distance_checks": 10647,
+    "minimum_mesh_clearance_cm": 1.1531206390389828
+  },
+  {
+    "target": "放置拾取位置3",
+    "xyz_m": [
+      -0.11824850640919699,
+      -0.19679856303542023,
+      0.18408338783688985
+    ],
+    "status": "ok",
+    "error": null,
+    "cold_or_warm": "warm",
+    "total_s": 53.15730499999336,
+    "ik_s": 0.0008556000029784627,
+    "ik_s_calls": 1,
+    "rrt_s": 0.002482100055203773,
+    "rrt_s_calls": 1,
+    "collision_pose_s": 53.11679899987939,
+    "collision_pose_s_calls": 508,
+    "toppra_s": 0.00039379999361699447,
+    "toppra_s_calls": 1,
+    "other_s": 0.036774500062165316,
+    "direct": true,
+    "path_nodes": 112,
+    "duration_s": 4.507858208666604,
+    "mesh_pose_checks": 508,
+    "mesh_distance_checks": 10541,
+    "minimum_mesh_clearance_cm": 1.1424073494164375
+  }
+]

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>左臂关节控制台</title>
+<style>
+:root{--bg:#0f1117;--panel:#171a23;--line:#262b3a;--txt:#e6e9f0;--sub:#8b93a7;--acc:#4c8dff;--ok:#3fb970;--warn:#e0a13c;--bad:#e05c5c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.6 "Microsoft YaHei",system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:20px;margin:6px 0 2px}
+.sub{color:var(--sub);margin:0 0 16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+button{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:8px 18px;font-size:14px;cursor:pointer}
+button.ghost{background:#2a3042}
+button.danger{background:var(--bad)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.badge{font-size:12px;padding:2px 10px;border-radius:99px;background:#232838;color:var(--sub)}
+.badge.on{background:rgba(63,185,112,.15);color:var(--ok)}
+.jrow{display:grid;grid-template-columns:52px 1fr 74px;gap:12px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line)}
+.jrow:last-child{border-bottom:0}
+.jrow .nm{font-weight:600}
+.jrow .lim{color:var(--sub);font-size:12px}
+.jrow output{text-align:right;font-variant-numeric:tabular-nums;color:var(--acc)}
+input[type=range]{width:100%;accent-color:var(--acc)}
+#log{background:#0a0c11;border:1px solid var(--line);border-radius:8px;padding:10px 12px;height:130px;overflow:auto;font:12px/1.5 ui-monospace,Consolas,monospace;color:var(--sub);white-space:pre-wrap}
+.warn{color:var(--warn);font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<h1>左臂关节控制台</h1>
+<p class="sub">KR260 can1 · v2 mode=2 关节直达 · 滑块 = 绝对关节角（度） · 2026-10-21</p>
+
+<div class="panel">
+  <div class="row">
+    <span class="badge" id="st-deploy">deploy …</span>
+    <span class="badge" id="st-left">左臂未控制</span>
+    <span style="flex:1"></span>
+    <button class="ghost" id="btn-read">读取当前角度</button>
+    <button id="btn-start">开始控制</button>
+    <button class="danger" id="btn-stop" disabled>停止</button>
+  </div>
+  <p class="warn" style="margin:10px 0 0">⚠ 开始控制前请先「读取当前角度」把滑块对齐到实际姿态，否则手臂会跳向滑块位置。deploy 限速 0.4 rad/s，大幅度请分段拖。</p>
+</div>
+
+<div class="panel" id="joints"></div>
+
+<div class="panel">
+  <div class="jrow">
+    <span class="nm">夹爪</span>
+    <input type="range" id="grip" min="0" max="100" step="1" value="0">
+    <output id="grip-v">0%</output>
+  </div>
+  <div style="color:var(--sub);font-size:12px;margin-top:4px">0%=全开 · 100%=闭合（比例控制）</div>
+</div>
+
+<div class="panel"><div id="log"></div></div>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const API=`http://${location.hostname}:8092`;
+const client='left-'+(crypto.randomUUID?.()||Date.now()+Math.random().toString(36).slice(2));
+// 限位（度）与 deploy arm_model.cpp / arm_console.py 一致
+const LIM=[[-150,150],[0,180],[-170,0],[-100,100],[-69.9,69.9],[-120,120]];
+const deg=[0,0,0,0,0,0]; let grip=0, active=false, lastSend=0;
+const log=m=>{const el=$('log');el.textContent+=`[${new Date().toLocaleTimeString()}] ${m}\n`;el.scrollTop=el.scrollHeight;};
+
+// 生成六轴滑块行
+const box=$('joints');
+for(let i=0;i<6;i++){
+  const [lo,hi]=LIM[i];
+  const r=document.createElement('div');r.className='jrow';
+  r.innerHTML=`<span class="nm">J${i+1}<br><span class="lim">${lo}°~${hi}°</span></span>
+    <input type="range" id="j${i}" min="${lo}" max="${hi}" step="0.5" value="0">
+    <output id="j${i}-v">0.0°</output>`;
+  box.appendChild(r);
+  r.querySelector('input').oninput=e=>{deg[i]=+e.target.value;$(`j${i}-v`).textContent=deg[i].toFixed(1)+'°';push();};
+}
+$('grip').oninput=e=>{grip=+e.target.value;$('grip-v').textContent=grip+'%';push();};
+
+async function req(path,body){
+  const r=await fetch(API+path,{method:body?'POST':'GET',headers:{'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});
+  return r.json();
+}
+function push(){
+  if(!active)return;
+  const now=Date.now();if(now-lastSend<100)return;lastSend=now;
+  req('/api/control',{action:'update',client,controls:{mode:'left_joints',left_joints_deg:deg.slice(),left_grip:grip/100}})
+    .then(d=>{if(d.error){log('✗ '+d.error);}})
+    .catch(e=>log('✗ 网络错误 '+e.message));
+}
+// 心跳：控制期间每 500ms 续一拍
+setInterval(()=>{if(active){req('/api/control',{action:'update',client,controls:{mode:'left_joints'}}).catch(()=>{});}},500);
+// 状态轮询
+async function poll(){
+  try{
+    const d=await req('/api/status');
+    $('st-deploy').textContent='deploy '+(d.deploy==='STOPPED'?'未运行':'运行中');
+    $('st-deploy').className='badge'+(d.deploy!=='STOPPED'?' on':'');
+    const L=d.control&&d.control.left;
+    const on=L&&L.active;
+    $('st-left').textContent=on?('左臂控制中 · '+(L.reason||'')):'左臂未控制';
+    $('st-left').className='badge'+(on?' on':'');
+    if(active&&!on){active=false;$('btn-start').disabled=false;$('btn-stop').disabled=true;log('⚠ 左臂会话已结束（'+(L&&L.reason||'心跳过期')+'）');}
+  }catch(e){$('st-deploy').textContent='控制台离线';$('st-deploy').className='badge';}
+}
+setInterval(poll,1000);poll();
+
+$('btn-read').onclick=async()=>{
+  log('读取 can1 关节反馈…');
+  try{
+    const d=await req('/api/left_read');
+    if(!d.ok){log('✗ '+(d.error||'读取失败'));return;}
+    d.joints_deg.forEach((v,i)=>{deg[i]=+v.toFixed(1);const s=$('j'+i);s.value=Math.max(LIM[i][0],Math.min(LIM[i][1],deg[i]));$(`j${i}-v`).textContent=deg[i].toFixed(1)+'°';});
+    log('✓ 当前角度: '+d.joints_deg.map(v=>v.toFixed(1)+'°').join(', '));
+  }catch(e){log('✗ 网络错误 '+e.message);}
+};
+$('btn-start').onclick=async()=>{
+  try{
+    const d=await req('/api/control',{action:'update',client,controls:{mode:'left_joints',left_joints_deg:deg.slice(),left_grip:grip/100}});
+    if(d.error){log('✗ '+d.error);return;}
+    active=true;$('btn-start').disabled=true;$('btn-stop').disabled=false;
+    log('✓ 左臂控制已开始（当前滑块值已下发）');
+  }catch(e){log('✗ 网络错误 '+e.message);}
+};
+$('btn-stop').onclick=async()=>{
+  active=false;$('btn-start').disabled=false;$('btn-stop').disabled=true;
+  try{await req('/api/control',{action:'stop',client,controls:{mode:'left_joints'}});}catch(e){}
+  log('■ 已停止');
+};
+window.addEventListener('pagehide',()=>{if(active)navigator.sendBeacon?.(`${API}/api/control`,new Blob([JSON.stringify({action:'stop',client,controls:{mode:'left_joints'}})],{type:'application/json'}));});
+})();
+</script>
+</body>
+</html>

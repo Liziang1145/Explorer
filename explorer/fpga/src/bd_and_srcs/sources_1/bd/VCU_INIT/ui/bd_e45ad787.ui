@@ -1,0 +1,34 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.16524",
+   "Default View_TopLeft":"21,-856",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:24.0
+#  -string -flagsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -x 610 -y -170 -defaultsOSRD
+preplace inst vcu_0 -pg 1 -lvl 4 -x 1470 -y -390 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 3 -x 1110 -y -580 -defaultsOSRD -resize 260 236
+preplace inst proc_sys_reset_0 -pg 1 -lvl 2 -x 610 -y -710 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 130 -y -530 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 1 -x 130 -y -350 -defaultsOSRD
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 4 30 -460 250 -440 940 -440 1270
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 3 30 -600 240 -810 910
+preplace netloc clk_wiz_0_locked 1 1 1 300 -670n
+preplace netloc clk_wiz_0_clk_out1 1 1 3 230J -820 NJ -820 1320
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 2 920J -720 1310
+preplace netloc xlconstant_0_dout 1 1 1 260 -710n
+preplace netloc proc_sys_reset_0_interconnect_aresetn 1 2 1 930 -690n
+preplace netloc zynq_ultra_ps_e_0_pl_clk1 1 1 3 310 0 950 -330 1320J
+preplace netloc vcu_0_vcu_host_interrupt 1 1 4 290 10 NJ 10 NJ 10 1620
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 2 1 920 -660n
+preplace netloc axi_interconnect_0_M00_AXI 1 3 1 1300 -580n
+preplace netloc vcu_0_M_AXI_ENC0 1 1 4 300 -350 NJ -350 1290J -270 1650
+preplace netloc vcu_0_M_AXI_ENC1 1 1 4 290 -410 NJ -410 1290J -510 1630
+preplace netloc vcu_0_M_AXI_DEC0 1 1 4 270 -430 NJ -430 1260J -530 1620
+preplace netloc vcu_0_M_AXI_DEC1 1 1 4 280 -420 NJ -420 1280J -520 1640
+preplace netloc vcu_0_M_AXI_MCU 1 1 4 310 -340 NJ -340 1260J -260 1630
+levelinfo -pg 1 -170 130 610 1110 1470 1670
+pagesize -pg 1 -db -bbox -sgen -170 -1250 1800 180
+"
+}
+

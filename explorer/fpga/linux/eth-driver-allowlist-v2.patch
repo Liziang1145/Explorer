@@ -1,0 +1,12 @@
+--- a/kr260_provider.c.inc
++++ b/kr260_provider.c.inc
+@@ -88,7 +88,8 @@
+ 	err = of_property_read_string(region, "firmware-name", &name);
+ 	if (!err && strcmp(name, KR_WDT_FW) && strcmp(name, "kr260-open-mac-20261015/kr260_open_mac.bit.bin") &&
+ 	    strcmp(name, "kr260-j20-j19-20261028/kr260_j20_j19.bit.bin") &&
+-	    strcmp(name, "kr260-pl-shadow-20261103/kr260_pl_shadow.bit.bin"))
++	    strcmp(name, "kr260-pl-shadow-20261103/kr260_pl_shadow.bit.bin") &&
++	    strcmp(name, "kr260-pl-can-switch-20261103/kr260_pl_can_switch.bit.bin"))
+ 		err = -ENODEV;
+ 	of_node_put(region);
+ 	if (err)

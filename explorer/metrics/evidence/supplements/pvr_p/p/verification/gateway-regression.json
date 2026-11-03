@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "legacy_and_long_ids": true,
+  "invalid_revision_rejected": true,
+  "post_image_rejected": true
+}

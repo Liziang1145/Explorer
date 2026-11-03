@@ -1,0 +1,13 @@
+{
+  "firmware_name": "kr260-pl-can-fix-20261103/kr260_pl_can_fix.bit.bin",
+  "sha256": "88d72ec35d084acaecfd5ad562f3004b15767273dad42d48de6fbd9452f3cb00",
+  "abi": "0x00020001",
+  "build": "0x26110303",
+  "caps": "0x000001ff",
+  "clock_hz": 99999001,
+  "ctu_id": "0x0202cafd",
+  "board_qualified": false,
+  "default_owner": "PS",
+  "default_auto": 0,
+  "note": "Informational identity only; does not bypass qualification."
+}

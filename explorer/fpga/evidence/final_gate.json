@@ -1,0 +1,36 @@
+{
+  "timing": [
+    "0.100",
+    "0.000",
+    "0",
+    "99826",
+    "0.010",
+    "0.000",
+    "0",
+    "99349",
+    "0.333",
+    "0.000",
+    "0",
+    "35818"
+  ],
+  "changed_ports": [
+    "can2_tx",
+    "can1_rx",
+    "can1_tx",
+    "can0_rx",
+    "can2_rx",
+    "gpio_j18[7]",
+    "gpio_j18[5]",
+    "gpio_j18[3]",
+    "gpio_j18[1]",
+    "can0_tx",
+    "gpio_j18[2]",
+    "gpio_j18[0]",
+    "gpio_j18[6]",
+    "gpio_j18[4]"
+  ],
+  "port_count": 45,
+  "new_bank": 43,
+  "bus_skew_met": 27,
+  "drc_error_or_critical": 0
+}

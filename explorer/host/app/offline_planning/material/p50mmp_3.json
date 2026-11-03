@@ -1,0 +1,41 @@
+{
+  "events": [
+    "已按本次授权解除软件停止",
+    {
+      "ok": true,
+      "action": "deploy_start",
+      "output": "远端脚本已执行（deploy 后台进程占用 SSH 管道，故按短超时提前返回）\n启动已确认：状态查询显示 deploy 正在运行\n[2026-10-31 13:19:30.891670] [warning] 左臂反馈尚未齐全，仍按原行为使能（软启动可能以未初始化关节角对齐）\n[2026-10-31 13:19:30.892340] [warning] 右臂反馈尚未齐全，仍按原行为使能（软启动可能以未初始化关节角对齐）\n[2026-10-31 13:19:30.995815] [info] Piper actuators enabled (left: online, right: online).\n[2026-10-31 13:19:30.996404] [info] deploy runner init | build Oct 30 2026 15:11:02 | kMaxJointVel=0.800 rad/s\n[2026-10-31 13:19:31.002918] [warning] Failed to interpolate: Not enough trajectory points in trajectory buffer.\n[2026-10-31 13:19:31.002978] [warning] Failed to interpolate: Not enough trajectory points in trajectory buffer.\n[2026-10-31 13:19:31.007865] [warning] Failed to interpolate: Not enough trajectory points in trajectory buffer.\n[2026-10-31 13:19:31.007946] [warning] Failed to interpolate: Not enough trajectory points in trajectory buffer."
+    },
+    {
+      "ok": true,
+      "action": "enable_left",
+      "output": "enabled-left"
+    }
+  ],
+  "samples": [],
+  "before": {
+    "ok": true,
+    "joints_deg": [
+      0.0,
+      8.59,
+      -14.67,
+      -0.17,
+      4.98,
+      -0.17
+    ]
+  },
+  "error": "HTTP Error 409: Conflict",
+  "emergency_stop": {
+    "ok": true,
+    "intent": "stop",
+    "result": {
+      "epoch": "18ac6b01329f4ce3afb24f021879b98e",
+      "stopped": true,
+      "pending": true,
+      "results": {
+        "base": "零速断使能已提交；实际停车请查看底盘反馈",
+        "arms": "正在撤销双臂和 VR 会话"
+      }
+    }
+  }
+}

@@ -1,0 +1,255 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VR 轨迹可视化 · AIPC 采集回放</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;margin:0;background:#0f1420;color:#dde3ee;display:flex;height:100vh}
+#left{flex:1;position:relative}
+canvas{display:block;width:100%;height:100%;cursor:grab}
+#right{width:360px;padding:16px;overflow-y:auto;background:#161d2e;border-left:1px solid #2a3340}
+h1{font-size:17px;margin:0 0 4px}h2{font-size:14px;margin:14px 0 6px;color:#8fa3c8}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+td,th{border:1px solid #2a3340;padding:4px 6px;text-align:right}th{background:#1c2438}
+td:first-child,th:first-child{text-align:left}
+.hint{font-size:12px;color:#8fa3c8;line-height:1.6}
+button,a.btn{background:#2d6cdf;color:#fff;border:0;border-radius:6px;padding:6px 12px;cursor:pointer;margin:2px 4px 2px 0;text-decoration:none;display:inline-block;font-size:13px}
+select,input[type=range]{width:100%;background:#1c2438;color:#dde3ee;border:1px solid #2a3340;border-radius:4px;padding:4px;margin:2px 0}
+label.ck{display:inline-flex;align-items:center;gap:4px;font-size:13px;margin-right:12px}
+label.ck input{width:auto}
+#msg{color:#e8b45a;font-size:12px;margin-top:8px;white-space:pre-wrap}
+#loginPanel{background:#1c2438;border:1px solid #2a3340;border-radius:8px;padding:12px;margin-top:10px}
+#loginPanel input{width:100%;margin:4px 0;background:#0f1420;color:#dde3ee;border:1px solid #2a3340;border-radius:4px;padding:6px}
+.remap{display:flex;align-items:center;gap:6px;font-size:13px;margin:4px 0}
+.remap span{width:70px}
+.remap select{flex:1}
+#playInfo{font-size:12px;color:#dde3ee;background:#1c2438;border-radius:6px;padding:8px;margin-top:6px;white-space:pre-wrap}
+</style></head><body>
+<div id="left"><canvas id="cv"></canvas></div>
+<div id="right">
+<h1>VR 轨迹可视化</h1>
+<p class="hint">显示约定与「机械臂可视化（底盘系）」一致：<b style="color:#e06c6c">+X 右</b> / <b style="color:#7ec86b">+Y 前</b> / <b style="color:#6ba8e8">+Z 上</b>。拖动旋转、滚轮缩放。原始数据是 VR 登记系，用下方映射转成底盘系观察。<a class="btn" href="pose-capture.html" style="background:#3a4664">返回采集页</a></p>
+<div id="loginPanel" hidden>
+<form id="login"><b style="font-size:13px">登录 AIPC</b>
+<input name="username" placeholder="用户名" autocomplete="username">
+<input name="password" type="password" placeholder="密码" autocomplete="current-password">
+<button type="submit">登录</button></form></div>
+<h2>采集记录</h2>
+<select id="capSel"></select>
+<h2>设备轨迹</h2>
+<label class="ck"><input type="checkbox" id="devRight" checked><b style="color:#e8890c">右手柄</b></label>
+<label class="ck"><input type="checkbox" id="devHead"><b style="color:#1c7ed6">头显</b></label>
+<label class="ck"><input type="checkbox" id="devLeft"><b style="color:#c792ea">左手柄</b></label>
+<h2>VR 系 → 底盘系 轴映射</h2>
+<div class="remap"><span style="color:#e06c6c">X 右 ←</span><select id="mx"></select></div>
+<div class="remap"><span style="color:#7ec86b">Y 前 ←</span><select id="my"></select></div>
+<div class="remap"><span style="color:#6ba8e8">Z 上 ←</span><select id="mz"></select></div>
+<h2>统计（映射后，米）</h2>
+<table id="tbl"><thead><tr><th>轴</th><th>最小</th><th>最大</th><th>幅度</th></tr></thead><tbody></tbody></table>
+<div id="meta" class="hint" style="margin-top:6px"></div>
+<h2>回放</h2>
+<input type="range" id="play" min="0" max="1000" value="1000">
+<div id="playInfo">—</div>
+<div id="msg"></div>
+</div>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+function message(t){$('msg').textContent=t||''}
+
+/* ---------- CBOR 最小解码（够解析 TLZ2 包体） ---------- */
+function cborDecode(u8,pos){
+ let ib=u8[pos];pos++;const major=ib>>5,info=ib&31;let val;
+ if(info<24)val=info;
+ else if(info===24){val=u8[pos];pos+=1;}
+ else if(info===25){val=(u8[pos]<<8)|u8[pos+1];pos+=2;}
+ else if(info===26){val=(u8[pos]>>>0)*16777216+(u8[pos+1]<<16)+(u8[pos+2]<<8)+u8[pos+3];pos+=4;}
+ else if(info===27){const dv=new DataView(u8.buffer,u8.byteOffset+pos,8);val=dv.getUint32(0)*4294967296+dv.getUint32(4);pos+=8;}
+ else throw Error('bad cbor info '+info);
+ switch(major){
+  case 0:return[val,pos];
+  case 1:return[-1-val,pos];
+  case 2:case 3:{
+   const s=u8.slice(pos,pos+val);pos+=val;
+   return[major===3?new TextDecoder().decode(s):s,pos];}
+  case 4:{const a=[];for(let i=0;i<val;i++){const r=cborDecode(u8,pos);a.push(r[0]);pos=r[1];}return[a,pos];}
+  case 5:{const d={};for(let i=0;i<val;i++){const k=cborDecode(u8,pos);pos=k[1];const v=cborDecode(u8,pos);pos=v[1];d[k[0]]=v[0];}return[d,pos];}
+  case 7:
+   if(info===20)return[false,pos];if(info===21)return[true,pos];if(info===22||info===23)return[null,pos];
+   if(info===25){const h=val,e=(h>>10)&31,m=h&1023;
+    let f=e?((m/1024+1)*Math.pow(2,e-15)):(m/1024)*Math.pow(2,-14);
+    if(e===31)f=m?NaN:Infinity;return[(h>>15)?-f:f,pos];}
+   if(info===26){const dv=new DataView(u8.buffer,u8.byteOffset+pos-4,4);return[dv.getFloat32(0),pos];}
+   if(info===27){const dv=new DataView(u8.buffer,u8.byteOffset+pos-8,8);return[dv.getFloat64(0),pos];}
+ }
+ throw Error('cbor major '+major);
+}
+function parsePacket(b64){
+ const u8=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
+ if(u8[0]!==0x54||u8[1]!==0x4C)throw Error('bad magic');
+ const mt=(u8[6]<<8)|u8[7];
+ const body=cborDecode(u8,64)[0];
+ return{mt,body};
+}
+
+/* ---------- API（与 pose-capture.js 同一鉴权机制） ---------- */
+async function apiRaw(path){
+ const r=await fetch(path,{cache:'no-store'});
+ if(r.status===401){$('loginPanel').hidden=false;throw Error('请先登录 AIPC 管理账户');}
+ if(!r.ok)throw Error('请求失败：'+r.status);
+ $('loginPanel').hidden=true;return r;
+}
+$('login').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);
+ try{const r=await fetch('/api/v1/login',{method:'POST',headers:{'Content-Type':'application/json','X-Hub-Client':'console'},body:JSON.stringify({username:f.get('username'),password:f.get('password')})});
+  const d=await r.json();if(!r.ok)throw Error(d.error||'登录失败');
+  e.target.reset();$('loginPanel').hidden=true;loadCaptures();}catch(err){message(err.message)}};
+
+/* ---------- 数据 ---------- */
+let captures=[],capId=null;
+let TR={right:[],head:[],left:[]};   // [{t,pos,quat,istate}]
+let T0=0,T1=0;
+async function loadCaptures(){
+ try{
+  const r=await apiRaw('/api/v1/pose-capture/status');const d=await r.json();
+  captures=d.captures||[];
+  const sel=$('capSel');sel.innerHTML='';
+  for(const c of captures){const o=document.createElement('option');o.value=c.id;
+   o.textContent=`${c.name} · ${c.packet_count}包 · ${new Date(Number(BigInt(c.start_utc_ns)/1000000n)).toLocaleString('zh-CN',{hour12:false})}`;
+   sel.appendChild(o);}
+  const q=new URLSearchParams(location.search).get('id');
+  capId=q&&captures.some(c=>c.id===q)?q:(captures[0]?.id||null);
+  sel.value=capId;
+  if(capId)await loadCapture(capId);
+ }catch(e){message(e.message)}
+}
+$('capSel').onchange=e=>loadCapture(e.target.value).catch(err=>message(err.message));
+async function loadCapture(id){
+ capId=id;message('下载并解码中…');
+ const r=await apiRaw('/api/v1/pose-capture/captures/'+id+'/export?format=jsonl');
+ const text=await r.text();
+ TR={right:[],head:[],left:[]};
+ let n=0,tmin=Infinity,tmax=0;
+ for(const line of text.split('\n')){
+  if(!line.trim())continue;const rec=JSON.parse(line);
+  if(rec.type==='capture')continue;
+  let p;try{p=parsePacket(rec.packet_base64)}catch(e){continue}
+  if(p.mt!==0x0104)continue;
+  const t=Number(rec.rx_mono_ns)/1e9,istate=p.body[2];
+  tmin=Math.min(tmin,t);tmax=Math.max(tmax,t);n++;
+  const put=(key,dev)=>{const pose=p.body[key];
+   if(pose&&pose[1])TR[dev].push({t,pos:pose[1],quat:pose[2]||null,istate});};
+  put(3,'head');put(4,'left');put(5,'right');
+ }
+ T0=tmin;T1=tmax;
+ message(`解码完成：${n} 个 OPERATOR_STATE 包，时长 ${(T1-T0).toFixed(1)}s，约 ${(n/Math.max(1e-9,T1-T0)).toFixed(1)} Hz`);
+ fitView();draw();
+}
+
+/* ---------- 轴映射 ---------- */
+const MAPOPTS=[['+VR.x',0,1],['-VR.x',0,-1],['+VR.y',1,1],['-VR.y',1,-1],['+VR.z',2,1],['-VR.z',2,-1]];
+let remap=[[1,-1],[0,1],[2,1]];   /* 默认猜测：X右←-VR.y（本次采集主运动轴）、Y前←+VR.x、Z上←+VR.z */
+for(const [id,idx] of [['mx',0],['my',1],['mz',2]]){
+ const s=$(id);MAPOPTS.forEach(([label],i)=>{const o=document.createElement('option');o.value=i;o.textContent=label;s.appendChild(o);});
+ s.value=MAPOPTS.findIndex(([a,b])=>a===remap[idx][0]&&b===remap[idx][1]);
+ s.onchange=()=>{remap[idx]=[MAPOPTS[+s.value][1],MAPOPTS[+s.value][2]];draw();};
+}
+const mapP=p=>remap.map(([axis,sign])=>sign*p[axis]);
+
+/* ---------- 投影（与 joint_fk_viewer.html 完全一致） ---------- */
+let yaw=0.27,pit=0.45,dist=2.2;   /* 初始视角与 joint_fk_viewer.html 一致（2026-10-20 用户指定） */
+function proj(p){
+ const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pit),sp=Math.sin(pit);
+ let x1=cy*p[0]-sy*p[1],y1=sy*p[0]+cy*p[1],z1=p[2];
+ let y2=cp*y1-sp*z1,z2=sp*y1+cp*z1;
+ const f=1.6/(1.6+z2*0.4);
+ return[x1*f*dist*300+innerWidth*0.33,-z2*f*dist*300+innerHeight*0.55,z2];
+}
+function fitView(){  /* 按数据范围自动定缩放与网格 */
+ let ext=0.5;const dev=TR.right.length?TR.right:(TR.head.length?TR.head:TR.left);
+ if(dev.length){const ps=dev.map(s=>mapP(s.pos));
+  for(let a=0;a<3;a++){const vs=ps.map(p=>p[a]);ext=Math.max(ext,Math.max(...vs)-Math.min(...vs));}}
+ dist=Math.min(6,Math.max(0.6,ext*2.2));
+}
+
+/* ---------- 绘制 ---------- */
+const cv=$('cv'),ctx=cv.getContext('2d');
+const DEVS=[['right','#e8890c','右手柄'],['head','#1c7ed6','头显'],['left','#8e44ad','左手柄']];
+const DEVCK={right:'devRight',head:'devHead',left:'devLeft'};
+function playIdx(arr){return Math.min(arr.length-1,Math.floor($('play').value/1000*(arr.length-1)))}
+function draw(){
+ cv.width=innerWidth-360;cv.height=innerHeight;
+ /* 白底 + XY平面黑色网格（与 joint_fk_viewer.html 一致，2026-10-20） */
+ ctx.fillStyle='#ffffff';ctx.fillRect(0,0,cv.width,cv.height);
+ const allPts=[];for(const [k,,]of DEVS)if($(DEVCK[k]).checked)allPts.push(...TR[k].map(s=>mapP(s.pos)));
+ if(!allPts.length){ctx.fillStyle='#666';ctx.font='14px sans-serif';ctx.fillText('无数据或未选择设备',40,60);drawStats();return}
+ /* 参考：数据包围盒 */
+ let mn=[1e9,1e9,1e9],mx=[-1e9,-1e9,-1e9];
+ for(const p of allPts)for(let a=0;a<3;a++){mn[a]=Math.min(mn[a],p[a]);mx[a]=Math.max(mx[a],p[a]);}
+ const ctr=mn.map((v,a)=>(v+mx[a])/2),gz=mn[2];
+ const ge=Math.max(0.3,...mx.map((v,a)=>v-mn[a]))*0.9;
+ /* 地面网格（数据最低 Z 平面，黑色） */
+ ctx.strokeStyle='#000000';ctx.lineWidth=0.8;
+ const st=ge/4;
+ for(let a=-4;a<=4;a++){const d=a*st;
+  let s=proj([ctr[0]+d,ctr[1]-ge,gz]),e=proj([ctr[0]+d,ctr[1]+ge,gz]);
+  ctx.beginPath();ctx.moveTo(s[0],s[1]);ctx.lineTo(e[0],e[1]);ctx.stroke();
+  s=proj([ctr[0]-ge,ctr[1]+d,gz]);e=proj([ctr[0]+ge,ctr[1]+d,gz]);
+  ctx.beginPath();ctx.moveTo(s[0],s[1]);ctx.lineTo(e[0],e[1]);ctx.stroke();}
+ /* 底盘系轴（画在轨迹起点处，避免 VR 原点太远） */
+ const anchor=(TR.right.length?mapP(TR.right[0].pos):allPts[0]);
+ const AL=0.35,AX=[[AL,0,0],[0,AL,0],[0,0,AL]],AC=['#d0342c','#2f9e44','#1971c2'],ALT=['+X 右','+Y 前','+Z 上'];
+ AX.forEach((a,i)=>{const s=proj(anchor),e=proj([anchor[0]+a[0],anchor[1]+a[1],anchor[2]+a[2]]);
+  ctx.strokeStyle=AC[i];ctx.lineWidth=2.5;
+  ctx.beginPath();ctx.moveTo(s[0],s[1]);ctx.lineTo(e[0],e[1]);ctx.stroke();
+  ctx.fillStyle=AC[i];ctx.font='bold 13px sans-serif';ctx.fillText(ALT[i],e[0]+4,e[1]);});
+ /* 轨迹 */
+ for(const [k,color,label]of DEVS){
+  if(!$(DEVCK[k]).checked||!TR[k].length)continue;
+  const pts=TR[k].map(s=>mapP(s.pos));
+  ctx.strokeStyle=color;ctx.lineWidth=2.5;ctx.lineJoin='round';
+  ctx.beginPath();pts.forEach((p,i)=>{const s=proj(p);i?ctx.lineTo(s[0],s[1]):ctx.moveTo(s[0],s[1]);});ctx.stroke();
+  /* 起点绿 / 终点红 */
+  const s0=proj(pts[0]),s1=proj(pts[pts.length-1]);
+  ctx.fillStyle='#2f9e44';ctx.beginPath();ctx.arc(s0[0],s0[1],6,0,7);ctx.fill();
+  ctx.fillStyle='#ff5a5a';ctx.beginPath();ctx.arc(s1[0],s1[1],6,0,7);ctx.fill();
+  ctx.fillStyle=color;ctx.font='12px sans-serif';ctx.fillText(label,s1[0]+9,s1[1]-7);
+ }
+ /* 回放游标 */
+ const arr=TR.right.length?TR.right:(TR.head.length?TR.head:TR.left);
+ if(arr.length){
+  const i=playIdx(arr),smp=arr[i],p=mapP(smp.pos),s=proj(p);
+  ctx.strokeStyle='#000';ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.arc(s[0],s[1],8,0,7);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(s[0]-12,s[1]);ctx.lineTo(s[0]+12,s[1]);ctx.moveTo(s[0],s[1]-12);ctx.lineTo(s[0],s[1]+12);ctx.stroke();
+  const b=smp.istate||0;
+  $('playInfo').textContent=
+   `t = ${(smp.t-T0).toFixed(2)} s（第 ${i+1}/${arr.length} 帧）\n`+
+   `右手(映射后): X右 ${p[0].toFixed(3)}  Y前 ${p[1].toFixed(3)}  Z上 ${p[2].toFixed(3)} m\n`+
+   `VR原始: (${smp.pos.map(v=>v.toFixed(3)).join(', ')})\n`+
+   `input_state 0x${b.toString(16).padStart(2,'0')}：头显${b&1?'✓':'✗'} 左手${b&2?'✓':'✗'} 右手${b&4?'✓':'✗'} 按住${b&8?'✓':'✗'} 前台${b&16?'✓':'✗'}`;
+ }
+ drawStats();
+}
+function drawStats(){
+ const dev=$('devRight').checked&&TR.right.length?'right':($('devHead').checked&&TR.head.length?'head':($('devLeft').checked&&TR.left.length?'left':null));
+ const tb=document.querySelector('#tbl tbody');tb.innerHTML='';
+ if(!dev)return;
+ const pts=TR[dev].map(s=>mapP(s.pos));
+ const LN=[['X 右','#e06c6c'],['Y 前','#7ec86b'],['Z 上','#6ba8e8']];
+ LN.forEach(([nm,color],a)=>{const vs=pts.map(p=>p[a]);
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td style="color:${color}">${nm}</td><td>${Math.min(...vs).toFixed(3)}</td><td>${Math.max(...vs).toFixed(3)}</td><td><b>${(Math.max(...vs)-Math.min(...vs)).toFixed(3)}</b></td>`;
+  tb.appendChild(tr);});
+ $('meta').textContent=`统计对象：${DEVS.find(d=>d[0]===dev)[2]} · ${pts.length} 帧 · 时长 ${(T1-T0).toFixed(1)}s`;
+}
+for(const k of Object.keys(DEVCK))$(DEVCK[k]).onchange=draw;
+$('play').oninput=draw;
+
+/* ---------- 视角交互（与查看器一致） ---------- */
+let drag=null;
+cv.addEventListener('mousedown',e=>drag={x:e.clientX,y:e.clientY});
+addEventListener('mousemove',e=>{if(!drag)return;yaw+=(e.clientX-drag.x)*0.006;pit-=(e.clientY-drag.y)*0.006;
+ pit=Math.max(0,Math.min(1.5,pit));drag={x:e.clientX,y:e.clientY};draw();});   /* pit≥0：看不到 Z 负半轴一侧，与查看器一致 */
+addEventListener('mouseup',()=>drag=null);
+cv.addEventListener('wheel',e=>{e.preventDefault();dist*=e.deltaY>0?1.1:0.9;dist=Math.max(0.2,Math.min(20,dist));draw();},{passive:false});
+addEventListener('resize',draw);
+
+loadCaptures();
+</script></body></html>

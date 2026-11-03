@@ -1,0 +1,868 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date              : Tue Nov  3 20:38:18 2026
+| Host              : ZKP-TX6PRO running 64-bit major release  (build 9200)
+| Command           : report_timing -to [get_ports {eth2_rgmii_td* eth2_rgmii_tx_ctl eth3_rgmii_td* eth3_rgmii_tx_ctl}] -delay_type min -max_paths 20 -file D:/2026FPGArace/KR260_PL_CAN_FIX_20261103/build_project/delivery/reports/rgmii_tx_hold.rpt
+| Design            : kr260_j18_top
+| Device            : xck26-sfvc784
+| Speed File        : -2LV  PRODUCTION 1.31 12-08-2025
+| Design State      : Routed
+| Temperature Grade : C
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.140ns  (arrival time - required time)
+  Source:                 VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[0].oddr_inst/CLK
+                            (falling edge-triggered cell OSERDESE3 clocked by clk_out1_VCU_INIT_eth_clock_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            eth3_rgmii_tx_ctl
+                            (output port clocked by eth3_tx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth3_tx
+  Path Type:              Min at Slow Process Corner
+  Requirement:            -4.000ns  (eth3_tx rise@-8.000ns - clk_out1_VCU_INIT_eth_clock_0 fall@-4.000ns)
+  Data Path Delay:        1.128ns  (logic 0.953ns (84.483%)  route 0.175ns (15.518%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           -3.000ns
+  Clock Path Skew:        1.872ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    5.795ns
+    Source Clock Delay      (SCD):    4.162ns = ( 8.162 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.240ns
+  Clock Uncertainty:      0.116ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.220ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.354ns (routing 1.241ns, distribution 1.113ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_VCU_INIT_eth_clock_0 fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+    C3                                                0.000    -4.000 f  eth_refclk_25
+                         net (fo=0)                   0.000    -4.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.287    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.713    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.436    -3.277    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.739    -2.538 f  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.307    -2.231    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.039    -2.192 f  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+    X1Y1 (CLOCK_ROOT)    net (fo=31993, routed)       2.354     0.162    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y105
+                         OSERDESE3                                    f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[0].oddr_inst/CLK
+  -------------------------------------------------------------------    -------------------
+    BITSLICE_RX_TX_X0Y105
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.302     0.464 r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.175     0.639    eth3_rgmii_tx_ctl_OBUF
+    Y8                   OBUF (Prop_OUTBUF_HPIOB_S_I_O)
+                                                      0.651     1.290 r  eth3_rgmii_tx_ctl_OBUF_inst/O
+                         net (fo=0)                   0.000     1.290    eth3_rgmii_tx_ctl
+    Y8                                                                r  eth3_rgmii_tx_ctl
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth3_tx rise edge)   -8.000    -8.000 r  <hidden>
+    C3                                                0.000    -8.000 r  eth_refclk_25
+                         net (fo=0)                   0.000    -8.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.538    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.462    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.551    -6.911    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.103    -7.014 r  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.348    -6.666    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.622 r  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+                         net (fo=31993, routed)       2.697    -3.925    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y119
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.522    -3.403 r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.285    -3.118    eth3_rgmii_txc_OBUF
+    J1                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.913    -2.205 r  eth3_rgmii_txc_OBUF_inst/O
+                         net (fo=0)                   0.000    -2.205    eth3_rgmii_txc
+    J1                                                                r  eth3_rgmii_txc
+                         clock pessimism              0.240    -1.965    <hidden>
+                         clock uncertainty            0.116    -1.850    <hidden>
+                         output delay                 3.000     1.150    <hidden>
+  -------------------------------------------------------------------
+                         required time                         -1.150    <hidden>
+                         arrival time                           1.290    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.140    <hidden>
+
+Slack (MET) :             0.148ns  (arrival time - required time)
+  Source:                 VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[4].oddr_inst/CLK
+                            (falling edge-triggered cell OSERDESE3 clocked by clk_out1_VCU_INIT_eth_clock_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            eth3_rgmii_td[3]
+                            (output port clocked by eth3_tx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth3_tx
+  Path Type:              Min at Slow Process Corner
+  Requirement:            -4.000ns  (eth3_tx rise@-8.000ns - clk_out1_VCU_INIT_eth_clock_0 fall@-4.000ns)
+  Data Path Delay:        1.137ns  (logic 0.964ns (84.785%)  route 0.173ns (15.215%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           -3.000ns
+  Clock Path Skew:        1.873ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    5.795ns
+    Source Clock Delay      (SCD):    4.161ns = ( 8.161 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.240ns
+  Clock Uncertainty:      0.116ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.220ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.353ns (routing 1.241ns, distribution 1.112ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_VCU_INIT_eth_clock_0 fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+    C3                                                0.000    -4.000 f  eth_refclk_25
+                         net (fo=0)                   0.000    -4.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.287    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.713    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.436    -3.277    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.739    -2.538 f  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.307    -2.231    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.039    -2.192 f  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+    X1Y1 (CLOCK_ROOT)    net (fo=31993, routed)       2.353     0.161    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y109
+                         OSERDESE3                                    f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[4].oddr_inst/CLK
+  -------------------------------------------------------------------    -------------------
+    BITSLICE_RX_TX_X0Y109
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.319     0.480 r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[4].oddr_inst/OQ
+                         net (fo=1, routed)           0.173     0.653    eth3_rgmii_td_OBUF[3]
+    V8                   OBUF (Prop_OUTBUF_HPIOB_S_I_O)
+                                                      0.645     1.298 r  eth3_rgmii_td_OBUF[3]_inst/O
+                         net (fo=0)                   0.000     1.298    eth3_rgmii_td[3]
+    V8                                                                r  eth3_rgmii_td[3]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth3_tx rise edge)   -8.000    -8.000 r  <hidden>
+    C3                                                0.000    -8.000 r  eth_refclk_25
+                         net (fo=0)                   0.000    -8.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.538    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.462    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.551    -6.911    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.103    -7.014 r  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.348    -6.666    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.622 r  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+                         net (fo=31993, routed)       2.697    -3.925    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y119
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.522    -3.403 r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.285    -3.118    eth3_rgmii_txc_OBUF
+    J1                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.913    -2.205 r  eth3_rgmii_txc_OBUF_inst/O
+                         net (fo=0)                   0.000    -2.205    eth3_rgmii_txc
+    J1                                                                r  eth3_rgmii_txc
+                         clock pessimism              0.240    -1.965    <hidden>
+                         clock uncertainty            0.116    -1.850    <hidden>
+                         output delay                 3.000     1.150    <hidden>
+  -------------------------------------------------------------------
+                         required time                         -1.150    <hidden>
+                         arrival time                           1.298    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.148    <hidden>
+
+Slack (MET) :             0.154ns  (arrival time - required time)
+  Source:                 VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[2].oddr_inst/CLK
+                            (falling edge-triggered cell OSERDESE3 clocked by clk_out1_VCU_INIT_eth_clock_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            eth3_rgmii_td[1]
+                            (output port clocked by eth3_tx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth3_tx
+  Path Type:              Min at Slow Process Corner
+  Requirement:            -4.000ns  (eth3_tx rise@-8.000ns - clk_out1_VCU_INIT_eth_clock_0 fall@-4.000ns)
+  Data Path Delay:        1.132ns  (logic 0.959ns (84.717%)  route 0.173ns (15.283%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           -3.000ns
+  Clock Path Skew:        1.862ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    5.795ns
+    Source Clock Delay      (SCD):    4.172ns = ( 8.172 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.240ns
+  Clock Uncertainty:      0.116ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.220ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.364ns (routing 1.241ns, distribution 1.123ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_VCU_INIT_eth_clock_0 fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+    C3                                                0.000    -4.000 f  eth_refclk_25
+                         net (fo=0)                   0.000    -4.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.287    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.713    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.436    -3.277    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.739    -2.538 f  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.307    -2.231    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.039    -2.192 f  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+    X1Y1 (CLOCK_ROOT)    net (fo=31993, routed)       2.364     0.172    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y107
+                         OSERDESE3                                    f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[2].oddr_inst/CLK
+  -------------------------------------------------------------------    -------------------
+    BITSLICE_RX_TX_X0Y107
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.312     0.484 r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[2].oddr_inst/OQ
+                         net (fo=1, routed)           0.173     0.657    eth3_rgmii_td_OBUF[1]
+    V9                   OBUF (Prop_OUTBUF_HPIOB_S_I_O)
+                                                      0.647     1.304 r  eth3_rgmii_td_OBUF[1]_inst/O
+                         net (fo=0)                   0.000     1.304    eth3_rgmii_td[1]
+    V9                                                                r  eth3_rgmii_td[1]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth3_tx rise edge)   -8.000    -8.000 r  <hidden>
+    C3                                                0.000    -8.000 r  eth_refclk_25
+                         net (fo=0)                   0.000    -8.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.538    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.462    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.551    -6.911    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.103    -7.014 r  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.348    -6.666    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.622 r  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+                         net (fo=31993, routed)       2.697    -3.925    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y119
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.522    -3.403 r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.285    -3.118    eth3_rgmii_txc_OBUF
+    J1                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.913    -2.205 r  eth3_rgmii_txc_OBUF_inst/O
+                         net (fo=0)                   0.000    -2.205    eth3_rgmii_txc
+    J1                                                                r  eth3_rgmii_txc
+                         clock pessimism              0.240    -1.965    <hidden>
+                         clock uncertainty            0.116    -1.850    <hidden>
+                         output delay                 3.000     1.150    <hidden>
+  -------------------------------------------------------------------
+                         required time                         -1.150    <hidden>
+                         arrival time                           1.304    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.154    <hidden>
+
+Slack (MET) :             0.156ns  (arrival time - required time)
+  Source:                 VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[0].oddr_inst/CLK
+                            (falling edge-triggered cell OSERDESE3 clocked by clk_out1_VCU_INIT_eth_clock_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            eth2_rgmii_tx_ctl
+                            (output port clocked by eth2_tx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth2_tx
+  Path Type:              Min at Slow Process Corner
+  Requirement:            -4.000ns  (eth2_tx rise@-8.000ns - clk_out1_VCU_INIT_eth_clock_0 fall@-4.000ns)
+  Data Path Delay:        1.163ns  (logic 0.988ns (84.951%)  route 0.175ns (15.049%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           -3.000ns
+  Clock Path Skew:        1.891ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    5.818ns
+    Source Clock Delay      (SCD):    4.172ns = ( 8.172 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.246ns
+  Clock Uncertainty:      0.116ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.220ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.364ns (routing 1.241ns, distribution 1.123ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_VCU_INIT_eth_clock_0 fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+    C3                                                0.000    -4.000 f  eth_refclk_25
+                         net (fo=0)                   0.000    -4.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.287    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.713    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.436    -3.277    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.739    -2.538 f  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.307    -2.231    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.039    -2.192 f  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+    X1Y1 (CLOCK_ROOT)    net (fo=31993, routed)       2.364     0.172    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y157
+                         OSERDESE3                                    f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[0].oddr_inst/CLK
+  -------------------------------------------------------------------    -------------------
+    BITSLICE_RX_TX_X0Y157
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.302     0.474 r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.175     0.649    eth2_rgmii_tx_ctl_OBUF
+    F1                   OBUF (Prop_OUTBUF_HPIOB_S_I_O)
+                                                      0.686     1.335 r  eth2_rgmii_tx_ctl_OBUF_inst/O
+                         net (fo=0)                   0.000     1.335    eth2_rgmii_tx_ctl
+    F1                                                                r  eth2_rgmii_tx_ctl
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth2_tx rise edge)   -8.000    -8.000 r  <hidden>
+    C3                                                0.000    -8.000 r  eth_refclk_25
+                         net (fo=0)                   0.000    -8.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.538    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.462    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.551    -6.911    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.103    -7.014 r  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.348    -6.666    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.622 r  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+                         net (fo=31993, routed)       2.701    -3.921    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y171
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.522    -3.399 r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.285    -3.114    eth2_rgmii_txc_OBUF
+    A2                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.932    -2.182 r  eth2_rgmii_txc_OBUF_inst/O
+                         net (fo=0)                   0.000    -2.182    eth2_rgmii_txc
+    A2                                                                r  eth2_rgmii_txc
+                         clock pessimism              0.246    -1.936    <hidden>
+                         clock uncertainty            0.116    -1.821    <hidden>
+                         output delay                 3.000     1.179    <hidden>
+  -------------------------------------------------------------------
+                         required time                         -1.179    <hidden>
+                         arrival time                           1.335    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.156    <hidden>
+
+Slack (MET) :             0.171ns  (arrival time - required time)
+  Source:                 VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[4].oddr_inst/CLK
+                            (falling edge-triggered cell OSERDESE3 clocked by clk_out1_VCU_INIT_eth_clock_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            eth2_rgmii_td[3]
+                            (output port clocked by eth2_tx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth2_tx
+  Path Type:              Min at Slow Process Corner
+  Requirement:            -4.000ns  (eth2_tx rise@-8.000ns - clk_out1_VCU_INIT_eth_clock_0 fall@-4.000ns)
+  Data Path Delay:        1.178ns  (logic 1.005ns (85.318%)  route 0.173ns (14.682%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           -3.000ns
+  Clock Path Skew:        1.892ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    5.818ns
+    Source Clock Delay      (SCD):    4.171ns = ( 8.171 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.246ns
+  Clock Uncertainty:      0.116ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.220ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.363ns (routing 1.241ns, distribution 1.122ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_VCU_INIT_eth_clock_0 fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+    C3                                                0.000    -4.000 f  eth_refclk_25
+                         net (fo=0)                   0.000    -4.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.287    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.713    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.436    -3.277    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.739    -2.538 f  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.307    -2.231    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.039    -2.192 f  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+    X1Y1 (CLOCK_ROOT)    net (fo=31993, routed)       2.363     0.171    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y161
+                         OSERDESE3                                    f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[4].oddr_inst/CLK
+  -------------------------------------------------------------------    -------------------
+    BITSLICE_RX_TX_X0Y161
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.319     0.490 r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[4].oddr_inst/OQ
+                         net (fo=1, routed)           0.173     0.663    eth2_rgmii_td_OBUF[3]
+    E2                   OBUF (Prop_OUTBUF_HPIOB_S_I_O)
+                                                      0.686     1.350 r  eth2_rgmii_td_OBUF[3]_inst/O
+                         net (fo=0)                   0.000     1.350    eth2_rgmii_td[3]
+    E2                                                                r  eth2_rgmii_td[3]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth2_tx rise edge)   -8.000    -8.000 r  <hidden>
+    C3                                                0.000    -8.000 r  eth_refclk_25
+                         net (fo=0)                   0.000    -8.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.538    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.462    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.551    -6.911    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.103    -7.014 r  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.348    -6.666    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.622 r  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+                         net (fo=31993, routed)       2.701    -3.921    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y171
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.522    -3.399 r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.285    -3.114    eth2_rgmii_txc_OBUF
+    A2                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.932    -2.182 r  eth2_rgmii_txc_OBUF_inst/O
+                         net (fo=0)                   0.000    -2.182    eth2_rgmii_txc
+    A2                                                                r  eth2_rgmii_txc
+                         clock pessimism              0.246    -1.936    <hidden>
+                         clock uncertainty            0.116    -1.821    <hidden>
+                         output delay                 3.000     1.179    <hidden>
+  -------------------------------------------------------------------
+                         required time                         -1.179    <hidden>
+                         arrival time                           1.350    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.171    <hidden>
+
+Slack (MET) :             0.179ns  (arrival time - required time)
+  Source:                 VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[3].oddr_inst/CLK
+                            (falling edge-triggered cell OSERDESE3 clocked by clk_out1_VCU_INIT_eth_clock_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            eth3_rgmii_td[2]
+                            (output port clocked by eth3_tx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth3_tx
+  Path Type:              Min at Slow Process Corner
+  Requirement:            -4.000ns  (eth3_tx rise@-8.000ns - clk_out1_VCU_INIT_eth_clock_0 fall@-4.000ns)
+  Data Path Delay:        1.158ns  (logic 0.979ns (84.537%)  route 0.179ns (15.463%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           -3.000ns
+  Clock Path Skew:        1.863ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    5.795ns
+    Source Clock Delay      (SCD):    4.171ns = ( 8.171 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.240ns
+  Clock Uncertainty:      0.116ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.220ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.363ns (routing 1.241ns, distribution 1.122ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_VCU_INIT_eth_clock_0 fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+    C3                                                0.000    -4.000 f  eth_refclk_25
+                         net (fo=0)                   0.000    -4.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.287    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.713    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.436    -3.277    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.739    -2.538 f  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.307    -2.231    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.039    -2.192 f  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+    X1Y1 (CLOCK_ROOT)    net (fo=31993, routed)       2.363     0.171    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y108
+                         OSERDESE3                                    f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[3].oddr_inst/CLK
+  -------------------------------------------------------------------    -------------------
+    BITSLICE_RX_TX_X0Y108
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.336     0.507 r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[3].oddr_inst/OQ
+                         net (fo=1, routed)           0.179     0.686    eth3_rgmii_td_OBUF[2]
+    U8                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.643     1.329 r  eth3_rgmii_td_OBUF[2]_inst/O
+                         net (fo=0)                   0.000     1.329    eth3_rgmii_td[2]
+    U8                                                                r  eth3_rgmii_td[2]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth3_tx rise edge)   -8.000    -8.000 r  <hidden>
+    C3                                                0.000    -8.000 r  eth_refclk_25
+                         net (fo=0)                   0.000    -8.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.538    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.462    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.551    -6.911    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.103    -7.014 r  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.348    -6.666    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.622 r  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+                         net (fo=31993, routed)       2.697    -3.925    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y119
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.522    -3.403 r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.285    -3.118    eth3_rgmii_txc_OBUF
+    J1                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.913    -2.205 r  eth3_rgmii_txc_OBUF_inst/O
+                         net (fo=0)                   0.000    -2.205    eth3_rgmii_txc
+    J1                                                                r  eth3_rgmii_txc
+                         clock pessimism              0.240    -1.965    <hidden>
+                         clock uncertainty            0.116    -1.850    <hidden>
+                         output delay                 3.000     1.150    <hidden>
+  -------------------------------------------------------------------
+                         required time                         -1.150    <hidden>
+                         arrival time                           1.329    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.179    <hidden>
+
+Slack (MET) :             0.181ns  (arrival time - required time)
+  Source:                 VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[1].oddr_inst/CLK
+                            (falling edge-triggered cell OSERDESE3 clocked by clk_out1_VCU_INIT_eth_clock_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            eth3_rgmii_td[0]
+                            (output port clocked by eth3_tx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth3_tx
+  Path Type:              Min at Slow Process Corner
+  Requirement:            -4.000ns  (eth3_tx rise@-8.000ns - clk_out1_VCU_INIT_eth_clock_0 fall@-4.000ns)
+  Data Path Delay:        1.160ns  (logic 0.984ns (84.832%)  route 0.176ns (15.168%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           -3.000ns
+  Clock Path Skew:        1.863ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    5.795ns
+    Source Clock Delay      (SCD):    4.171ns = ( 8.171 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.240ns
+  Clock Uncertainty:      0.116ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.220ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.363ns (routing 1.241ns, distribution 1.122ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_VCU_INIT_eth_clock_0 fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+    C3                                                0.000    -4.000 f  eth_refclk_25
+                         net (fo=0)                   0.000    -4.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.287    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.713    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.436    -3.277    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.739    -2.538 f  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.307    -2.231    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.039    -2.192 f  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+    X1Y1 (CLOCK_ROOT)    net (fo=31993, routed)       2.363     0.171    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y106
+                         OSERDESE3                                    f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[1].oddr_inst/CLK
+  -------------------------------------------------------------------    -------------------
+    BITSLICE_RX_TX_X0Y106
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.341     0.512 r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[1].oddr_inst/OQ
+                         net (fo=1, routed)           0.176     0.688    eth3_rgmii_td_OBUF[0]
+    U9                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.643     1.332 r  eth3_rgmii_td_OBUF[0]_inst/O
+                         net (fo=0)                   0.000     1.332    eth3_rgmii_td[0]
+    U9                                                                r  eth3_rgmii_td[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth3_tx rise edge)   -8.000    -8.000 r  <hidden>
+    C3                                                0.000    -8.000 r  eth_refclk_25
+                         net (fo=0)                   0.000    -8.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.538    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.462    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.551    -6.911    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.103    -7.014 r  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.348    -6.666    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.622 r  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+                         net (fo=31993, routed)       2.697    -3.925    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y119
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.522    -3.403 r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.285    -3.118    eth3_rgmii_txc_OBUF
+    J1                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.913    -2.205 r  eth3_rgmii_txc_OBUF_inst/O
+                         net (fo=0)                   0.000    -2.205    eth3_rgmii_txc
+    J1                                                                r  eth3_rgmii_txc
+                         clock pessimism              0.240    -1.965    <hidden>
+                         clock uncertainty            0.116    -1.850    <hidden>
+                         output delay                 3.000     1.150    <hidden>
+  -------------------------------------------------------------------
+                         required time                         -1.150    <hidden>
+                         arrival time                           1.332    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.181    <hidden>
+
+Slack (MET) :             0.189ns  (arrival time - required time)
+  Source:                 VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[2].oddr_inst/CLK
+                            (falling edge-triggered cell OSERDESE3 clocked by clk_out1_VCU_INIT_eth_clock_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            eth2_rgmii_td[1]
+                            (output port clocked by eth2_tx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth2_tx
+  Path Type:              Min at Slow Process Corner
+  Requirement:            -4.000ns  (eth2_tx rise@-8.000ns - clk_out1_VCU_INIT_eth_clock_0 fall@-4.000ns)
+  Data Path Delay:        1.185ns  (logic 1.012ns (85.406%)  route 0.173ns (14.594%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           -3.000ns
+  Clock Path Skew:        1.881ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    5.818ns
+    Source Clock Delay      (SCD):    4.182ns = ( 8.182 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.246ns
+  Clock Uncertainty:      0.116ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.220ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.374ns (routing 1.241ns, distribution 1.133ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_VCU_INIT_eth_clock_0 fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+    C3                                                0.000    -4.000 f  eth_refclk_25
+                         net (fo=0)                   0.000    -4.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.287    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.713    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.436    -3.277    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.739    -2.538 f  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.307    -2.231    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.039    -2.192 f  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+    X1Y1 (CLOCK_ROOT)    net (fo=31993, routed)       2.374     0.182    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y159
+                         OSERDESE3                                    f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[2].oddr_inst/CLK
+  -------------------------------------------------------------------    -------------------
+    BITSLICE_RX_TX_X0Y159
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.312     0.494 r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[2].oddr_inst/OQ
+                         net (fo=1, routed)           0.173     0.667    eth2_rgmii_td_OBUF[1]
+    D1                   OBUF (Prop_OUTBUF_HPIOB_S_I_O)
+                                                      0.700     1.368 r  eth2_rgmii_td_OBUF[1]_inst/O
+                         net (fo=0)                   0.000     1.368    eth2_rgmii_td[1]
+    D1                                                                r  eth2_rgmii_td[1]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth2_tx rise edge)   -8.000    -8.000 r  <hidden>
+    C3                                                0.000    -8.000 r  eth_refclk_25
+                         net (fo=0)                   0.000    -8.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.538    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.462    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.551    -6.911    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.103    -7.014 r  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.348    -6.666    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.622 r  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+                         net (fo=31993, routed)       2.701    -3.921    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y171
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.522    -3.399 r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.285    -3.114    eth2_rgmii_txc_OBUF
+    A2                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.932    -2.182 r  eth2_rgmii_txc_OBUF_inst/O
+                         net (fo=0)                   0.000    -2.182    eth2_rgmii_txc
+    A2                                                                r  eth2_rgmii_txc
+                         clock pessimism              0.246    -1.936    <hidden>
+                         clock uncertainty            0.116    -1.821    <hidden>
+                         output delay                 3.000     1.179    <hidden>
+  -------------------------------------------------------------------
+                         required time                         -1.179    <hidden>
+                         arrival time                           1.368    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.189    <hidden>
+
+Slack (MET) :             0.200ns  (arrival time - required time)
+  Source:                 VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[3].oddr_inst/CLK
+                            (falling edge-triggered cell OSERDESE3 clocked by clk_out1_VCU_INIT_eth_clock_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            eth2_rgmii_td[2]
+                            (output port clocked by eth2_tx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth2_tx
+  Path Type:              Min at Slow Process Corner
+  Requirement:            -4.000ns  (eth2_tx rise@-8.000ns - clk_out1_VCU_INIT_eth_clock_0 fall@-4.000ns)
+  Data Path Delay:        1.197ns  (logic 1.018ns (85.050%)  route 0.179ns (14.950%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           -3.000ns
+  Clock Path Skew:        1.882ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    5.818ns
+    Source Clock Delay      (SCD):    4.181ns = ( 8.181 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.246ns
+  Clock Uncertainty:      0.116ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.220ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.373ns (routing 1.241ns, distribution 1.132ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_VCU_INIT_eth_clock_0 fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+    C3                                                0.000    -4.000 f  eth_refclk_25
+                         net (fo=0)                   0.000    -4.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.287    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.713    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.436    -3.277    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.739    -2.538 f  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.307    -2.231    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.039    -2.192 f  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+    X1Y1 (CLOCK_ROOT)    net (fo=31993, routed)       2.373     0.181    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y160
+                         OSERDESE3                                    f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[3].oddr_inst/CLK
+  -------------------------------------------------------------------    -------------------
+    BITSLICE_RX_TX_X0Y160
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.336     0.517 r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[3].oddr_inst/OQ
+                         net (fo=1, routed)           0.179     0.696    eth2_rgmii_td_OBUF[2]
+    F2                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.682     1.379 r  eth2_rgmii_td_OBUF[2]_inst/O
+                         net (fo=0)                   0.000     1.379    eth2_rgmii_td[2]
+    F2                                                                r  eth2_rgmii_td[2]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth2_tx rise edge)   -8.000    -8.000 r  <hidden>
+    C3                                                0.000    -8.000 r  eth_refclk_25
+                         net (fo=0)                   0.000    -8.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.538    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.462    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.551    -6.911    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.103    -7.014 r  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.348    -6.666    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.622 r  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+                         net (fo=31993, routed)       2.701    -3.921    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y171
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.522    -3.399 r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.285    -3.114    eth2_rgmii_txc_OBUF
+    A2                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.932    -2.182 r  eth2_rgmii_txc_OBUF_inst/O
+                         net (fo=0)                   0.000    -2.182    eth2_rgmii_txc
+    A2                                                                r  eth2_rgmii_txc
+                         clock pessimism              0.246    -1.936    <hidden>
+                         clock uncertainty            0.116    -1.821    <hidden>
+                         output delay                 3.000     1.179    <hidden>
+  -------------------------------------------------------------------
+                         required time                         -1.179    <hidden>
+                         arrival time                           1.379    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.200    <hidden>
+
+Slack (MET) :             0.216ns  (arrival time - required time)
+  Source:                 VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[1].oddr_inst/CLK
+                            (falling edge-triggered cell OSERDESE3 clocked by clk_out1_VCU_INIT_eth_clock_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            eth2_rgmii_td[0]
+                            (output port clocked by eth2_tx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth2_tx
+  Path Type:              Min at Slow Process Corner
+  Requirement:            -4.000ns  (eth2_tx rise@-8.000ns - clk_out1_VCU_INIT_eth_clock_0 fall@-4.000ns)
+  Data Path Delay:        1.214ns  (logic 1.038ns (85.497%)  route 0.176ns (14.503%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           -3.000ns
+  Clock Path Skew:        1.882ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    5.818ns
+    Source Clock Delay      (SCD):    4.181ns = ( 8.181 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.246ns
+  Clock Uncertainty:      0.116ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.220ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.373ns (routing 1.241ns, distribution 1.132ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_VCU_INIT_eth_clock_0 fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+    C3                                                0.000    -4.000 f  eth_refclk_25
+                         net (fo=0)                   0.000    -4.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.287    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.713    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.713 f  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.436    -3.277    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.739    -2.538 f  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.307    -2.231    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.039    -2.192 f  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+    X1Y1 (CLOCK_ROOT)    net (fo=31993, routed)       2.373     0.181    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y158
+                         OSERDESE3                                    f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[1].oddr_inst/CLK
+  -------------------------------------------------------------------    -------------------
+    BITSLICE_RX_TX_X0Y158
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.341     0.522 r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/data_oddr_inst/oddr[1].oddr_inst/OQ
+                         net (fo=1, routed)           0.176     0.698    eth2_rgmii_td_OBUF[0]
+    E1                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.697     1.395 r  eth2_rgmii_td_OBUF[0]_inst/O
+                         net (fo=0)                   0.000     1.395    eth2_rgmii_td[0]
+    E1                                                                r  eth2_rgmii_td[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth2_tx rise edge)   -8.000    -8.000 r  <hidden>
+    C3                                                0.000    -8.000 r  eth_refclk_25
+                         net (fo=0)                   0.000    -8.000    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/I
+    C3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.538    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.462    VCU_INIT_i/eth_clock/inst/clkin1_ibuf/OUT
+    C3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.462 r  VCU_INIT_i/eth_clock/inst/clkin1_ibuf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.551    -6.911    VCU_INIT_i/eth_clock/inst/clk_in1_VCU_INIT_eth_clock_0
+    MMCM_X0Y3            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.103    -7.014 r  VCU_INIT_i/eth_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.348    -6.666    VCU_INIT_i/eth_clock/inst/clk_out1_VCU_INIT_eth_clock_0
+    BUFGCE_X0Y94         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.622 r  VCU_INIT_i/eth_clock/inst/clkout1_buf/O
+                         net (fo=31993, routed)       2.701    -3.921    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/gtx_clk
+    BITSLICE_RX_TX_X0Y171
+                         OSERDESE3 (Prop_OSERDES_BITSLICE_COMPONENT_RX_TX_CLK_OQ)
+                                                      0.522    -3.399 r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/clk_oddr_inst/oddr[0].oddr_inst/OQ
+                         net (fo=1, routed)           0.285    -3.114    eth2_rgmii_txc_OBUF
+    A2                   OBUF (Prop_OUTBUF_HPIOB_M_I_O)
+                                                      0.932    -2.182 r  eth2_rgmii_txc_OBUF_inst/O
+                         net (fo=0)                   0.000    -2.182    eth2_rgmii_txc
+    A2                                                                r  eth2_rgmii_txc
+                         clock pessimism              0.246    -1.936    <hidden>
+                         clock uncertainty            0.116    -1.821    <hidden>
+                         output delay                 3.000     1.179    <hidden>
+  -------------------------------------------------------------------
+                         required time                         -1.179    <hidden>
+                         arrival time                           1.395    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.216    <hidden>
+
+
+
+

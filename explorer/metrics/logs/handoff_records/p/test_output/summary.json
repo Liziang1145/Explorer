@@ -1,0 +1,58 @@
+{
+  "source": "07_实验记录\\延迟测量\\test_trials.csv",
+  "total_trials": 4,
+  "successful_trials": 3,
+  "percentile_method": "nearest-rank",
+  "metrics": {
+    "target_latency_ms": {
+      "count": 3,
+      "unit": "ms",
+      "p50": 100.0,
+      "p95": 120.0,
+      "p99": 120.0,
+      "max": 120.0,
+      "mean": 100.0,
+      "min": 80.0
+    },
+    "target_http_ms": {
+      "count": 3,
+      "unit": "ms",
+      "p50": 110.0,
+      "p95": 130.0,
+      "p99": 130.0,
+      "max": 130.0,
+      "mean": 110.0,
+      "min": 90.0
+    },
+    "planning_http_ms": {
+      "count": 3,
+      "unit": "ms",
+      "p50": 200.0,
+      "p95": 220.0,
+      "p99": 220.0,
+      "max": 220.0,
+      "mean": 200.0,
+      "min": 180.0
+    },
+    "target_plus_planning_ms": {
+      "count": 3,
+      "unit": "ms",
+      "p50": 310.0,
+      "p95": 310.0,
+      "p99": 310.0,
+      "max": 310.0,
+      "mean": 310.0,
+      "min": 310.0
+    },
+    "planned_duration_s": {
+      "count": 3,
+      "unit": "s",
+      "p50": 2.0,
+      "p95": 2.1,
+      "p99": 2.1,
+      "max": 2.1,
+      "mean": 2.0,
+      "min": 1.9
+    }
+  }
+}

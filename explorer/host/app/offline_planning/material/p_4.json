@@ -1,0 +1,81 @@
+{
+  "scope": "纯离线规划；未连接硬件，未修改或部署在线控制",
+  "selected": "projection_x100_z050",
+  "selected_description": "参考姿态/Y，X 修正权重=1.00，Z 修正权重=0.50",
+  "selected_metrics": {
+    "path_length_mm": 396.1053149943213,
+    "x_travel_mm": 37.39029357914497,
+    "y_travel_mm": 390.37419000641626,
+    "z_travel_mm": 54.35381822492968,
+    "x_backtrack_mm": 0.0,
+    "y_backtrack_mm": 1.1102230246251565e-13,
+    "z_rebound_mm": 0.0,
+    "z_net_drop_mm": 54.35381822492968,
+    "max_joint_speed_rad_s": 0.7500000000000047,
+    "max_joint_accel_rad_s2": 2.000000000000673,
+    "max_joint_jerk_rad_s3": 12.00000000025018,
+    "max_joint_step_deg": 2.1310505249818457,
+    "min_bracket_margin_cm": 9.50831071256949,
+    "duration_s": 4.128234052363528,
+    "global_time_scaling_s": 20.32396026226569,
+    "local_time_compression_percent": 79.68784627064943,
+    "time_solver_iterations": 40,
+    "time_solver_min_constraint_margin": -4.238720485716385e-11,
+    "samples": 171
+  },
+  "baseline_metrics": {
+    "path_length_mm": 476.4323618531547,
+    "x_travel_mm": 185.2949329120063,
+    "y_travel_mm": 390.37419000641626,
+    "z_travel_mm": 54.35381822492968,
+    "x_backtrack_mm": 147.90463933286134,
+    "y_backtrack_mm": 1.1102230246251565e-13,
+    "z_rebound_mm": 0.0,
+    "z_net_drop_mm": 54.35381822492968,
+    "max_joint_speed_rad_s": 0.8000000000000178,
+    "max_joint_accel_rad_s2": 66.82389135614278,
+    "max_joint_jerk_rad_s3": 6682.38913561429,
+    "max_joint_step_deg": 0.458366236104659,
+    "min_bracket_margin_cm": 9.744669123899417,
+    "duration_s": 2.41,
+    "samples": 242
+  },
+  "improvement_percent": {
+    "path_length": 16.860115577873295,
+    "x_backtrack": 100.0
+  },
+  "planning_targets_not_actuator_limits": {
+    "max_joint_speed_rad_s": 0.75,
+    "max_joint_accel_rad_s2": 2.0,
+    "max_joint_jerk_rad_s3": 12.0
+  },
+  "constraints": {
+    "ik_samples": 161,
+    "joint_limits_rad": {
+      "lo": [
+        -2.618,
+        0.05,
+        -2.917,
+        -1.695,
+        -1.17,
+        -2.0444
+      ],
+      "hi": [
+        2.618,
+        3.092,
+        -0.05,
+        1.695,
+        1.17,
+        2.0444
+      ]
+    },
+    "min_bracket_margin_cm": 2.0,
+    "orientation": "通用候选采用 SO(3) 插值；最优候选采用关节参考轨迹的姿态场",
+    "time_law": "minimum-jerk 初始轨迹 + 直接时间离散非线性约束优化（最短总时长）"
+  },
+  "limitations": [
+    "仅验证左臂与支架模型，不包含双臂互撞、夹爪、物体和环境碰撞",
+    "几何模型来自现有包络假设，离线通过不等于真机安全",
+    "时间参数尚未接入在线执行器；实测延迟、跟踪误差需另行低速验证"
+  ]
+}

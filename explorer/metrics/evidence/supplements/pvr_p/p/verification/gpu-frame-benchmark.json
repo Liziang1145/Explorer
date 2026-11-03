@@ -1,0 +1,26 @@
+{
+  "scope": "one_frame_5M_real_points_including_decode_occlusion_color_and_write",
+  "rows": [
+    {
+      "kind": "rgb",
+      "points": 5000000,
+      "cpu_seconds": 0.9937337830051547,
+      "gpu_seconds": 0.6063723679981194,
+      "speedup": 1.6388177223277374,
+      "hits": 1442689,
+      "equivalent": true
+    },
+    {
+      "kind": "fish",
+      "points": 5000000,
+      "cpu_seconds": 1.7936459260090487,
+      "gpu_seconds": 0.5198733039869694,
+      "speedup": 3.4501597067080914,
+      "hits": 2909960,
+      "equivalent": true
+    }
+  ],
+  "peak_allocated_bytes": 227388928,
+  "approved": true,
+  "physical_commands": 0
+}

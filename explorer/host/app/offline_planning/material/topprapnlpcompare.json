@@ -1,0 +1,48 @@
+{
+  "scope": "同一解析 IK 几何路径；纯离线比较，不代表真机结果",
+  "NLP": {
+    "path_length_mm": 396.10531499432125,
+    "x_travel_mm": 37.39029357914497,
+    "y_travel_mm": 390.37419000641603,
+    "z_travel_mm": 54.35381822492968,
+    "x_backtrack_mm": 0.0,
+    "y_backtrack_mm": -5.551115123125783e-14,
+    "z_rebound_mm": 0.0,
+    "z_net_drop_mm": 54.35381822492968,
+    "max_joint_speed_rad_s": 0.7500000000230599,
+    "max_joint_accel_rad_s2": 2.000000001486513,
+    "max_joint_jerk_rad_s3": 12.000000254633974,
+    "max_joint_step_deg": 2.1310505249818585,
+    "duration_s": 4.128234052364,
+    "samples": 171,
+    "min_bracket_margin_cm": 9.508310712569486
+  },
+  "TOPP_RA": {
+    "path_length_mm": 396.10539307629455,
+    "x_travel_mm": 37.39029590912873,
+    "y_travel_mm": 390.3742027427904,
+    "z_travel_mm": 54.35382140274564,
+    "x_backtrack_mm": 2.3299837614843e-06,
+    "y_backtrack_mm": 1.2736374288557784e-05,
+    "z_rebound_mm": 1.5889079774122905e-06,
+    "z_net_drop_mm": 54.35381822492968,
+    "max_joint_speed_rad_s": 0.7500774013477062,
+    "max_joint_accel_rad_s2": 2.3833625214519927,
+    "max_joint_jerk_rad_s3": 1967.1106433749585,
+    "max_joint_step_deg": 0.042976269405359195,
+    "duration_s": 4.067985640591339,
+    "samples": 4069,
+    "min_bracket_margin_cm": 9.490069433922685,
+    "grid_max_speed_rad_s": 0.7500000000000895,
+    "grid_max_acceleration_rad_s2": 2.000000001826578,
+    "lp_count": 2550
+  },
+  "duration_difference_s": 0.06024841177266094,
+  "toppra_time_reduction_percent": 1.4594233516910255,
+  "interpretation": [
+    "TOPP-RA 使用 851 路径点、1700 个后向 LP 和 850 个前向 LP。",
+    "TOPP-RA 网格点速度/加速度满足 0.75 rad/s 和 2.0 rad/s²。",
+    "TOPP-RA 不含 jerk 约束；输出轨迹的有限差分峰值包含加速度切换与网格间效应。",
+    "NLP 在导出采样点上同时满足速度、加速度和 jerk 约束。"
+  ]
+}

@@ -1,0 +1,13 @@
+--- "C:/Users/25298/Desktop/FPGA/0000_\346\234\252\345\244\204\347\220\206\345\275\222\346\241\243/\347\272\277\344\270\212\345\257\271\347\205\247/arm_console_online_20261101.py"	2026-11-01 08:07:25.151645900 +0800
++++ "C:/Users/25298/Desktop/FPGA/\344\273\243\347\240\201/aipc-simulator-ui/arm_console.py"	2026-11-01 06:34:58.236998100 +0800
+@@ -1433,7 +1433,9 @@
+             time.sleep(_FB_MIN_INTERVAL)
+ 
+ 
+-threading.Thread(target=_fb_refresher, daemon=True, name='fb-refresher').start()
++# 离线运动学／碰撞规划不需要、也不允许后台 SSH 实机反馈。
++if os.environ.get('APEX_OFFLINE') != '1':
++    threading.Thread(target=_fb_refresher, daemon=True, name='fb-refresher').start()
+ 
+ 
+ def left_read() -> tuple[bool, list]:

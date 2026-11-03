@@ -1,0 +1,18 @@
+{
+  "baseline_critical": 95,
+  "final_critical": 96,
+  "new_functional_critical_endpoints": 0,
+  "reviewed_debug_only_exception": {
+    "rule": "CDC-10",
+    "instance": "VCU_INIT_i/ila_can_lifecycle1/inst",
+    "source_clock": "clk_out1_VCU_INIT_eth_clock_0",
+    "destination_clock": "clk_pl_0",
+    "synchronizer_depth": 2,
+    "outputs_per_ila": 17,
+    "sinks_per_ila": 17,
+    "all_output_sinks": "ILA/debug hub only",
+    "limitation": "Vendor encrypted internal logic cannot be fully inspected",
+    "warning_retained_unwaived": true
+  },
+  "decision": "Accepted for offline diagnostic release; original 95 critical crossings unchanged. Not a claim of zero CDC warnings or board qualification."
+}

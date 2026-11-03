@@ -1,0 +1,94 @@
+[
+  {
+    "path": "long_capture/workbench_adapter.py",
+    "match": true
+  },
+  {
+    "path": "md-service/mapping_gateway.py",
+    "match": true
+  },
+  {
+    "path": "monitor_hub/evidence_store.py",
+    "match": true
+  },
+  {
+    "path": "monitor_hub/evidence_tasks.py",
+    "match": true
+  },
+  {
+    "path": "monitor_hub/scene_tasks.py",
+    "match": true
+  },
+  {
+    "path": "monitor_hub/server.py",
+    "match": true
+  },
+  {
+    "path": "md-service/public/map-pipeline.js",
+    "match": true
+  },
+  {
+    "path": "md-service/public/monitor-semantic.html",
+    "match": true
+  },
+  {
+    "path": "md-service/public/semantic-current.js",
+    "match": true
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/benchmark_frame.py",
+    "match": true
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/benchmark_gpu.py",
+    "match": true
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/benchmark_parallel.py",
+    "match": true
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/color_gpu.py",
+    "match": true
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/dense_products.py",
+    "match": true
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/dual_color.py",
+    "match": true
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/launch.py",
+    "match": true
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/run_coloring.py",
+    "match": true
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/build_pipeline.py",
+    "match": true
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/finish_navigation.py",
+    "match": true
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/navigation_geometry.py",
+    "match": true
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/pipeline_manager.py",
+    "match": true
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/semantic_pipeline.py",
+    "match": true
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/test_v3.py",
+    "match": true
+  }
+]

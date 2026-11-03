@@ -1,0 +1,416 @@
+{
+  "files": 25970,
+  "bytes": 583282642,
+  "sensitive": {
+    "private_files": [],
+    "findings": []
+  },
+  "syntax": {
+    "python": {
+      "passed": 1424,
+      "errors": [
+        {
+          "path": "02_工程源码\\AIPC_全工程快照\\展开源码\\home\\apex\\md-service\\versions\\autonomous-exploration-1793299009585968737\\mapping_gateway.py",
+          "error": "unindent does not match any outer indentation level (mapping_gateway.py, line 35)"
+        },
+        {
+          "path": "02_工程源码\\AIPC_全工程快照\\展开源码\\home\\apex\\research\\fusion_semantic_20261027\\fast_livo\\src\\rpg_vikit\\vikit_py\\src\\vikit_py\\depthmap_utils.py",
+          "error": "Missing parentheses in call to 'print'. Did you mean print(...)? (depthmap_utils.py, line 15)"
+        }
+      ]
+    },
+    "json": {
+      "passed": 2036,
+      "errors": [
+        {
+          "path": "02_工程源码\\AIPC_全工程快照\\展开源码\\home\\apex\\research\\fusion_semantic_20261027\\fast_livo\\results\\run11_full_sse\\native_input_validation.json",
+          "error": "Expecting value: line 1 column 1 (char 0)"
+        },
+        {
+          "path": "02_工程源码\\AIPC_全工程快照\\展开源码\\home\\apex\\Strata\\bench\\results\\2026-10-09-community-rtx-5060ti-wsl2-iq3_s-0141\\config-stock.json",
+          "error": "Expecting ',' delimiter: line 17 column 1 (char 401)"
+        },
+        {
+          "path": "02_工程源码\\AIPC_全工程快照\\展开源码\\home\\apex\\Strata\\third_party\\llama.cpp\\pyrightconfig.json",
+          "error": "Expecting property name enclosed in double quotes: line 9 column 40 (char 362)"
+        }
+      ]
+    },
+    "xml": {
+      "passed": 47,
+      "errors": []
+    }
+  },
+  "archives": [
+    {
+      "path": "02_工程源码\\AIPC_全工程快照\\pathfinder_aipc_source_20261103.tar.gz",
+      "bytes": 42120009,
+      "entries": 7304,
+      "unsafe": [],
+      "links": 0,
+      "error": null
+    },
+    {
+      "path": "02_工程源码\\建图导航_正式发布与验证\\delivery.tar.gz",
+      "bytes": 597771,
+      "entries": 34,
+      "unsafe": [],
+      "links": 0,
+      "error": null
+    },
+    {
+      "path": "02_工程源码\\建图导航_正式发布与验证\\release-delivery.tar.gz",
+      "bytes": 72154,
+      "entries": 26,
+      "unsafe": [],
+      "links": 0,
+      "error": null
+    },
+    {
+      "path": "02_工程源码\\建图导航_正式发布与验证\\verification.tar.gz",
+      "bytes": 411123,
+      "entries": 29,
+      "unsafe": [],
+      "links": 0,
+      "error": null
+    },
+    {
+      "path": "02_工程源码\\FPGA_PL_正式提交\\源码\\KR260_FPGA_SUBMISSION_20261030.zip",
+      "bytes": 2780698,
+      "entries": 188,
+      "unsafe": [],
+      "links": 0,
+      "error": null
+    },
+    {
+      "path": "02_工程源码\\VR_2.14.1_正式提交\\源码\\VR端源代码_2.14.1_20261102.zip",
+      "bytes": 35971406,
+      "entries": 180,
+      "unsafe": [],
+      "links": 0,
+      "error": null
+    },
+    {
+      "path": "02_工程源码\\基站_正式提交\\源码\\GROUND_STATION_SOURCE_v1.1.0_20261102.zip",
+      "bytes": 213086,
+      "entries": 73,
+      "unsafe": [],
+      "links": 0,
+      "error": null
+    },
+    {
+      "path": "03_实验记录\\延迟测量\\pathfinder_latency_readonly_100_20261102.zip",
+      "bytes": 21594,
+      "entries": 5,
+      "unsafe": [],
+      "links": 0,
+      "error": null
+    }
+  ],
+  "fpga_manifests": [
+    {
+      "path": "02_工程源码\\FPGA_PL_正式提交\\源码\\KR260_FPGA_SUBMISSION_20261030\\KR260_FPGA_SUBMISSION_20261030\\SHA256SUMS.txt",
+      "matched": 187,
+      "missing": [],
+      "mismatch": [],
+      "malformed": []
+    },
+    {
+      "path": "02_工程源码\\FPGA_PL_正式提交\\源码\\KR260_FPGA_SUBMISSION_20261030\\KR260_FPGA_SUBMISSION_20261030\\Firmware\\SHA256SUMS.txt",
+      "matched": 23,
+      "missing": [],
+      "mismatch": [],
+      "malformed": []
+    }
+  ],
+  "aipc_snapshot": {
+    "matched": 7304,
+    "missing": [],
+    "mismatch": [],
+    "links": []
+  },
+  "vr_archive": {
+    "expected": "411700ffac27f9484a3fa778dd826eae7e7abfdd2d187b58faa98c1e18aa478d",
+    "actual": "411700ffac27f9484a3fa778dd826eae7e7abfdd2d187b58faa98c1e18aa478d",
+    "matched": true
+  },
+  "latency": {
+    "trial_rows": 100,
+    "checks": [
+      {
+        "metric": "target_latency_ms",
+        "quantile": "p50",
+        "expected": 882.1602199896006,
+        "actual": 882.1602199896006
+      },
+      {
+        "metric": "target_latency_ms",
+        "quantile": "p95",
+        "expected": 1028.5499900055584,
+        "actual": 1028.5499900055584
+      },
+      {
+        "metric": "target_latency_ms",
+        "quantile": "p99",
+        "expected": 1180.1517099956982,
+        "actual": 1180.1517099956982
+      },
+      {
+        "metric": "target_latency_ms",
+        "quantile": "max",
+        "expected": 1208.6896340042586,
+        "actual": 1208.6896340042586
+      },
+      {
+        "metric": "rgb_fetch_ms",
+        "quantile": "p50",
+        "expected": 12.463226987165399,
+        "actual": 12.463226987165399
+      },
+      {
+        "metric": "rgb_fetch_ms",
+        "quantile": "p95",
+        "expected": 15.011046998552047,
+        "actual": 15.011046998552047
+      },
+      {
+        "metric": "rgb_fetch_ms",
+        "quantile": "p99",
+        "expected": 16.540078999241814,
+        "actual": 16.540078999241814
+      },
+      {
+        "metric": "rgb_fetch_ms",
+        "quantile": "max",
+        "expected": 17.380386008881032,
+        "actual": 17.380386008881032
+      },
+      {
+        "metric": "depth_fetch_ms",
+        "quantile": "p50",
+        "expected": 0.7180670072557405,
+        "actual": 0.7180670072557405
+      },
+      {
+        "metric": "depth_fetch_ms",
+        "quantile": "p95",
+        "expected": 0.9713820036267862,
+        "actual": 0.9713820036267862
+      },
+      {
+        "metric": "depth_fetch_ms",
+        "quantile": "p99",
+        "expected": 1.151862001279369,
+        "actual": 1.151862001279369
+      },
+      {
+        "metric": "depth_fetch_ms",
+        "quantile": "max",
+        "expected": 1.2675739999394864,
+        "actual": 1.2675739999394864
+      },
+      {
+        "metric": "model_prepare_ms",
+        "quantile": "p50",
+        "expected": 51.28831299953163,
+        "actual": 51.28831299953163
+      },
+      {
+        "metric": "model_prepare_ms",
+        "quantile": "p95",
+        "expected": 60.431078003603034,
+        "actual": 60.431078003603034
+      },
+      {
+        "metric": "model_prepare_ms",
+        "quantile": "p99",
+        "expected": 67.10720399860293,
+        "actual": 67.10720399860293
+      },
+      {
+        "metric": "model_prepare_ms",
+        "quantile": "max",
+        "expected": 73.87855398701504,
+        "actual": 73.87855398701504
+      },
+      {
+        "metric": "yolo_inference_ms",
+        "quantile": "p50",
+        "expected": 693.934758004616,
+        "actual": 693.934758004616
+      },
+      {
+        "metric": "yolo_inference_ms",
+        "quantile": "p95",
+        "expected": 821.7491599934874,
+        "actual": 821.7491599934874
+      },
+      {
+        "metric": "yolo_inference_ms",
+        "quantile": "p99",
+        "expected": 939.0748949954286,
+        "actual": 939.0748949954286
+      },
+      {
+        "metric": "yolo_inference_ms",
+        "quantile": "max",
+        "expected": 949.3054560007295,
+        "actual": 949.3054560007295
+      },
+      {
+        "metric": "coordinate_transform_ms",
+        "quantile": "p50",
+        "expected": 126.98822499078233,
+        "actual": 126.98822499078233
+      },
+      {
+        "metric": "coordinate_transform_ms",
+        "quantile": "p95",
+        "expected": 154.1222459927667,
+        "actual": 154.1222459927667
+      },
+      {
+        "metric": "coordinate_transform_ms",
+        "quantile": "p99",
+        "expected": 173.7246020056773,
+        "actual": 173.7246020056773
+      },
+      {
+        "metric": "coordinate_transform_ms",
+        "quantile": "max",
+        "expected": 174.7250750049716,
+        "actual": 174.7250750049716
+      },
+      {
+        "metric": "target_http_ms",
+        "quantile": "p50",
+        "expected": 2204.9428860045737,
+        "actual": 2204.9428860045737
+      },
+      {
+        "metric": "target_http_ms",
+        "quantile": "p95",
+        "expected": 2618.0550590070197,
+        "actual": 2618.0550590070197
+      },
+      {
+        "metric": "target_http_ms",
+        "quantile": "p99",
+        "expected": 2914.1705950023606,
+        "actual": 2914.1705950023606
+      },
+      {
+        "metric": "target_http_ms",
+        "quantile": "max",
+        "expected": 2954.345934005687,
+        "actual": 2954.345934005687
+      },
+      {
+        "metric": "planning_http_ms",
+        "quantile": "p50",
+        "expected": 3647.427998002968,
+        "actual": 3647.427998002968
+      },
+      {
+        "metric": "planning_http_ms",
+        "quantile": "p95",
+        "expected": 3829.7108950064285,
+        "actual": 3829.7108950064285
+      },
+      {
+        "metric": "planning_http_ms",
+        "quantile": "p99",
+        "expected": 12837.329790010699,
+        "actual": 12837.329790010699
+      },
+      {
+        "metric": "planning_http_ms",
+        "quantile": "max",
+        "expected": 12837.329790010699,
+        "actual": 12837.329790010699
+      },
+      {
+        "metric": "target_plus_planning_ms",
+        "quantile": "p50",
+        "expected": 5853.29724100302,
+        "actual": 5853.29724100302
+      },
+      {
+        "metric": "target_plus_planning_ms",
+        "quantile": "p95",
+        "expected": 6586.78254399274,
+        "actual": 6586.78254399274
+      },
+      {
+        "metric": "target_plus_planning_ms",
+        "quantile": "p99",
+        "expected": 14959.999511993374,
+        "actual": 14959.999511993374
+      },
+      {
+        "metric": "target_plus_planning_ms",
+        "quantile": "max",
+        "expected": 14959.999511993374,
+        "actual": 14959.999511993374
+      },
+      {
+        "metric": "planned_duration_s",
+        "quantile": "p50",
+        "expected": 11.353050358965556,
+        "actual": 11.353050358965556
+      },
+      {
+        "metric": "planned_duration_s",
+        "quantile": "p95",
+        "expected": 11.397874838030598,
+        "actual": 11.397874838030598
+      },
+      {
+        "metric": "planned_duration_s",
+        "quantile": "p99",
+        "expected": 28.109928501397093,
+        "actual": 28.109928501397093
+      },
+      {
+        "metric": "planned_duration_s",
+        "quantile": "max",
+        "expected": 28.109928501397093,
+        "actual": 28.109928501397093
+      }
+    ],
+    "errors": [],
+    "trial_fields": [
+      "trial",
+      "wall_unix",
+      "success",
+      "error",
+      "label",
+      "confidence",
+      "target_latency_ms",
+      "rgb_fetch_ms",
+      "depth_fetch_ms",
+      "model_prepare_ms",
+      "yolo_inference_ms",
+      "coordinate_transform_ms",
+      "target_http_ms",
+      "planning_http_ms",
+      "target_plus_planning_ms",
+      "planned_duration_s",
+      "planning_nodes",
+      "target_x_m",
+      "target_y_m",
+      "target_z_m"
+    ],
+    "metrics_fields": [
+      "metric",
+      "count",
+      "unit",
+      "p50",
+      "p95",
+      "p99",
+      "max",
+      "mean",
+      "min"
+    ]
+  }
+}

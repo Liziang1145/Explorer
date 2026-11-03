@@ -1,0 +1,250 @@
+{
+  "events": [
+    "已按本次授权解除软件停止",
+    {
+      "ok": true,
+      "action": "deploy_start",
+      "output": "远端脚本已执行（deploy 后台进程占用 SSH 管道，故按短超时提前返回）\n启动已确认：状态查询显示 deploy 正在运行\n[2026-10-31 13:12:03.146392] [warning] 左臂反馈尚未齐全，仍按原行为使能（软启动可能以未初始化关节角对齐）\n[2026-10-31 13:12:03.146498] [warning] 右臂反馈尚未齐全，仍按原行为使能（软启动可能以未初始化关节角对齐）\n[2026-10-31 13:12:03.246640] [info] Piper actuators enabled (left: online, right: online).\n[2026-10-31 13:12:03.247520] [info] deploy runner init | build Oct 30 2026 15:11:02 | kMaxJointVel=0.800 rad/s\n[2026-10-31 13:12:03.253361] [warning] Failed to interpolate: Not enough trajectory points in trajectory buffer.\n[2026-10-31 13:12:03.253576] [warning] Failed to interpolate: Not enough trajectory points in trajectory buffer."
+    },
+    {
+      "ok": true,
+      "action": "enable_left",
+      "output": "enabled-left"
+    }
+  ],
+  "samples": [
+    {
+      "t": 1793452335.8988566,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确规划10毫米测试：六轴同时到位中",
+        "sent_at": 1793452335.3770509
+      },
+      "joints_deg": [
+        0.0,
+        3.21,
+        -3.27,
+        -0.17,
+        -0.52,
+        0.0
+      ],
+      "sent": 10,
+      "error": null
+    },
+    {
+      "t": 1793452336.0833166,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "done",
+        "message": "左臂精确规划10毫米测试已完成（已到位并释放）",
+        "sent_at": 1793452335.3770509,
+        "finished_at": 1793452335.8794997
+      },
+      "joints_deg": [
+        0.0,
+        3.21,
+        -3.27,
+        -0.17,
+        -0.52,
+        0.0
+      ],
+      "sent": 10,
+      "error": null
+    }
+  ],
+  "before": {
+    "ok": true,
+    "joints_deg": [
+      0.0,
+      3.21,
+      -3.27,
+      -0.17,
+      -0.46,
+      0.0
+    ]
+  },
+  "accepted": {
+    "ok": true,
+    "side": "left",
+    "move_seq": 1,
+    "duration_s": 1.4105744498133692,
+    "velocity_limit_rad_s": 0.15,
+    "acceleration_limit_rad_s2": 0.4,
+    "collision_mode": "exact",
+    "mesh_distance_checks": 2268,
+    "minimum_mesh_clearance_cm": 1.3665452593764738,
+    "start_xyz_m": [
+      9.616581946237846e-18,
+      -0.031959925058797106,
+      0.22136781923463855
+    ],
+    "target_xyz_m": [
+      9.616581946237846e-18,
+      -0.031959925058797106,
+      0.23136781923463856
+    ]
+  },
+  "final_status": {
+    "ok": true,
+    "raw": "can2: FPGA_CAN1        UP             <NOARP,UP,LOWER_UP,ECHO> \ncan1: FPGA_CAN0        UP             <NOARP,UP,LOWER_UP,ECHO> \ndeploy: 59898",
+    "can2": "UP",
+    "can1": "UP",
+    "deploy": "59898",
+    "control": {
+      "entry": {
+        "right": null,
+        "left": null
+      },
+      "active": false,
+      "sent": 10,
+      "hz": 20,
+      "mask": "0x0015",
+      "send_stats": {
+        "n": 9,
+        "late_ticks": 31
+      },
+      "mode": "arms",
+      "vr_motion_scale": 1.0,
+      "vr_motion_scale_text": "普通",
+      "b_long_press_s": 2.0,
+      "vr_buttons": {
+        "available": false,
+        "valid": 0,
+        "pressed": 0,
+        "valid_names": [],
+        "pressed_names": [],
+        "bits": {},
+        "fresh": false,
+        "age_ms": null,
+        "revision": null
+      },
+      "base": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "active": false,
+        "reason": "未在底盘模式（按 Y 切换）",
+        "sent": 0
+      },
+      "target": "192.168.137.1:54321",
+      "reason": "全局软件停止：会话已撤销",
+      "error": null,
+      "ik": null,
+      "vr": false,
+      "vr_info": "会话已撤销：离合锚点清空",
+      "move": null,
+      "move_seq": 1,
+      "move_result": {
+        "right": null,
+        "left": {
+          "seq": 1,
+          "which": "vla_exact_test",
+          "state": "done",
+          "message": "左臂精确规划10毫米测试已完成（已到位并释放）",
+          "sent_at": 1793452335.3770509,
+          "finished_at": 1793452335.8794997
+        }
+      },
+      "transfer": {
+        "task_id": null,
+        "state": "idle",
+        "stage": "idle",
+        "source": null,
+        "message": "尚未执行左臂搬运",
+        "resume_vr": false,
+        "updated_at": 1793452265.887054
+      },
+      "right": [
+        0.1514,
+        0.2885,
+        0.2659
+      ],
+      "right_target_point": "j5",
+      "right_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "joints": [
+        -0.6981,
+        1.6057,
+        -0.8552,
+        -1.0243,
+        -0.9697,
+        0.6583
+      ],
+      "calib": {
+        "right": {
+          "t": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "yaw": 0.0,
+          "s": 0.0
+        },
+        "left": {
+          "t": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "yaw": 0.0,
+          "s": 0.0
+        }
+      },
+      "remaining": 0,
+      "left": {
+        "active": false,
+        "joints_deg": [
+          0.0,
+          4.2,
+          -5.46,
+          0.11,
+          0.74,
+          -0.28
+        ],
+        "target": [
+          -0.1556,
+          0.1936,
+          0.2384
+        ],
+        "target_point": "j5",
+        "rpy_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "grip": 0.0,
+        "vr": false,
+        "vr_info": "定点动作完成：锚点清空",
+        "move": null,
+        "reason": "左臂精确规划10毫米测试已完成（已到位并释放）"
+      }
+    },
+    "safety": {
+      "epoch": "1e03a7da38124781bbe437c131dba4b1",
+      "stopped": false,
+      "pending": false,
+      "results": {
+        "base": "零速断使能已提交；实际停车请查看底盘反馈",
+        "arms": "双臂/VR 会话已撤销，控制进程已停止；实际姿态需观察"
+      }
+    }
+  },
+  "after": {
+    "ok": true,
+    "joints_deg": [
+      0.0,
+      3.21,
+      -3.27,
+      -0.17,
+      -0.52,
+      0.0
+    ]
+  },
+  "released": true
+}

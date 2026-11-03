@@ -1,0 +1,24 @@
+{
+  "bit_bin_payload_match": true,
+  "xsa_embedded_bit_match": true,
+  "xsa_can_addresses_irq_metadata_match": true,
+  "payload_bytes": 7797692,
+  "files": {
+    "kr260_pl_can_fix.bit": {
+      "bytes": 7797904,
+      "sha256": "f6599719ef8cbca1ba35dd908fb5233882be9b39f7145f23cfac4f64d4915afe"
+    },
+    "kr260_pl_can_fix.bit.bin": {
+      "bytes": 7797692,
+      "sha256": "88d72ec35d084acaecfd5ad562f3004b15767273dad42d48de6fbd9452f3cb00"
+    },
+    "kr260_pl_can_fix.xsa": {
+      "bytes": 3683183,
+      "sha256": "ec3d2d589cdf325e1f01cb48d2d035f405f2f9bc785540e84a1c99e75cf2afb9"
+    },
+    "kr260_pl_can_fix.ltx": {
+      "bytes": 250856,
+      "sha256": "e60bff81976c6fe088ac67fc199fa777a56d6e06b5b1757e40d0ef1dec688cb0"
+    }
+  }
+}

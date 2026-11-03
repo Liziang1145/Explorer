@@ -1,0 +1,124 @@
+{
+  "inventory": [
+    {
+      "label": "AIPC 控制台、VR、VLA",
+      "destination": "02_工程源码\\AIPC_控制台与规划\\aipc-simulator-ui",
+      "files": 79,
+      "bytes": 1651196
+    },
+    {
+      "label": "离线规划与碰撞检查",
+      "destination": "02_工程源码\\AIPC_控制台与规划\\离线规划",
+      "files": 16511,
+      "bytes": 53124049
+    },
+    {
+      "label": "KR260 本地执行端",
+      "destination": "02_工程源码\\KR260_执行端\\kr260-side",
+      "files": 13,
+      "bytes": 131419
+    },
+    {
+      "label": "双臂执行与模型资源",
+      "destination": "02_工程源码\\KR260_执行端\\piper_dual_arm_teleop",
+      "files": 1088,
+      "bytes": 30977747
+    },
+    {
+      "label": "OpenXR 交互端",
+      "destination": "02_工程源码\\VR_OpenXR_交互端",
+      "files": 68,
+      "bytes": 35306986
+    },
+    {
+      "label": "ROS 整车、FAST-LIO 与驱动",
+      "destination": "02_工程源码\\ROS_整车与FAST_LIO\\src",
+      "files": 270,
+      "bytes": 136952196
+    },
+    {
+      "label": "AIPC 建图导航语义等全工程源码",
+      "destination": "02_工程源码\\AIPC_全工程快照\\展开源码",
+      "files": 7304,
+      "bytes": 197581962
+    },
+    {
+      "label": "AIPC 原始源码快照",
+      "destination": "02_工程源码\\AIPC_全工程快照\\pathfinder_aipc_source_20261103.tar.gz",
+      "files": 1,
+      "bytes": 42101867
+    },
+    {
+      "label": "建图导航正式发布包",
+      "destination": "02_工程源码\\建图导航_正式发布与验证",
+      "files": 8,
+      "bytes": 1225042
+    },
+    {
+      "label": "KR260 控制台",
+      "destination": "02_工程源码\\KR260_控制台",
+      "files": 166,
+      "bytes": 12152457
+    },
+    {
+      "label": "FPGA PL 正式提交",
+      "destination": "02_工程源码\\FPGA_PL_正式提交",
+      "files": 191,
+      "bytes": 22158961
+    },
+    {
+      "label": "VR 正式源码包",
+      "destination": "02_工程源码\\VR_2.14.1_正式提交",
+      "files": 3,
+      "bytes": 35980522
+    },
+    {
+      "label": "基站正式源码包",
+      "destination": "02_工程源码\\基站_正式提交",
+      "files": 3,
+      "bytes": 226252
+    },
+    {
+      "label": "最终技术文档",
+      "destination": "01_技术文档\\探路者_竞赛技术文档_20261103_综合交付稿.docx",
+      "files": 1,
+      "bytes": 66909
+    },
+    {
+      "label": "全部实验记录与只读测试脚本",
+      "destination": "03_实验记录",
+      "files": 247,
+      "bytes": 13422787
+    },
+    {
+      "label": "建图导航交接说明",
+      "destination": "04_补充资料\\建图导航与语义VR_交接说明",
+      "files": 13,
+      "bytes": 81123
+    },
+    {
+      "label": "供电接线图",
+      "destination": "04_补充资料\\供电接线图_20261103.png",
+      "files": 1,
+      "bytes": 100116
+    }
+  ],
+  "sanitized_files": [
+    "02_工程源码\\AIPC_全工程快照\\展开源码\\home\\apex\\md-service\\public\\docs\\imports\\20261016-092725-492c0c\\机械臂启动测试流程.md",
+    "02_工程源码\\AIPC_全工程快照\\展开源码\\home\\apex\\md-service\\public\\docs\\历史调整文件\\imports\\20261013-121231-1702dd\\KR260迁移工作日志_2026-10-12.md",
+    "02_工程源码\\KR260_控制台\\public\\docs\\imports\\20261013-121231-1702dd\\KR260迁移工作日志_2026-10-12.md",
+    "03_实验记录\\01_VLA数据与规划验证\\inspect_cup2.py",
+    "03_实验记录\\01_VLA数据与规划验证\\inspect_cup6_7.py",
+    "03_实验记录\\01_VLA数据与规划验证\\inspect_vla_sample.py",
+    "03_实验记录\\01_VLA数据与规划验证\\list_vla_datasets.py",
+    "03_实验记录\\01_VLA数据与规划验证\\remove_invalid_vla_samples.py",
+    "03_实验记录\\01_VLA数据与规划验证\\test_vla_recorder_readonly.py",
+    "03_实验记录\\03_AIPC部署与诊断工具\\deploy_collector_only.py",
+    "03_实验记录\\03_AIPC部署与诊断工具\\deploy_grasp_ui.py",
+    "03_实验记录\\03_AIPC部署与诊断工具\\deploy_horizontal_grasp.py",
+    "03_实验记录\\03_AIPC部署与诊断工具\\deploy_lerobot_converter.py",
+    "03_实验记录\\03_AIPC部署与诊断工具\\diagnose_arm_console.py",
+    "03_实验记录\\延迟测量\\check_aipc_latency.py",
+    "03_实验记录\\延迟测量\\run_aipc_readonly.py"
+  ]
+}

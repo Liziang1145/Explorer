@@ -1,0 +1,34 @@
+PASS: shadow outputs only AXI-Lite response/handshake pins (41 bits)
+PASS eth2 tx valid original endpoints and monitor share net
+PASS eth2 rx valid original endpoints and monitor share net
+PASS eth2 tx ready original endpoints and monitor share net
+PASS eth2 rx ready original endpoints and monitor share net
+PASS eth2 tx last original endpoints and monitor share net
+PASS eth2 rx last original endpoints and monitor share net
+PASS eth2 tx keep[0] original endpoints and monitor share net
+PASS eth2 rx keep[0] original endpoints and monitor share net
+PASS eth2 tx keep[1] original endpoints and monitor share net
+PASS eth2 rx keep[1] original endpoints and monitor share net
+PASS eth2 tx keep[2] original endpoints and monitor share net
+PASS eth2 rx keep[2] original endpoints and monitor share net
+PASS eth2 tx keep[3] original endpoints and monitor share net
+PASS eth2 rx keep[3] original endpoints and monitor share net
+PASS eth3 tx valid original endpoints and monitor share net
+PASS eth3 rx valid original endpoints and monitor share net
+PASS eth3 tx ready original endpoints and monitor share net
+PASS eth3 rx ready original endpoints and monitor share net
+PASS eth3 tx last original endpoints and monitor share net
+PASS eth3 rx last original endpoints and monitor share net
+PASS eth3 tx keep[0] original endpoints and monitor share net
+PASS eth3 rx keep[0] original endpoints and monitor share net
+PASS eth3 tx keep[1] original endpoints and monitor share net
+PASS eth3 rx keep[1] original endpoints and monitor share net
+PASS eth3 tx keep[2] original endpoints and monitor share net
+PASS eth3 rx keep[2] original endpoints and monitor share net
+PASS eth3 tx keep[3] original endpoints and monitor share net
+PASS eth3 rx keep[3] original endpoints and monitor share net
+PASS CAN0 rx original observer and passive monitor share net
+PASS CAN0 tx original observer and passive monitor share net
+PASS CAN1 rx original observer and passive monitor share net
+PASS CAN1 tx original observer and passive monitor share net
+PASS clocks/reset input connection

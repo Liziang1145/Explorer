@@ -1,0 +1,86 @@
+[
+  {
+    "path": "/api/v1/core-metrics/status",
+    "file": "api__v1__core-metrics__status.json",
+    "status": 401,
+    "bytes": 29,
+    "sha256": "63aee461c7b9310145b73352a46fb582c48bba3a4c673c99afb99156c1c1bf7d"
+  },
+  {
+    "path": "/api/v1/core-metrics/vla/status",
+    "file": "api__v1__core-metrics__vla__status.json",
+    "status": 401,
+    "bytes": 29,
+    "sha256": "63aee461c7b9310145b73352a46fb582c48bba3a4c673c99afb99156c1c1bf7d"
+  },
+  {
+    "path": "/api/v1/submissions/queues?kind=code",
+    "file": "api__v1__submissions__queues_kind_code.json",
+    "status": 401,
+    "bytes": 42,
+    "sha256": "31a9667b12d034ec6771045de1fabada6d51a61ee3546e28a5210d2f7abac8ea"
+  },
+  {
+    "path": "/api/v1/submissions/entries?queue=vr&kind=code&limit=10&offset=0",
+    "file": "api__v1__submissions__entries_queue_vr_kind_code_limit_10_offset_0.json",
+    "status": 401,
+    "bytes": 42,
+    "sha256": "31a9667b12d034ec6771045de1fabada6d51a61ee3546e28a5210d2f7abac8ea"
+  },
+  {
+    "path": "/api/v1/submissions/entries?queue=ground&kind=code&limit=10&offset=0",
+    "file": "api__v1__submissions__entries_queue_ground_kind_code_limit_10_offset_0.json",
+    "status": 401,
+    "bytes": 42,
+    "sha256": "31a9667b12d034ec6771045de1fabada6d51a61ee3546e28a5210d2f7abac8ea"
+  },
+  {
+    "path": "/api/v1/submissions/entries?queue=aipc-general&kind=code&limit=10&offset=0",
+    "file": "api__v1__submissions__entries_queue_aipc-general_kind_code_limit_10_offset_0.json",
+    "status": 401,
+    "bytes": 42,
+    "sha256": "31a9667b12d034ec6771045de1fabada6d51a61ee3546e28a5210d2f7abac8ea"
+  },
+  {
+    "path": "/hub/api/status",
+    "file": "hub__api__status.json",
+    "status": 401,
+    "bytes": 39,
+    "sha256": "fe5341beb847693047e74c64e88a5b53bebe4eaaf5c9d9b1a2a51b07e3317c2b"
+  },
+  {
+    "path": "/navigation/api/status",
+    "file": "navigation__api__status.json",
+    "status": 401,
+    "bytes": 39,
+    "sha256": "fe5341beb847693047e74c64e88a5b53bebe4eaaf5c9d9b1a2a51b07e3317c2b"
+  },
+  {
+    "path": "/navigation/api/map",
+    "file": "navigation__api__map.json",
+    "status": 401,
+    "bytes": 39,
+    "sha256": "fe5341beb847693047e74c64e88a5b53bebe4eaaf5c9d9b1a2a51b07e3317c2b"
+  },
+  {
+    "path": "/navigation/api/replays",
+    "file": "navigation__api__replays.json",
+    "status": 401,
+    "bytes": 39,
+    "sha256": "fe5341beb847693047e74c64e88a5b53bebe4eaaf5c9d9b1a2a51b07e3317c2b"
+  },
+  {
+    "path": "/hub/api/drive/status",
+    "file": "hub__api__drive__status.json",
+    "status": 401,
+    "bytes": 39,
+    "sha256": "fe5341beb847693047e74c64e88a5b53bebe4eaaf5c9d9b1a2a51b07e3317c2b"
+  },
+  {
+    "path": "/hub/api/drive/logs",
+    "file": "hub__api__drive__logs.json",
+    "status": 401,
+    "bytes": 39,
+    "sha256": "fe5341beb847693047e74c64e88a5b53bebe4eaaf5c9d9b1a2a51b07e3317c2b"
+  }
+]

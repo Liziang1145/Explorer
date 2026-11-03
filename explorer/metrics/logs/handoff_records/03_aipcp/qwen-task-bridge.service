@@ -1,0 +1,17 @@
+[Unit]
+Description=Qwen natural-language task parser (dry-run only)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/apex
+Environment=QWEN_BRIDGE_HOST=0.0.0.0
+Environment=QWEN_BRIDGE_PORT=8102
+Environment=QWEN_MODEL=qwen3.6:35b
+Environment=OLLAMA_URL=http://127.0.0.1:11434
+ExecStart=/usr/bin/python3 /home/apex/qwen_task_bridge.py
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,69 @@
+{
+  "schema": "navigation-geometry/1",
+  "source": "online_FAST_LIO_derived_bag",
+  "source_identity": {
+    "metadata_sha256": "7509c0331ad467ea28ff84cbbe5bd9734e16a60a43ca8a3268e7b0425e200296",
+    "segments": [
+      {
+        "name": "bag_0.mcap",
+        "bytes": 109387038,
+        "mtime_ns": 1793374496616681660
+      },
+      {
+        "name": "bag_1.mcap",
+        "bytes": 108432206,
+        "mtime_ns": 1793374556717361007
+      },
+      {
+        "name": "bag_2.mcap",
+        "bytes": 102455090,
+        "mtime_ns": 1793374616717050558
+      },
+      {
+        "name": "bag_3.mcap",
+        "bytes": 97478370,
+        "mtime_ns": 1793374676816074172
+      },
+      {
+        "name": "bag_4.mcap",
+        "bytes": 99845585,
+        "mtime_ns": 1793374736915326134
+      },
+      {
+        "name": "bag_5.mcap",
+        "bytes": 106579192,
+        "mtime_ns": 1793374796916723155
+      },
+      {
+        "name": "bag_6.mcap",
+        "bytes": 103606644,
+        "mtime_ns": 1793374856916208952
+      },
+      {
+        "name": "bag_7.mcap",
+        "bytes": 108144355,
+        "mtime_ns": 1793374917016747748
+      },
+      {
+        "name": "bag_8.mcap",
+        "bytes": 40460118,
+        "mtime_ns": 1793374940641183739
+      }
+    ]
+  },
+  "points": 3921724,
+  "registered_cloud_frames": 1969,
+  "source_cloud_frames": 5049,
+  "source_points_in_selected_frames": 7072604,
+  "poses": 5049,
+  "voxel_m": 0.1,
+  "max_geometry_hz": 5.0,
+  "frame": "camera_init",
+  "trajectory_source": "online_recorded_odometry",
+  "color_dependency": false,
+  "dense_replay_required": false,
+  "point_limit": null,
+  "frame_limit": null,
+  "seconds": 4.900916201993823,
+  "raw_preserved": true
+}

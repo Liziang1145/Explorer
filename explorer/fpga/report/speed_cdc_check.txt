@@ -1,0 +1,2 @@
+PASS: two ASYNC_REG stages; first-stage only fanout is second-stage D; clocks match ILA: clk_out1_VCU_INIT_eth_clock_0
+Diagnostic-only input false path: eth3_dbg_speed_meta/D; stage1->stage2 remains timed. Original MAC consumers unchanged.

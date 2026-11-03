@@ -1,0 +1,18 @@
+[
+  {
+    "queue": "vr",
+    "attachment": "VR端源代码_2.14.1_20261102.zip",
+    "bytes": 35971406,
+    "local_sha256": "411700ffac27f9484a3fa778dd826eae7e7abfdd2d187b58faa98c1e18aa478d",
+    "online_sha256": "411700ffac27f9484a3fa778dd826eae7e7abfdd2d187b58faa98c1e18aa478d",
+    "match": true
+  },
+  {
+    "queue": "ground",
+    "attachment": "GROUND_STATION_SOURCE_v1.1.0_20261102.zip",
+    "bytes": 213086,
+    "local_sha256": "a54d6f845d58395398e4724f86d7aec1078f0ba84e49d3006d7225a213258901",
+    "online_sha256": "a54d6f845d58395398e4724f86d7aec1078f0ba84e49d3006d7225a213258901",
+    "match": true
+  }
+]

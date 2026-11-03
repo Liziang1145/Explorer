@@ -1,0 +1,27 @@
+{
+  "layout": "custom",
+  "leftPercent": 33,
+  "video": "auto",
+  "hud": true,
+  "view": {
+    "azimuth": -0.09240039062500019,
+    "elevation": 0.7572000427246095,
+    "radius": 14,
+    "center": [
+      0,
+      0,
+      0
+    ]
+  },
+  "revision": 100,
+  "streamRevision": 2,
+  "panels": [
+    "camera1",
+    "camera2",
+    "camera3",
+    "camera4",
+    "camera",
+    "vr"
+  ],
+  "updated_at": 1793464669.6078835
+}

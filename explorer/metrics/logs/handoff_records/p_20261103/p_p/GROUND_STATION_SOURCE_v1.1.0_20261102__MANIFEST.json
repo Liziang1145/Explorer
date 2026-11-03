@@ -1,0 +1,534 @@
+{
+  "release": "1.1.0",
+  "date": "2026-11-02",
+  "captured_utc": "2026-11-02T13:18:29Z",
+  "source": "live SSH via AIPC",
+  "transformations": [
+    {
+      "path": "source/ground/usr/local/lib/ground-display/vr_view.py",
+      "change": "Replace protocol default token literal with provisioning placeholder"
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/aipc-vr-live/test_receiver.py",
+      "change": "Replace protocol default token literal with provisioning placeholder"
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/aipc-vr-live/vr_receiver.py",
+      "change": "Replace protocol default token literal with provisioning placeholder"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "source/ground/etc/pam.d/tlz-display",
+      "origin": "base-station",
+      "remote_path": "/etc/pam.d/tlz-display",
+      "remote_snapshot_sha256": "e5e10470aceb41057307822b9542c7b2f36a69f1d4c74219c97fc1b5d9b60318",
+      "packaged_sha256": "e5e10470aceb41057307822b9542c7b2f36a69f1d4c74219c97fc1b5d9b60318",
+      "bytes": 118
+    },
+    {
+      "path": "source/ground/etc/pam.d/tlz-preview-unlock",
+      "origin": "base-station",
+      "remote_path": "/etc/pam.d/tlz-preview-unlock",
+      "remote_snapshot_sha256": "b7bfbd5728fb0261c86615f0f14c6d0db9c7bc07dca80fb75002c389f6dcba3f",
+      "packaged_sha256": "b7bfbd5728fb0261c86615f0f14c6d0db9c7bc07dca80fb75002c389f6dcba3f",
+      "bytes": 45
+    },
+    {
+      "path": "source/ground/etc/systemd/system/gdm.service.d/90-tlz-preview.conf",
+      "origin": "base-station",
+      "remote_path": "/etc/systemd/system/gdm.service.d/90-tlz-preview.conf",
+      "remote_snapshot_sha256": "e86fff38cd2a24c833fbc0f80ffe4774f880480a7740a1a290449c8b11b71086",
+      "packaged_sha256": "e86fff38cd2a24c833fbc0f80ffe4774f880480a7740a1a290449c8b11b71086",
+      "bytes": 53
+    },
+    {
+      "path": "source/ground/etc/systemd/system/ground-display.service",
+      "origin": "base-station",
+      "remote_path": "/etc/systemd/system/ground-display.service",
+      "remote_snapshot_sha256": "13269d36c3a74f36711d884c3d94177151f882269bfde5a46e6d491d9ca1248c",
+      "packaged_sha256": "13269d36c3a74f36711d884c3d94177151f882269bfde5a46e6d491d9ca1248c",
+      "bytes": 553
+    },
+    {
+      "path": "source/ground/etc/systemd/system/ground-legacy-entry.service",
+      "origin": "base-station",
+      "remote_path": "/etc/systemd/system/ground-legacy-entry.service",
+      "remote_snapshot_sha256": "327ef4e3250aeba5468b929fd9c4df659b3c2b99300d2ccb42546b77b55d3738",
+      "packaged_sha256": "327ef4e3250aeba5468b929fd9c4df659b3c2b99300d2ccb42546b77b55d3738",
+      "bytes": 435
+    },
+    {
+      "path": "source/ground/etc/systemd/system/ground-network-retry.service",
+      "origin": "base-station",
+      "remote_path": "/etc/systemd/system/ground-network-retry.service",
+      "remote_snapshot_sha256": "dc27f1e438ab5819341172f0d06f7670f8c7260b80c685af52160470d617546d",
+      "packaged_sha256": "dc27f1e438ab5819341172f0d06f7670f8c7260b80c685af52160470d617546d",
+      "bytes": 220
+    },
+    {
+      "path": "source/ground/etc/systemd/system/ground-network-retry.timer",
+      "origin": "base-station",
+      "remote_path": "/etc/systemd/system/ground-network-retry.timer",
+      "remote_snapshot_sha256": "87cb17dc60b1657efd3fe9f07eef95f9415b4fc6a6a5e1519f1574cfa8125168",
+      "packaged_sha256": "87cb17dc60b1657efd3fe9f07eef95f9415b4fc6a6a5e1519f1574cfa8125168",
+      "bytes": 155
+    },
+    {
+      "path": "source/ground/etc/systemd/system/tlz-display-watch.service",
+      "origin": "base-station",
+      "remote_path": "/etc/systemd/system/tlz-display-watch.service",
+      "remote_snapshot_sha256": "3a5f39243f4c2cbe703f1b5a2c6006a4476b1bddd94e0d297c8c1177a5e43d73",
+      "packaged_sha256": "3a5f39243f4c2cbe703f1b5a2c6006a4476b1bddd94e0d297c8c1177a5e43d73",
+      "bytes": 215
+    },
+    {
+      "path": "source/ground/etc/systemd/system/tlz-display.service",
+      "origin": "base-station",
+      "remote_path": "/etc/systemd/system/tlz-display.service",
+      "remote_snapshot_sha256": "0732db384352a17a1623307f7b9c32282f61611689be50aec2ef083a5a45ad22",
+      "packaged_sha256": "0732db384352a17a1623307f7b9c32282f61611689be50aec2ef083a5a45ad22",
+      "bytes": 1159
+    },
+    {
+      "path": "source/ground/etc/systemd/system/tlz-kiosk-auth.service",
+      "origin": "base-station",
+      "remote_path": "/etc/systemd/system/tlz-kiosk-auth.service",
+      "remote_snapshot_sha256": "336b72e35f97bbecad0c867d574ac155473af2531a5b4938ee4d171fa6d7b639",
+      "packaged_sha256": "336b72e35f97bbecad0c867d574ac155473af2531a5b4938ee4d171fa6d7b639",
+      "bytes": 382
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/camera_channels.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/camera_channels.py",
+      "remote_snapshot_sha256": "e410dc6358b25f3b437e821f65ba7983aa2647fc5212b3f2f6d408b8e8cbb315",
+      "packaged_sha256": "e410dc6358b25f3b437e821f65ba7983aa2647fc5212b3f2f6d408b8e8cbb315",
+      "bytes": 4964
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/display_control_auth.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/display_control_auth.py",
+      "remote_snapshot_sha256": "95fdf0c21e974937ee468ac9e8ef016a198aeadf3ad6f43946badc80b3606724",
+      "packaged_sha256": "95fdf0c21e974937ee468ac9e8ef016a198aeadf3ad6f43946badc80b3606724",
+      "bytes": 476
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/display_state.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/display_state.py",
+      "remote_snapshot_sha256": "9ce6533a44c71d86fb873e0b10f29dde4abf40fc3aa72f7a628f72cb128e10e3",
+      "packaged_sha256": "9ce6533a44c71d86fb873e0b10f29dde4abf40fc3aa72f7a628f72cb128e10e3",
+      "bytes": 3008
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/legacy_entry.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/legacy_entry.py",
+      "remote_snapshot_sha256": "a2ee440b8626941c1725df606c019603886eced10e1d67a94b2c15277bce9914",
+      "packaged_sha256": "a2ee440b8626941c1725df606c019603886eced10e1d67a94b2c15277bce9914",
+      "bytes": 1026
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/network_retry.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/network_retry.py",
+      "remote_snapshot_sha256": "12c263f1b584ecfa6543d418aa0860121bbd914c0ffdf3b442ed62814246f847",
+      "packaged_sha256": "12c263f1b584ecfa6543d418aa0860121bbd914c0ffdf3b442ed62814246f847",
+      "bytes": 767
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/aipc.css",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/aipc.css",
+      "remote_snapshot_sha256": "273f57992a1d2257140934b8b92f5b51e3faa35a4885d360a968a83d8c386c40",
+      "packaged_sha256": "273f57992a1d2257140934b8b92f5b51e3faa35a4885d360a968a83d8c386c40",
+      "bytes": 15567
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/connection-status.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/connection-status.js",
+      "remote_snapshot_sha256": "c385e414be6ec9300c9252070a8e74b6063c9c76e554eeda5e8f19cd9ef5a745",
+      "packaged_sha256": "c385e414be6ec9300c9252070a8e74b6063c9c76e554eeda5e8f19cd9ef5a745",
+      "bytes": 2274
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/dashboard.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/dashboard.js",
+      "remote_snapshot_sha256": "d563c9e5d8d66affb0cc2ed91c49cf19bcd1a30063d60b85fd5a86cec6fc87cf",
+      "packaged_sha256": "d563c9e5d8d66affb0cc2ed91c49cf19bcd1a30063d60b85fd5a86cec6fc87cf",
+      "bytes": 7911
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/design.css",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/design.css",
+      "remote_snapshot_sha256": "dca654454f22b13cae42a0791f3f9938c5d54a0ede17149952b325c7ba1efda4",
+      "packaged_sha256": "dca654454f22b13cae42a0791f3f9938c5d54a0ede17149952b325c7ba1efda4",
+      "bytes": 11837
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/display-sync.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/display-sync.js",
+      "remote_snapshot_sha256": "166c624b3da13edcb4036cf78d2c94daa92a0485d17a0c331b56168ff56fe136",
+      "packaged_sha256": "166c624b3da13edcb4036cf78d2c94daa92a0485d17a0c331b56168ff56fe136",
+      "bytes": 5153
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/feed-watchdog.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/feed-watchdog.js",
+      "remote_snapshot_sha256": "ea094d8c459c3f3da880312ab30135bd4809224e9d35ff8d230647acc6e2f98d",
+      "packaged_sha256": "ea094d8c459c3f3da880312ab30135bd4809224e9d35ff8d230647acc6e2f98d",
+      "bytes": 1019
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/ground.css",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/ground.css",
+      "remote_snapshot_sha256": "0809d65abb688655d9fcf1aa8e1ee44bc3192735d05e23e77206103bddb8dc39",
+      "packaged_sha256": "0809d65abb688655d9fcf1aa8e1ee44bc3192735d05e23e77206103bddb8dc39",
+      "bytes": 9676
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/hevc-player.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/hevc-player.js",
+      "remote_snapshot_sha256": "e79f1bd39f4d0cdc964d321fdf4bb43f1d3848715f5226d773fb3154964d9664",
+      "packaged_sha256": "e79f1bd39f4d0cdc964d321fdf4bb43f1d3848715f5226d773fb3154964d9664",
+      "bytes": 3040
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/index.html",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/index.html",
+      "remote_snapshot_sha256": "3879d6849f851a8267680a72a08af7d1f774b18e6d7c98d4fbf5a478144ab1c5",
+      "packaged_sha256": "3879d6849f851a8267680a72a08af7d1f774b18e6d7c98d4fbf5a478144ab1c5",
+      "bytes": 8923
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/live-player.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/live-player.js",
+      "remote_snapshot_sha256": "7c99902985b227f4523ce4103de44fdaf3780ef71a2dabe3050d7670095782bf",
+      "packaged_sha256": "7c99902985b227f4523ce4103de44fdaf3780ef71a2dabe3050d7670095782bf",
+      "bytes": 3916
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/lucide.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/lucide.js",
+      "remote_snapshot_sha256": "3411692820cb8d47543f69496aa25fd603a358f4498046f41c508a5a3342210e",
+      "packaged_sha256": "3411692820cb8d47543f69496aa25fd603a358f4498046f41c508a5a3342210e",
+      "bytes": 357796
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/multicamera.css",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/multicamera.css",
+      "remote_snapshot_sha256": "59fbbb8fc35c12f60b15053f8316b57f9d9d11be896a60486bee6fb68f99bffb",
+      "packaged_sha256": "59fbbb8fc35c12f60b15053f8316b57f9d9d11be896a60486bee6fb68f99bffb",
+      "bytes": 1308
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/multicamera.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/multicamera.js",
+      "remote_snapshot_sha256": "5dbdcf2b2e346908c16774cc9ace91732ef3cdda16e40acee7c4ee5fc93b07d4",
+      "packaged_sha256": "5dbdcf2b2e346908c16774cc9ace91732ef3cdda16e40acee7c4ee5fc93b07d4",
+      "bytes": 6649
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/network-video-player.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/network-video-player.js",
+      "remote_snapshot_sha256": "e55434fb2ce5ceda3eedb71e105a439adfe60f7fcbf87ca252e96f52718b05e1",
+      "packaged_sha256": "e55434fb2ce5ceda3eedb71e105a439adfe60f7fcbf87ca252e96f52718b05e1",
+      "bytes": 6208
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/operator-view.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/operator-view.js",
+      "remote_snapshot_sha256": "abcc1ef5759660b6cc89c81f55ac030be23bf9d25b7a232721abc823b3d7af9f",
+      "packaged_sha256": "abcc1ef5759660b6cc89c81f55ac030be23bf9d25b7a232721abc823b3d7af9f",
+      "bytes": 1243
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/preview-model.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/preview-model.js",
+      "remote_snapshot_sha256": "316827b014a6321116317c265f3cc247d1b49fddaa49f63ee4780eb2a6856c6b",
+      "packaged_sha256": "316827b014a6321116317c265f3cc247d1b49fddaa49f63ee4780eb2a6856c6b",
+      "bytes": 5687
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/preview.css",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/preview.css",
+      "remote_snapshot_sha256": "3371b044a6d6515382322fe2eb7cbf5fab8ec3010a60fba92ff2b5622ccefe96",
+      "packaged_sha256": "3371b044a6d6515382322fe2eb7cbf5fab8ec3010a60fba92ff2b5622ccefe96",
+      "bytes": 4469
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/preview.html",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/preview.html",
+      "remote_snapshot_sha256": "888623d222795b4d5116b04035e83336b0f7000417b2e8304b5fef026594dc2d",
+      "packaged_sha256": "888623d222795b4d5116b04035e83336b0f7000417b2e8304b5fef026594dc2d",
+      "bytes": 4599
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/preview.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/preview.js",
+      "remote_snapshot_sha256": "141b270f291b0c69db2c043787970d10f7826852e5de8949c012668ccbe4b3b2",
+      "packaged_sha256": "141b270f291b0c69db2c043787970d10f7826852e5de8949c012668ccbe4b3b2",
+      "bytes": 9727
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/vr-policy.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/vr-policy.js",
+      "remote_snapshot_sha256": "3f0dc1e1b0b348218d2c1cdea01b50ce99e53c36f9f44976a49ba9c4120c3185",
+      "packaged_sha256": "3f0dc1e1b0b348218d2c1cdea01b50ce99e53c36f9f44976a49ba9c4120c3185",
+      "bytes": 906
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/vr-view.css",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/vr-view.css",
+      "remote_snapshot_sha256": "aac72622c9ec0700a3521a0aa7aa879f16cfedd92ead24d5d5aba71c8cd61cd6",
+      "packaged_sha256": "aac72622c9ec0700a3521a0aa7aa879f16cfedd92ead24d5d5aba71c8cd61cd6",
+      "bytes": 1642
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/public/vr-view.js",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/public/vr-view.js",
+      "remote_snapshot_sha256": "d4c9b8422f6ae5ef5f459519df90e17cefcfa26e2b7279e3d1922050ead58981",
+      "packaged_sha256": "d4c9b8422f6ae5ef5f459519df90e17cefcfa26e2b7279e3d1922050ead58981",
+      "bytes": 6057
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/server.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/server.py",
+      "remote_snapshot_sha256": "66e2ab4052cf5d739579c9556d1c19c21250798dcb6e45baf71e16b0013ccc7f",
+      "packaged_sha256": "66e2ab4052cf5d739579c9556d1c19c21250798dcb6e45baf71e16b0013ccc7f",
+      "bytes": 16139
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/tlzv_mp4.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/tlzv_mp4.py",
+      "remote_snapshot_sha256": "e86b776b2952c0d96e415035dffb6f54e23d600d427a97f044ac5ea6b0c77a28",
+      "packaged_sha256": "e86b776b2952c0d96e415035dffb6f54e23d600d427a97f044ac5ea6b0c77a28",
+      "bytes": 3875
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/vr_relay_client.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/vr_relay_client.py",
+      "remote_snapshot_sha256": "5644fd743682e28a0656e88d447f202c69195083a40dc1780295f7bf328b306f",
+      "packaged_sha256": "5644fd743682e28a0656e88d447f202c69195083a40dc1780295f7bf328b306f",
+      "bytes": 2842
+    },
+    {
+      "path": "source/ground/usr/local/lib/ground-display/vr_view.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/ground-display/vr_view.py",
+      "remote_snapshot_sha256": "17672976595bfcdde3cd8d00b9ef533c09b3521387f43aa6c5492fcfbdf6e5e7",
+      "packaged_sha256": "018cb2a841e8b047cabc0d20fb8b282b4dd3fad83b82a517cb924e862602d7bd",
+      "bytes": 7829
+    },
+    {
+      "path": "source/ground/usr/local/lib/tlz-kiosk/auth.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/tlz-kiosk/auth.py",
+      "remote_snapshot_sha256": "dbf83f6d44deab938e6b836270f47c2354e076ceee769f3e20d908ac3ad239ba",
+      "packaged_sha256": "dbf83f6d44deab938e6b836270f47c2354e076ceee769f3e20d908ac3ad239ba",
+      "bytes": 3464
+    },
+    {
+      "path": "source/ground/usr/local/lib/tlz-kiosk/dialog.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/tlz-kiosk/dialog.py",
+      "remote_snapshot_sha256": "5957e459a18f1e34adb589dcdd73c1dd3ffb8455446cda1f60f78646b0bb11bd",
+      "packaged_sha256": "5957e459a18f1e34adb589dcdd73c1dd3ffb8455446cda1f60f78646b0bb11bd",
+      "bytes": 1647
+    },
+    {
+      "path": "source/ground/usr/local/lib/tlz-kiosk/firefox.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/tlz-kiosk/firefox.py",
+      "remote_snapshot_sha256": "e05570deb1a875c918da11f9e1d394c58782aee96e4a2e775e998fd5336d0126",
+      "packaged_sha256": "e05570deb1a875c918da11f9e1d394c58782aee96e4a2e775e998fd5336d0126",
+      "bytes": 2385
+    },
+    {
+      "path": "source/ground/usr/local/lib/tlz-kiosk/open-desktop",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/tlz-kiosk/open-desktop",
+      "remote_snapshot_sha256": "c419b3605e04fd4a625159f278906dfd9a08de2b497e1c8c23d9cd4f73bfe1aa",
+      "packaged_sha256": "c419b3605e04fd4a625159f278906dfd9a08de2b497e1c8c23d9cd4f73bfe1aa",
+      "bytes": 167
+    },
+    {
+      "path": "source/ground/usr/local/lib/tlz-kiosk/session.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/tlz-kiosk/session.py",
+      "remote_snapshot_sha256": "e2aebedf1ce14bdd643cb78416b328a011557d2aaef3360609cdabf4246f1254",
+      "packaged_sha256": "e2aebedf1ce14bdd643cb78416b328a011557d2aaef3360609cdabf4246f1254",
+      "bytes": 1002
+    },
+    {
+      "path": "source/ground/usr/local/lib/tlz-kiosk/watch.py",
+      "origin": "base-station",
+      "remote_path": "/usr/local/lib/tlz-kiosk/watch.py",
+      "remote_snapshot_sha256": "9985551d11b9b3eb8735a7f033bec8464126f50d29d6e600a86eb88c56bbba5a",
+      "packaged_sha256": "9985551d11b9b3eb8735a7f033bec8464126f50d29d6e600a86eb88c56bbba5a",
+      "bytes": 1320
+    },
+    {
+      "path": "source/aipc-companion/home/apex/md-service/ground-display.html",
+      "origin": "AIPC",
+      "remote_path": "/home/apex/md-service/ground-display.html",
+      "remote_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "packaged_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "source/aipc-companion/home/apex/md-service/ground_display_api.py",
+      "origin": "AIPC",
+      "remote_path": "/home/apex/md-service/ground_display_api.py",
+      "remote_snapshot_sha256": "e15853ac9d98d7e4fc087f182c3f8f5e558d6b6548d2f37b29a5d39da73d15af",
+      "packaged_sha256": "e15853ac9d98d7e4fc087f182c3f8f5e558d6b6548d2f37b29a5d39da73d15af",
+      "bytes": 2650
+    },
+    {
+      "path": "source/aipc-companion/home/apex/md-service/public/ground-display.css",
+      "origin": "AIPC",
+      "remote_path": "/home/apex/md-service/public/ground-display.css",
+      "remote_snapshot_sha256": "5added840b4efb0a6a6d8d586442ba205f64d03451337aadc7a6a7bd8cac5827",
+      "packaged_sha256": "5added840b4efb0a6a6d8d586442ba205f64d03451337aadc7a6a7bd8cac5827",
+      "bytes": 6576
+    },
+    {
+      "path": "source/aipc-companion/home/apex/md-service/public/ground-display.js",
+      "origin": "AIPC",
+      "remote_path": "/home/apex/md-service/public/ground-display.js",
+      "remote_snapshot_sha256": "7baccde30934da614588fdfd4262970b68ed276eca46036fa3fcf73a8ffef25d",
+      "packaged_sha256": "7baccde30934da614588fdfd4262970b68ed276eca46036fa3fcf73a8ffef25d",
+      "bytes": 8567
+    },
+    {
+      "path": "source/aipc-companion/home/apex/tlz-v2/tlz2/__init__.py",
+      "origin": "AIPC",
+      "remote_path": "/home/apex/tlz-v2/tlz2/__init__.py",
+      "remote_snapshot_sha256": "d91c70c392eee8ffce8a69ce6be10925c42d5be43a9cf2a7c9dfdb8738375117",
+      "packaged_sha256": "d91c70c392eee8ffce8a69ce6be10925c42d5be43a9cf2a7c9dfdb8738375117",
+      "bytes": 65
+    },
+    {
+      "path": "source/aipc-companion/home/apex/tlz-v2/tlz2/codec.py",
+      "origin": "AIPC",
+      "remote_path": "/home/apex/tlz-v2/tlz2/codec.py",
+      "remote_snapshot_sha256": "ba24b21bbc2858914935a693615346d54770bf1979ac9d00750a024866c42038",
+      "packaged_sha256": "ba24b21bbc2858914935a693615346d54770bf1979ac9d00750a024866c42038",
+      "bytes": 5587
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/aipc-vr-live/live_service.py",
+      "origin": "AIPC",
+      "remote_path": "/usr/local/lib/aipc-vr-live/live_service.py",
+      "remote_snapshot_sha256": "121f324a3e33d23452620caa937d08fff014316b6f6eba91c1f761cff95a442c",
+      "packaged_sha256": "121f324a3e33d23452620caa937d08fff014316b6f6eba91c1f761cff95a442c",
+      "bytes": 2198
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/aipc-vr-live/managed_receiver.py",
+      "origin": "AIPC",
+      "remote_path": "/usr/local/lib/aipc-vr-live/managed_receiver.py",
+      "remote_snapshot_sha256": "059472823074ce4c5397dd9fc35445b406b4221a045a3a8aa51b62ac4957e9e8",
+      "packaged_sha256": "059472823074ce4c5397dd9fc35445b406b4221a045a3a8aa51b62ac4957e9e8",
+      "bytes": 2160
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/aipc-vr-live/preview_feedback.py",
+      "origin": "AIPC",
+      "remote_path": "/usr/local/lib/aipc-vr-live/preview_feedback.py",
+      "remote_snapshot_sha256": "10c76609a017c85773c3801814960f0067a3d6623f972bc271714b467183b286",
+      "packaged_sha256": "10c76609a017c85773c3801814960f0067a3d6623f972bc271714b467183b286",
+      "bytes": 3141
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/aipc-vr-live/recording_api.py",
+      "origin": "AIPC",
+      "remote_path": "/usr/local/lib/aipc-vr-live/recording_api.py",
+      "remote_snapshot_sha256": "8380c50b170c25717f175a1054ee6c0b686a9cc89d15dbefac31a06c899af648",
+      "packaged_sha256": "8380c50b170c25717f175a1054ee6c0b686a9cc89d15dbefac31a06c899af648",
+      "bytes": 5262
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/aipc-vr-live/test_receiver.py",
+      "origin": "AIPC",
+      "remote_path": "/usr/local/lib/aipc-vr-live/test_receiver.py",
+      "remote_snapshot_sha256": "306ad86829ab61a7576862a28810ebc81247c8a1091d41e3dc1d471bc27c04b3",
+      "packaged_sha256": "4492f179e53a3d3913df6a48a4007d6cdb16bbf0ae3ba91e35b6f55654b98cf2",
+      "bytes": 4081
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/aipc-vr-live/tlzv_mp4.py",
+      "origin": "AIPC",
+      "remote_path": "/usr/local/lib/aipc-vr-live/tlzv_mp4.py",
+      "remote_snapshot_sha256": "9e1200a708285672a1792937a9b4a883253e36e1726ac380212954f0d7385c0c",
+      "packaged_sha256": "9e1200a708285672a1792937a9b4a883253e36e1726ac380212954f0d7385c0c",
+      "bytes": 3926
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/aipc-vr-live/vr_directory.py",
+      "origin": "AIPC",
+      "remote_path": "/usr/local/lib/aipc-vr-live/vr_directory.py",
+      "remote_snapshot_sha256": "1d0b861994d0601de55845e4e305f6b646c674f2e0f301752e2df60169fb5090",
+      "packaged_sha256": "1d0b861994d0601de55845e4e305f6b646c674f2e0f301752e2df60169fb5090",
+      "bytes": 9484
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/aipc-vr-live/vr_receiver.py",
+      "origin": "AIPC",
+      "remote_path": "/usr/local/lib/aipc-vr-live/vr_receiver.py",
+      "remote_snapshot_sha256": "5bb0225b88a713f50becae601c2a71a9fbdc62737b3c20bd4462807eaf6ea362",
+      "packaged_sha256": "dddc420f9ba2b05fbdc1ed38d675bbc93ee301d78a2fc9db0523b5ed23d2e7b0",
+      "bytes": 9007
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/tlz-ground-observer/aipc_observer.py",
+      "origin": "AIPC",
+      "remote_path": "/usr/local/lib/tlz-ground-observer/aipc_observer.py",
+      "remote_snapshot_sha256": "4f6605a8e30b68d26d9386df1f6828587a9359fb288292bcaa6ad8823bd36e58",
+      "packaged_sha256": "4f6605a8e30b68d26d9386df1f6828587a9359fb288292bcaa6ad8823bd36e58",
+      "bytes": 4811
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/tlz-ground-observer/camera_channels.py",
+      "origin": "AIPC",
+      "remote_path": "/usr/local/lib/tlz-ground-observer/camera_channels.py",
+      "remote_snapshot_sha256": "ccdfd64101943c46a227902188cd3c04521c893b8ac649a31cd187d8ac7168ef",
+      "packaged_sha256": "ccdfd64101943c46a227902188cd3c04521c893b8ac649a31cd187d8ac7168ef",
+      "bytes": 3444
+    },
+    {
+      "path": "source/aipc-companion/usr/local/lib/tlz-ground-observer/observer_vr_live.py",
+      "origin": "AIPC",
+      "remote_path": "/usr/local/lib/tlz-ground-observer/observer_vr_live.py",
+      "remote_snapshot_sha256": "0e6f7dd92cf618f6efa09a9d2dd2744a2d55190b3d734f96f38e6688b31719bd",
+      "packaged_sha256": "0e6f7dd92cf618f6efa09a9d2dd2744a2d55190b3d734f96f38e6688b31719bd",
+      "bytes": 2681
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+#cloud
+cloud_topic: /cloud_registered
+odom_topic: /filtered_odometry
+cloud_export_path: /workspace/export_cloud.bin
+remote_ip: 192.168.2.105
+remote_port: 5000
+local_ip: 192.168.1.5
+local_port: 5001
+
+enable_bin_save: false
+enable_pcd_trans: false
+
+
+#odom
+odom_remote_ip: 127.0.0.1
+odom_remote_port: 50002
+odom_local_ip: 127.0.0.1
+odom_local_port: 50003
+enable_odom_trans: false
+odom_unix_channel: /workspace/tmp/odom
+
+
+#cmd2ROS 
+car_cmd_remote_ip: 127.0.0.1
+car_cmd_remote_port: 50004
+car_cmd_local_ip: 127.0.0.1
+car_cmd_local_port: 50005
+target_odom_topic: /robot/targetOdom
+enable_cmd2ROS: false
+cmd_unix_channel: /workspace/tmp/cmd
+
+#merge
+merge_remote_ip: 192.168.2.105
+merge_remote_port: 12345
+merge_local_ip: 192.168.1.5
+merge_local_port: 54321
+
+
+# state msg
+state_msg_sync_enable: /state/sync_enable
+state_msg_car_control_enable: /state/car_control_enable
+
+
+#image
+image_remote_ip: 127.0.0.1
+image_remote_port: 50007
+image_local_ip: 127.0.0.1
+image_local_port: 50008
+
+#arm
+arm_unix_channel_station: /workspace/tmp/arm_station
+arm_unix_channel_solve: /workspace/tmp/arm_solve
+
+#arm udp（按 2026-10-13 实机联调拓扑：AIPC eno1 192.168.137.2 绑定 54322 收 nav_state，
+#        向 KR260 eth1 192.168.137.224:54321 发 whole_body；54322 为暂定，需两端确认）
+arm_local_ip: 0.0.0.0
+arm_local_port: 54322
+arm_remote_ip: 192.168.137.224
+arm_remote_port: 54321

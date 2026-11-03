@@ -1,0 +1,58 @@
+[
+  {
+    "path": "/api/v1/core-metrics/vla/records?id=vla-adf2fb9fd35d41dea04744c00bd4afcd",
+    "file": "已登录原始_api__v1__core-metrics__vla__records_id_vla-adf2fb9fd35d41dea04744c00bd4afcd",
+    "http": 200,
+    "bytes": 20538,
+    "sha256": "c924e297f61b7552ba6fdc9a44e1b59d0b749af12f1776c2f28997b170268c77"
+  },
+  {
+    "path": "/api/v1/core-metrics/report?id=6c4a14ebc5884b64931cdeccfeb10406",
+    "file": "已登录原始_api__v1__core-metrics__report_id_6c4a14ebc5884b64931cdeccfeb10406",
+    "http": 200,
+    "bytes": 4195,
+    "sha256": "8d08cf076200b73b251db2c1212ef6bcc644a2a5f546f25885ecb65e036252c2"
+  },
+  {
+    "path": "/api/v1/core-metrics/report?id=d644945500aa4faa9e2463117f292a08",
+    "file": "已登录原始_api__v1__core-metrics__report_id_d644945500aa4faa9e2463117f292a08",
+    "http": 200,
+    "bytes": 10878,
+    "sha256": "893592ce80d49b2beb114bab5ce3f026102185219f5130b28e018bc516a868d1"
+  },
+  {
+    "path": "/api/v1/core-metrics/raw?project=communication&limit=1000",
+    "file": "已登录原始_api__v1__core-metrics__raw_project_communication_limit_1000",
+    "http": 200,
+    "bytes": 232131,
+    "sha256": "16517df3ae60445e1e957e2cf82b2fc57c3bc6de42c5fa3cabf86f1afe155754"
+  },
+  {
+    "path": "/api/v1/core-metrics/raw?project=fpga&limit=100",
+    "file": "已登录原始_api__v1__core-metrics__raw_project_fpga_limit_100",
+    "http": 200,
+    "bytes": 67460,
+    "sha256": "a32da59075923761b55e2cf86c5cd82f9492f1166fcb7b252104e88e81686632"
+  },
+  {
+    "path": "/api/v1/submissions/entries?queue=fpga-pl&kind=code&limit=10&offset=0",
+    "file": "已登录原始_api__v1__submissions__entries_queue_fpga-pl_kind_code_limit_10_offset_0",
+    "http": 200,
+    "bytes": 772,
+    "sha256": "922fbf8863a87e5cee898a31a751c6c5db67a581f31c1058bb61175896368bd2"
+  },
+  {
+    "path": "/api/v1/submissions/entries/d15005cc3616951b0e4b031e346baa90/files/md",
+    "file": "已登录原始_api__v1__submissions__entries__d15005cc3616951b0e4b031e346baa90__files__md",
+    "http": 200,
+    "bytes": 8911,
+    "sha256": "8f66fe97ffd6a78084b7b3b23645848a7d2e7a2029811ab9b3455df5b9f053d6"
+  },
+  {
+    "path": "/api/v1/submissions/entries/733c098eb274797f01d791ab2b2471d7/files/md",
+    "file": "已登录原始_api__v1__submissions__entries__733c098eb274797f01d791ab2b2471d7__files__md",
+    "http": 200,
+    "bytes": 12961,
+    "sha256": "4a583daacb1191355067d31f63da58ffddf3fbb727c0313f0eb31fd76fcd2ae6"
+  }
+]

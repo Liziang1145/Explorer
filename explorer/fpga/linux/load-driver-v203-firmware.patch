@@ -1,0 +1,13 @@
+--- a/load_driver.py
++++ b/load_driver.py
+@@ -8,8 +8,8 @@
+  if Path('/sys/module/kr260_pl_can').exists():cmd('rmmod','kr260_pl_can')
+  raise SystemExit(0)
+ assert Path('/etc/machine-id').read_text().strip()=='c8e0bcf6015348cabfaa31e4fafe3748'
+-assert Path('/proc/device-tree/fpga-region/firmware-name').read_bytes().rstrip(b'\0').decode()=='kr260-pl-can-switch-20261103/kr260_pl_can_switch.bit.bin'
+-assert hashlib.sha256(Path('/usr/lib/firmware/kr260-pl-can-switch-20261103/kr260_pl_can_switch.bit.bin').read_bytes()).hexdigest()=='718b81094db7401a13ffee2b6b77ad9997fa52722361024b88aa8e1a0c58910f'
++assert Path('/proc/device-tree/fpga-region/firmware-name').read_bytes().rstrip(b'\0').decode()=='kr260-pl-can-fix-20261103/kr260_pl_can_fix.bit.bin'
++assert hashlib.sha256(Path('/usr/lib/firmware/kr260-pl-can-fix-20261103/kr260_pl_can_fix.bit.bin').read_bytes()).hexdigest()=='88d72ec35d084acaecfd5ad562f3004b15767273dad42d48de6fbd9452f3cb00'
+ for n,h in json.loads((R/'hashes.json').read_text()).items():assert hashlib.sha256((R/n).read_bytes()).hexdigest()==h,n
+ assert not Path('/sys/kernel/config/device-tree/overlays/kr260-pl-can-switch-status').exists(),'Old status window owner must be removed first'
+ if not Path('/sys/module/kr260_pl_can').exists():cmd('insmod',str(R/'kr260_pl_can.ko'))

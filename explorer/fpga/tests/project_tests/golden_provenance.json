@@ -1,0 +1,10 @@
+{
+  "source_sha256": "8b9034c5d65985e858960231d469a1b77ff9ee26bb3c210c25786316e8684c3d",
+  "functions": [
+    "setLeftJointControl",
+    "setRightJointControl",
+    "setJointPositionMode",
+    "setActuatorPosition"
+  ],
+  "scope": "Exact functions copied; mock Eigen storage, SocketCAN write and sockets; no hardware access; deterministic 64 vectors"
+}

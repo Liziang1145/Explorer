@@ -1,0 +1,738 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date              : Tue Nov  3 20:38:18 2026
+| Host              : ZKP-TX6PRO running 64-bit major release  (build 9200)
+| Command           : report_timing -from [get_ports {eth2_rgmii_rd* eth2_rgmii_rx_ctl eth3_rgmii_rd* eth3_rgmii_rx_ctl}] -delay_type min -max_paths 20 -file D:/2026FPGArace/KR260_PL_CAN_FIX_20261103/build_project/delivery/reports/rgmii_rx_hold.rpt
+| Design            : kr260_j18_top
+| Device            : xck26-sfvc784
+| Speed File        : -2LV  PRODUCTION 1.31 12-08-2025
+| Design State      : Routed
+| Temperature Grade : C
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.390ns  (arrival time - required time)
+  Source:                 eth3_rgmii_rx_ctl
+                            (input port clocked by eth3_rx_virtual  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[0].iddr_inst/D
+                            (rising edge-triggered cell IDDRE1 clocked by eth3_rx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth3_rx
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            -4.000ns  (eth3_rx fall@-4.000ns - eth3_rx_virtual rise@0.000ns)
+  Data Path Delay:        1.323ns  (logic 1.292ns (97.656%)  route 0.031ns (2.344%))
+  Logic Levels:           3  (IBUFCTRL=1 IDELAYE3=1 INBUF=1)
+  Input Delay:            -3.000ns
+  Clock Path Skew:        1.767ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.767ns = ( 5.767 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.000ns = ( 8.000 - 8.000 ) 
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Destination): 0.723ns (routing 0.001ns, distribution 0.722ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+  Clock Domain Crossing:  Inter clock paths are considered valid unless explicitly excluded by timing constraints such as set_clock_groups or set_false_path.
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock eth3_rx_virtual rise edge)
+                                                      0.000     0.000 r  <hidden>
+                         ideal clock network latency
+                                                      0.000     0.000    <hidden>
+                         input delay                 -3.000    -3.000    <hidden>
+    H3                                                0.000    -3.000 r  eth3_rgmii_rx_ctl
+                         net (fo=0)                   0.000    -3.000    eth3_rgmii_rx_ctl_IBUF_inst/I
+    H3                   INBUF (Prop_INBUF_HPIOB_S_PAD_O)
+                                                      0.286    -2.714 r  eth3_rgmii_rx_ctl_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -2.714    eth3_rgmii_rx_ctl_IBUF_inst/OUT
+    H3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_S_I_O)
+                                                      0.000    -2.714 r  eth3_rgmii_rx_ctl_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.031    -2.683    VCU_INIT_i/pl_eth3/mac/inst/rgmii_rx_ctl
+    BITSLICE_RX_TX_X0Y124
+                         IDELAYE3 (Prop_IDELAY_BITSLICE_COMPONENT_RX_TX_IDATAIN_DATAOUT)
+                                                      1.006    -1.677 r  VCU_INIT_i/pl_eth3/mac/inst/rx_delay[4].input_delay/DATAOUT
+                         net (fo=1, routed)           0.000    -1.677    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/d[0]
+    BITSLICE_RX_TX_X0Y124
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[0].iddr_inst/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth3_rx fall edge)   -4.000    -4.000 f  <hidden>
+    K4                                                0.000    -4.000 f  eth3_rgmii_rxc
+                         net (fo=0)                   0.000    -4.000    eth3_rgmii_rxc_IBUF_inst/I
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.522    -3.478 f  eth3_rgmii_rxc_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.478    eth3_rgmii_rxc_IBUF_inst/OUT
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.478 f  eth3_rgmii_rxc_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=2, routed)           0.478    -3.000    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/rgmii_rxc
+    BUFGCE_X0Y71         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -2.956 f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/clk_io_bufg/O
+    X1Y2 (CLOCK_ROOT)    net (fo=10, routed)          0.723    -2.233    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/clk_io
+    BITSLICE_RX_TX_X0Y124
+                         IDDRE1                                       f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[0].iddr_inst/C
+                         clock pessimism              0.000    -2.233    <hidden>
+                         clock uncertainty            0.025    -2.208    <hidden>
+    BITSLICE_RX_TX_X0Y124
+                         IDDRE1 (Hold_ISERDES_BITSLICE_COMPONENT_RX_TX_C_D)
+                                                      0.141    -2.067    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[0].iddr_inst
+  -------------------------------------------------------------------
+                         required time                          2.067    <hidden>
+                         arrival time                          -1.677    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.390    <hidden>
+
+Slack (MET) :             0.394ns  (arrival time - required time)
+  Source:                 eth2_rgmii_rd[1]
+                            (input port clocked by eth2_rx_virtual  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[2].iddr_inst/D
+                            (rising edge-triggered cell IDDRE1 clocked by eth2_rx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth2_rx
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            -4.000ns  (eth2_rx fall@-4.000ns - eth2_rx_virtual rise@0.000ns)
+  Data Path Delay:        1.325ns  (logic 1.296ns (97.811%)  route 0.029ns (2.189%))
+  Logic Levels:           3  (IBUFCTRL=1 IDELAYE3=1 INBUF=1)
+  Input Delay:            -3.000ns
+  Clock Path Skew:        1.778ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.778ns = ( 5.778 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.000ns = ( 8.000 - 8.000 ) 
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Destination): 0.727ns (routing 0.001ns, distribution 0.726ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+  Clock Domain Crossing:  Inter clock paths are considered valid unless explicitly excluded by timing constraints such as set_clock_groups or set_false_path.
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock eth2_rx_virtual rise edge)
+                                                      0.000     0.000 r  <hidden>
+                         ideal clock network latency
+                                                      0.000     0.000    <hidden>
+                         input delay                 -3.000    -3.000    <hidden>
+    B3                                                0.000    -3.000 r  eth2_rgmii_rd[1]
+                         net (fo=0)                   0.000    -3.000    eth2_rgmii_rd_IBUF[1]_inst/I
+    B3                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.289    -2.711 r  eth2_rgmii_rd_IBUF[1]_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -2.711    eth2_rgmii_rd_IBUF[1]_inst/OUT
+    B3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -2.711 r  eth2_rgmii_rd_IBUF[1]_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.029    -2.682    VCU_INIT_i/pl_eth2/mac/inst/rgmii_rxd[1]
+    BITSLICE_RX_TX_X0Y173
+                         IDELAYE3 (Prop_IDELAY_BITSLICE_COMPONENT_RX_TX_IDATAIN_DATAOUT)
+                                                      1.006    -1.675 r  VCU_INIT_i/pl_eth2/mac/inst/rx_delay[1].input_delay/DATAOUT
+                         net (fo=1, routed)           0.000    -1.675    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/d[2]
+    BITSLICE_RX_TX_X0Y173
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[2].iddr_inst/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth2_rx fall edge)   -4.000    -4.000 f  <hidden>
+    D4                                                0.000    -4.000 f  eth2_rgmii_rxc
+                         net (fo=0)                   0.000    -4.000    eth2_rgmii_rxc_IBUF_inst/I
+    D4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.530    -3.470 f  eth2_rgmii_rxc_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.470    eth2_rgmii_rxc_IBUF_inst/OUT
+    D4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.470 f  eth2_rgmii_rxc_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=2, routed)           0.477    -2.993    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/rgmii_rxc
+    BUFGCE_X0Y85         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -2.949 f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/clk_io_bufg/O
+    X1Y3 (CLOCK_ROOT)    net (fo=10, routed)          0.727    -2.222    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/clk_io
+    BITSLICE_RX_TX_X0Y173
+                         IDDRE1                                       f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[2].iddr_inst/C
+                         clock pessimism              0.000    -2.222    <hidden>
+                         clock uncertainty            0.025    -2.197    <hidden>
+    BITSLICE_RX_TX_X0Y173
+                         IDDRE1 (Hold_ISERDES_BITSLICE_COMPONENT_RX_TX_C_D)
+                                                      0.128    -2.069    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[2].iddr_inst
+  -------------------------------------------------------------------
+                         required time                          2.069    <hidden>
+                         arrival time                          -1.675    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.394    <hidden>
+
+Slack (MET) :             0.397ns  (arrival time - required time)
+  Source:                 eth2_rgmii_rx_ctl
+                            (input port clocked by eth2_rx_virtual  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[0].iddr_inst/D
+                            (rising edge-triggered cell IDDRE1 clocked by eth2_rx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth2_rx
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            -4.000ns  (eth2_rx fall@-4.000ns - eth2_rx_virtual rise@0.000ns)
+  Data Path Delay:        1.343ns  (logic 1.312ns (97.692%)  route 0.031ns (2.308%))
+  Logic Levels:           3  (IBUFCTRL=1 IDELAYE3=1 INBUF=1)
+  Input Delay:            -3.000ns
+  Clock Path Skew:        1.780ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.780ns = ( 5.780 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.000ns = ( 8.000 - 8.000 ) 
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Destination): 0.729ns (routing 0.001ns, distribution 0.728ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+  Clock Domain Crossing:  Inter clock paths are considered valid unless explicitly excluded by timing constraints such as set_clock_groups or set_false_path.
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock eth2_rx_virtual rise edge)
+                                                      0.000     0.000 r  <hidden>
+                         ideal clock network latency
+                                                      0.000     0.000    <hidden>
+                         input delay                 -3.000    -3.000    <hidden>
+    A4                                                0.000    -3.000 r  eth2_rgmii_rx_ctl
+                         net (fo=0)                   0.000    -3.000    eth2_rgmii_rx_ctl_IBUF_inst/I
+    A4                   INBUF (Prop_INBUF_HPIOB_S_PAD_O)
+                                                      0.306    -2.694 r  eth2_rgmii_rx_ctl_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -2.694    eth2_rgmii_rx_ctl_IBUF_inst/OUT
+    A4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_S_I_O)
+                                                      0.000    -2.694 r  eth2_rgmii_rx_ctl_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.031    -2.663    VCU_INIT_i/pl_eth2/mac/inst/rgmii_rx_ctl
+    BITSLICE_RX_TX_X0Y176
+                         IDELAYE3 (Prop_IDELAY_BITSLICE_COMPONENT_RX_TX_IDATAIN_DATAOUT)
+                                                      1.006    -1.657 r  VCU_INIT_i/pl_eth2/mac/inst/rx_delay[4].input_delay/DATAOUT
+                         net (fo=1, routed)           0.000    -1.657    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/d[0]
+    BITSLICE_RX_TX_X0Y176
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[0].iddr_inst/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth2_rx fall edge)   -4.000    -4.000 f  <hidden>
+    D4                                                0.000    -4.000 f  eth2_rgmii_rxc
+                         net (fo=0)                   0.000    -4.000    eth2_rgmii_rxc_IBUF_inst/I
+    D4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.530    -3.470 f  eth2_rgmii_rxc_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.470    eth2_rgmii_rxc_IBUF_inst/OUT
+    D4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.470 f  eth2_rgmii_rxc_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=2, routed)           0.477    -2.993    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/rgmii_rxc
+    BUFGCE_X0Y85         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -2.949 f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/clk_io_bufg/O
+    X1Y3 (CLOCK_ROOT)    net (fo=10, routed)          0.729    -2.220    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/clk_io
+    BITSLICE_RX_TX_X0Y176
+                         IDDRE1                                       f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[0].iddr_inst/C
+                         clock pessimism              0.000    -2.220    <hidden>
+                         clock uncertainty            0.025    -2.195    <hidden>
+    BITSLICE_RX_TX_X0Y176
+                         IDDRE1 (Hold_ISERDES_BITSLICE_COMPONENT_RX_TX_C_D)
+                                                      0.141    -2.054    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[0].iddr_inst
+  -------------------------------------------------------------------
+                         required time                          2.054    <hidden>
+                         arrival time                          -1.657    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.397    <hidden>
+
+Slack (MET) :             0.399ns  (arrival time - required time)
+  Source:                 eth3_rgmii_rd[1]
+                            (input port clocked by eth3_rx_virtual  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[2].iddr_inst/D
+                            (rising edge-triggered cell IDDRE1 clocked by eth3_rx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth3_rx
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            -4.000ns  (eth3_rx fall@-4.000ns - eth3_rx_virtual rise@0.000ns)
+  Data Path Delay:        1.317ns  (logic 1.288ns (97.799%)  route 0.029ns (2.201%))
+  Logic Levels:           3  (IBUFCTRL=1 IDELAYE3=1 INBUF=1)
+  Input Delay:            -3.000ns
+  Clock Path Skew:        1.765ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.765ns = ( 5.765 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.000ns = ( 8.000 - 8.000 ) 
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Destination): 0.721ns (routing 0.001ns, distribution 0.720ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+  Clock Domain Crossing:  Inter clock paths are considered valid unless explicitly excluded by timing constraints such as set_clock_groups or set_false_path.
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock eth3_rx_virtual rise edge)
+                                                      0.000     0.000 r  <hidden>
+                         ideal clock network latency
+                                                      0.000     0.000    <hidden>
+                         input delay                 -3.000    -3.000    <hidden>
+    K2                                                0.000    -3.000 r  eth3_rgmii_rd[1]
+                         net (fo=0)                   0.000    -3.000    eth3_rgmii_rd_IBUF[1]_inst/I
+    K2                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.282    -2.718 r  eth3_rgmii_rd_IBUF[1]_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -2.718    eth3_rgmii_rd_IBUF[1]_inst/OUT
+    K2                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -2.718 r  eth3_rgmii_rd_IBUF[1]_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.029    -2.689    VCU_INIT_i/pl_eth3/mac/inst/rgmii_rxd[1]
+    BITSLICE_RX_TX_X0Y121
+                         IDELAYE3 (Prop_IDELAY_BITSLICE_COMPONENT_RX_TX_IDATAIN_DATAOUT)
+                                                      1.006    -1.683 r  VCU_INIT_i/pl_eth3/mac/inst/rx_delay[1].input_delay/DATAOUT
+                         net (fo=1, routed)           0.000    -1.683    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/d[2]
+    BITSLICE_RX_TX_X0Y121
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[2].iddr_inst/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth3_rx fall edge)   -4.000    -4.000 f  <hidden>
+    K4                                                0.000    -4.000 f  eth3_rgmii_rxc
+                         net (fo=0)                   0.000    -4.000    eth3_rgmii_rxc_IBUF_inst/I
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.522    -3.478 f  eth3_rgmii_rxc_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.478    eth3_rgmii_rxc_IBUF_inst/OUT
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.478 f  eth3_rgmii_rxc_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=2, routed)           0.478    -3.000    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/rgmii_rxc
+    BUFGCE_X0Y71         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -2.956 f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/clk_io_bufg/O
+    X1Y2 (CLOCK_ROOT)    net (fo=10, routed)          0.721    -2.235    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/clk_io
+    BITSLICE_RX_TX_X0Y121
+                         IDDRE1                                       f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[2].iddr_inst/C
+                         clock pessimism              0.000    -2.235    <hidden>
+                         clock uncertainty            0.025    -2.210    <hidden>
+    BITSLICE_RX_TX_X0Y121
+                         IDDRE1 (Hold_ISERDES_BITSLICE_COMPONENT_RX_TX_C_D)
+                                                      0.128    -2.082    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[2].iddr_inst
+  -------------------------------------------------------------------
+                         required time                          2.082    <hidden>
+                         arrival time                          -1.683    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.399    <hidden>
+
+Slack (MET) :             0.402ns  (arrival time - required time)
+  Source:                 eth2_rgmii_rd[2]
+                            (input port clocked by eth2_rx_virtual  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[3].iddr_inst/D
+                            (rising edge-triggered cell IDDRE1 clocked by eth2_rx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth2_rx
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            -4.000ns  (eth2_rx rise@-8.000ns - eth2_rx_virtual fall@-4.000ns)
+  Data Path Delay:        1.328ns  (logic 1.298ns (97.742%)  route 0.030ns (2.258%))
+  Logic Levels:           3  (IBUFCTRL=1 IDELAYE3=1 INBUF=1)
+  Input Delay:            -3.000ns
+  Clock Path Skew:        1.779ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.779ns
+    Source Clock Delay      (SCD):    0.000ns = ( 4.000 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Destination): 0.728ns (routing 0.001ns, distribution 0.727ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+  Clock Domain Crossing:  Inter clock paths are considered valid unless explicitly excluded by timing constraints such as set_clock_groups or set_false_path.
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock eth2_rx_virtual fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+                         ideal clock network latency
+                                                      0.000    -4.000    <hidden>
+                         input delay                 -3.000    -7.000    <hidden>
+    A3                                                0.000    -7.000 r  eth2_rgmii_rd[2]
+                         net (fo=0)                   0.000    -7.000    eth2_rgmii_rd_IBUF[2]_inst/I
+    A3                   INBUF (Prop_INBUF_HPIOB_S_PAD_O)
+                                                      0.292    -6.708 r  eth2_rgmii_rd_IBUF[2]_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -6.708    eth2_rgmii_rd_IBUF[2]_inst/OUT
+    A3                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_S_I_O)
+                                                      0.000    -6.708 r  eth2_rgmii_rd_IBUF[2]_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.030    -6.678    VCU_INIT_i/pl_eth2/mac/inst/rgmii_rxd[2]
+    BITSLICE_RX_TX_X0Y174
+                         IDELAYE3 (Prop_IDELAY_BITSLICE_COMPONENT_RX_TX_IDATAIN_DATAOUT)
+                                                      1.006    -5.672 r  VCU_INIT_i/pl_eth2/mac/inst/rx_delay[2].input_delay/DATAOUT
+                         net (fo=1, routed)           0.000    -5.672    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/d[3]
+    BITSLICE_RX_TX_X0Y174
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[3].iddr_inst/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth2_rx rise edge)   -8.000    -8.000 r  <hidden>
+    D4                                                0.000    -8.000 r  eth2_rgmii_rxc
+                         net (fo=0)                   0.000    -8.000    eth2_rgmii_rxc_IBUF_inst/I
+    D4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.530    -7.470 r  eth2_rgmii_rxc_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.470    eth2_rgmii_rxc_IBUF_inst/OUT
+    D4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.470 r  eth2_rgmii_rxc_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=2, routed)           0.477    -6.993    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/rgmii_rxc
+    BUFGCE_X0Y85         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.949 r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/clk_io_bufg/O
+    X1Y3 (CLOCK_ROOT)    net (fo=10, routed)          0.728    -6.221    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/clk_io
+    BITSLICE_RX_TX_X0Y174
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[3].iddr_inst/C
+                         clock pessimism              0.000    -6.221    <hidden>
+                         clock uncertainty            0.025    -6.196    <hidden>
+    BITSLICE_RX_TX_X0Y174
+                         IDDRE1 (Hold_ISERDES_BITSLICE_COMPONENT_RX_TX_C_D)
+                                                      0.123    -6.073    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[3].iddr_inst
+  -------------------------------------------------------------------
+                         required time                          6.073    <hidden>
+                         arrival time                          -5.672    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.402    <hidden>
+
+Slack (MET) :             0.402ns  (arrival time - required time)
+  Source:                 eth3_rgmii_rd[3]
+                            (input port clocked by eth3_rx_virtual  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[4].iddr_inst/D
+                            (rising edge-triggered cell IDDRE1 clocked by eth3_rx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth3_rx
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            -4.000ns  (eth3_rx fall@-4.000ns - eth3_rx_virtual rise@0.000ns)
+  Data Path Delay:        1.340ns  (logic 1.294ns (96.567%)  route 0.046ns (3.433%))
+  Logic Levels:           3  (IBUFCTRL=1 IDELAYE3=1 INBUF=1)
+  Input Delay:            -3.000ns
+  Clock Path Skew:        1.766ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.766ns = ( 5.766 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.000ns = ( 8.000 - 8.000 ) 
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Destination): 0.722ns (routing 0.001ns, distribution 0.721ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+  Clock Domain Crossing:  Inter clock paths are considered valid unless explicitly excluded by timing constraints such as set_clock_groups or set_false_path.
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock eth3_rx_virtual rise edge)
+                                                      0.000     0.000 r  <hidden>
+                         ideal clock network latency
+                                                      0.000     0.000    <hidden>
+                         input delay                 -3.000    -3.000    <hidden>
+    H4                                                0.000    -3.000 r  eth3_rgmii_rd[3]
+                         net (fo=0)                   0.000    -3.000    eth3_rgmii_rd_IBUF[3]_inst/I
+    H4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.287    -2.713 r  eth3_rgmii_rd_IBUF[3]_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -2.713    eth3_rgmii_rd_IBUF[3]_inst/OUT
+    H4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -2.713 r  eth3_rgmii_rd_IBUF[3]_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.046    -2.667    VCU_INIT_i/pl_eth3/mac/inst/rgmii_rxd[3]
+    BITSLICE_RX_TX_X0Y123
+                         IDELAYE3 (Prop_IDELAY_BITSLICE_COMPONENT_RX_TX_IDATAIN_DATAOUT)
+                                                      1.007    -1.660 r  VCU_INIT_i/pl_eth3/mac/inst/rx_delay[3].input_delay/DATAOUT
+                         net (fo=1, routed)           0.000    -1.660    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/d[4]
+    BITSLICE_RX_TX_X0Y123
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[4].iddr_inst/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth3_rx fall edge)   -4.000    -4.000 f  <hidden>
+    K4                                                0.000    -4.000 f  eth3_rgmii_rxc
+                         net (fo=0)                   0.000    -4.000    eth3_rgmii_rxc_IBUF_inst/I
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.522    -3.478 f  eth3_rgmii_rxc_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.478    eth3_rgmii_rxc_IBUF_inst/OUT
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.478 f  eth3_rgmii_rxc_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=2, routed)           0.478    -3.000    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/rgmii_rxc
+    BUFGCE_X0Y71         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -2.956 f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/clk_io_bufg/O
+    X1Y2 (CLOCK_ROOT)    net (fo=10, routed)          0.722    -2.234    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/clk_io
+    BITSLICE_RX_TX_X0Y123
+                         IDDRE1                                       f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[4].iddr_inst/C
+                         clock pessimism              0.000    -2.234    <hidden>
+                         clock uncertainty            0.025    -2.209    <hidden>
+    BITSLICE_RX_TX_X0Y123
+                         IDDRE1 (Hold_ISERDES_BITSLICE_COMPONENT_RX_TX_C_D)
+                                                      0.147    -2.062    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[4].iddr_inst
+  -------------------------------------------------------------------
+                         required time                          2.062    <hidden>
+                         arrival time                          -1.660    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.402    <hidden>
+
+Slack (MET) :             0.405ns  (arrival time - required time)
+  Source:                 eth2_rgmii_rd[0]
+                            (input port clocked by eth2_rx_virtual  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[1].iddr_inst/D
+                            (rising edge-triggered cell IDDRE1 clocked by eth2_rx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth2_rx
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            -4.000ns  (eth2_rx fall@-4.000ns - eth2_rx_virtual rise@0.000ns)
+  Data Path Delay:        1.336ns  (logic 1.307ns (97.829%)  route 0.029ns (2.171%))
+  Logic Levels:           3  (IBUFCTRL=1 IDELAYE3=1 INBUF=1)
+  Input Delay:            -3.000ns
+  Clock Path Skew:        1.779ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.779ns = ( 5.779 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.000ns = ( 8.000 - 8.000 ) 
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Destination): 0.728ns (routing 0.001ns, distribution 0.727ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+  Clock Domain Crossing:  Inter clock paths are considered valid unless explicitly excluded by timing constraints such as set_clock_groups or set_false_path.
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock eth2_rx_virtual rise edge)
+                                                      0.000     0.000 r  <hidden>
+                         ideal clock network latency
+                                                      0.000     0.000    <hidden>
+                         input delay                 -3.000    -3.000    <hidden>
+    A1                                                0.000    -3.000 r  eth2_rgmii_rd[0]
+                         net (fo=0)                   0.000    -3.000    eth2_rgmii_rd_IBUF[0]_inst/I
+    A1                   INBUF (Prop_INBUF_HPIOB_S_PAD_O)
+                                                      0.301    -2.699 r  eth2_rgmii_rd_IBUF[0]_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -2.699    eth2_rgmii_rd_IBUF[0]_inst/OUT
+    A1                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_S_I_O)
+                                                      0.000    -2.699 r  eth2_rgmii_rd_IBUF[0]_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.029    -2.670    VCU_INIT_i/pl_eth2/mac/inst/rgmii_rxd[0]
+    BITSLICE_RX_TX_X0Y172
+                         IDELAYE3 (Prop_IDELAY_BITSLICE_COMPONENT_RX_TX_IDATAIN_DATAOUT)
+                                                      1.006    -1.664 r  VCU_INIT_i/pl_eth2/mac/inst/rx_delay[0].input_delay/DATAOUT
+                         net (fo=1, routed)           0.000    -1.664    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/d[1]
+    BITSLICE_RX_TX_X0Y172
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[1].iddr_inst/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth2_rx fall edge)   -4.000    -4.000 f  <hidden>
+    D4                                                0.000    -4.000 f  eth2_rgmii_rxc
+                         net (fo=0)                   0.000    -4.000    eth2_rgmii_rxc_IBUF_inst/I
+    D4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.530    -3.470 f  eth2_rgmii_rxc_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.470    eth2_rgmii_rxc_IBUF_inst/OUT
+    D4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.470 f  eth2_rgmii_rxc_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=2, routed)           0.477    -2.993    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/rgmii_rxc
+    BUFGCE_X0Y85         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -2.949 f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/clk_io_bufg/O
+    X1Y3 (CLOCK_ROOT)    net (fo=10, routed)          0.728    -2.221    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/clk_io
+    BITSLICE_RX_TX_X0Y172
+                         IDDRE1                                       f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[1].iddr_inst/C
+                         clock pessimism              0.000    -2.221    <hidden>
+                         clock uncertainty            0.025    -2.196    <hidden>
+    BITSLICE_RX_TX_X0Y172
+                         IDDRE1 (Hold_ISERDES_BITSLICE_COMPONENT_RX_TX_C_D)
+                                                      0.127    -2.069    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[1].iddr_inst
+  -------------------------------------------------------------------
+                         required time                          2.069    <hidden>
+                         arrival time                          -1.664    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.405    <hidden>
+
+Slack (MET) :             0.406ns  (arrival time - required time)
+  Source:                 eth3_rgmii_rd[0]
+                            (input port clocked by eth3_rx_virtual  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[1].iddr_inst/D
+                            (rising edge-triggered cell IDDRE1 clocked by eth3_rx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth3_rx
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            -4.000ns  (eth3_rx fall@-4.000ns - eth3_rx_virtual rise@0.000ns)
+  Data Path Delay:        1.324ns  (logic 1.295ns (97.810%)  route 0.029ns (2.190%))
+  Logic Levels:           3  (IBUFCTRL=1 IDELAYE3=1 INBUF=1)
+  Input Delay:            -3.000ns
+  Clock Path Skew:        1.766ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.766ns = ( 5.766 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.000ns = ( 8.000 - 8.000 ) 
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Destination): 0.722ns (routing 0.001ns, distribution 0.721ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+  Clock Domain Crossing:  Inter clock paths are considered valid unless explicitly excluded by timing constraints such as set_clock_groups or set_false_path.
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock eth3_rx_virtual rise edge)
+                                                      0.000     0.000 r  <hidden>
+                         ideal clock network latency
+                                                      0.000     0.000    <hidden>
+                         input delay                 -3.000    -3.000    <hidden>
+    H1                                                0.000    -3.000 r  eth3_rgmii_rd[0]
+                         net (fo=0)                   0.000    -3.000    eth3_rgmii_rd_IBUF[0]_inst/I
+    H1                   INBUF (Prop_INBUF_HPIOB_S_PAD_O)
+                                                      0.289    -2.711 r  eth3_rgmii_rd_IBUF[0]_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -2.711    eth3_rgmii_rd_IBUF[0]_inst/OUT
+    H1                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_S_I_O)
+                                                      0.000    -2.711 r  eth3_rgmii_rd_IBUF[0]_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.029    -2.682    VCU_INIT_i/pl_eth3/mac/inst/rgmii_rxd[0]
+    BITSLICE_RX_TX_X0Y120
+                         IDELAYE3 (Prop_IDELAY_BITSLICE_COMPONENT_RX_TX_IDATAIN_DATAOUT)
+                                                      1.006    -1.676 r  VCU_INIT_i/pl_eth3/mac/inst/rx_delay[0].input_delay/DATAOUT
+                         net (fo=1, routed)           0.000    -1.676    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/d[1]
+    BITSLICE_RX_TX_X0Y120
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[1].iddr_inst/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth3_rx fall edge)   -4.000    -4.000 f  <hidden>
+    K4                                                0.000    -4.000 f  eth3_rgmii_rxc
+                         net (fo=0)                   0.000    -4.000    eth3_rgmii_rxc_IBUF_inst/I
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.522    -3.478 f  eth3_rgmii_rxc_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.478    eth3_rgmii_rxc_IBUF_inst/OUT
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.478 f  eth3_rgmii_rxc_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=2, routed)           0.478    -3.000    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/rgmii_rxc
+    BUFGCE_X0Y71         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -2.956 f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/clk_io_bufg/O
+    X1Y2 (CLOCK_ROOT)    net (fo=10, routed)          0.722    -2.234    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/clk_io
+    BITSLICE_RX_TX_X0Y120
+                         IDDRE1                                       f  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[1].iddr_inst/C
+                         clock pessimism              0.000    -2.234    <hidden>
+                         clock uncertainty            0.025    -2.209    <hidden>
+    BITSLICE_RX_TX_X0Y120
+                         IDDRE1 (Hold_ISERDES_BITSLICE_COMPONENT_RX_TX_C_D)
+                                                      0.127    -2.082    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[1].iddr_inst
+  -------------------------------------------------------------------
+                         required time                          2.082    <hidden>
+                         arrival time                          -1.676    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.406    <hidden>
+
+Slack (MET) :             0.406ns  (arrival time - required time)
+  Source:                 eth3_rgmii_rd[2]
+                            (input port clocked by eth3_rx_virtual  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[3].iddr_inst/D
+                            (rising edge-triggered cell IDDRE1 clocked by eth3_rx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth3_rx
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            -4.000ns  (eth3_rx rise@-8.000ns - eth3_rx_virtual fall@-4.000ns)
+  Data Path Delay:        1.320ns  (logic 1.290ns (97.728%)  route 0.030ns (2.272%))
+  Logic Levels:           3  (IBUFCTRL=1 IDELAYE3=1 INBUF=1)
+  Input Delay:            -3.000ns
+  Clock Path Skew:        1.766ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.766ns
+    Source Clock Delay      (SCD):    0.000ns = ( 4.000 - 4.000 ) 
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Destination): 0.722ns (routing 0.001ns, distribution 0.721ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+  Clock Domain Crossing:  Inter clock paths are considered valid unless explicitly excluded by timing constraints such as set_clock_groups or set_false_path.
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock eth3_rx_virtual fall edge)
+                                                     -4.000    -4.000 f  <hidden>
+                         ideal clock network latency
+                                                      0.000    -4.000    <hidden>
+                         input delay                 -3.000    -7.000    <hidden>
+    J2                                                0.000    -7.000 r  eth3_rgmii_rd[2]
+                         net (fo=0)                   0.000    -7.000    eth3_rgmii_rd_IBUF[2]_inst/I
+    J2                   INBUF (Prop_INBUF_HPIOB_S_PAD_O)
+                                                      0.284    -6.716 r  eth3_rgmii_rd_IBUF[2]_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -6.716    eth3_rgmii_rd_IBUF[2]_inst/OUT
+    J2                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_S_I_O)
+                                                      0.000    -6.716 r  eth3_rgmii_rd_IBUF[2]_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.030    -6.686    VCU_INIT_i/pl_eth3/mac/inst/rgmii_rxd[2]
+    BITSLICE_RX_TX_X0Y122
+                         IDELAYE3 (Prop_IDELAY_BITSLICE_COMPONENT_RX_TX_IDATAIN_DATAOUT)
+                                                      1.006    -5.680 r  VCU_INIT_i/pl_eth3/mac/inst/rx_delay[2].input_delay/DATAOUT
+                         net (fo=1, routed)           0.000    -5.680    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/d[3]
+    BITSLICE_RX_TX_X0Y122
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[3].iddr_inst/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth3_rx rise edge)   -8.000    -8.000 r  <hidden>
+    K4                                                0.000    -8.000 r  eth3_rgmii_rxc
+                         net (fo=0)                   0.000    -8.000    eth3_rgmii_rxc_IBUF_inst/I
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.522    -7.478 r  eth3_rgmii_rxc_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -7.478    eth3_rgmii_rxc_IBUF_inst/OUT
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -7.478 r  eth3_rgmii_rxc_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=2, routed)           0.478    -7.000    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/rgmii_rxc
+    BUFGCE_X0Y71         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -6.956 r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/clk_io_bufg/O
+    X1Y2 (CLOCK_ROOT)    net (fo=10, routed)          0.722    -6.234    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/clk_io
+    BITSLICE_RX_TX_X0Y122
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[3].iddr_inst/C
+                         clock pessimism              0.000    -6.234    <hidden>
+                         clock uncertainty            0.025    -6.209    <hidden>
+    BITSLICE_RX_TX_X0Y122
+                         IDDRE1 (Hold_ISERDES_BITSLICE_COMPONENT_RX_TX_C_D)
+                                                      0.123    -6.086    VCU_INIT_i/pl_eth3/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[3].iddr_inst
+  -------------------------------------------------------------------
+                         required time                          6.086    <hidden>
+                         arrival time                          -5.680    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.406    <hidden>
+
+Slack (MET) :             0.409ns  (arrival time - required time)
+  Source:                 eth2_rgmii_rd[3]
+                            (input port clocked by eth2_rx_virtual  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[4].iddr_inst/D
+                            (rising edge-triggered cell IDDRE1 clocked by eth2_rx  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             eth2_rx
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            -4.000ns  (eth2_rx fall@-4.000ns - eth2_rx_virtual rise@0.000ns)
+  Data Path Delay:        1.360ns  (logic 1.314ns (96.618%)  route 0.046ns (3.382%))
+  Logic Levels:           3  (IBUFCTRL=1 IDELAYE3=1 INBUF=1)
+  Input Delay:            -3.000ns
+  Clock Path Skew:        1.779ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.779ns = ( 5.779 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.000ns = ( 8.000 - 8.000 ) 
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Destination): 0.728ns (routing 0.001ns, distribution 0.727ns)
+  Timing Exception:       MultiCycle Path   Setup -end   0    Hold  -start -1
+  Clock Domain Crossing:  Inter clock paths are considered valid unless explicitly excluded by timing constraints such as set_clock_groups or set_false_path.
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock eth2_rx_virtual rise edge)
+                                                      0.000     0.000 r  <hidden>
+                         ideal clock network latency
+                                                      0.000     0.000    <hidden>
+                         input delay                 -3.000    -3.000    <hidden>
+    B4                                                0.000    -3.000 r  eth2_rgmii_rd[3]
+                         net (fo=0)                   0.000    -3.000    eth2_rgmii_rd_IBUF[3]_inst/I
+    B4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.307    -2.693 r  eth2_rgmii_rd_IBUF[3]_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -2.693    eth2_rgmii_rd_IBUF[3]_inst/OUT
+    B4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -2.693 r  eth2_rgmii_rd_IBUF[3]_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.046    -2.647    VCU_INIT_i/pl_eth2/mac/inst/rgmii_rxd[3]
+    BITSLICE_RX_TX_X0Y175
+                         IDELAYE3 (Prop_IDELAY_BITSLICE_COMPONENT_RX_TX_IDATAIN_DATAOUT)
+                                                      1.007    -1.640 r  VCU_INIT_i/pl_eth2/mac/inst/rx_delay[3].input_delay/DATAOUT
+                         net (fo=1, routed)           0.000    -1.640    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/d[4]
+    BITSLICE_RX_TX_X0Y175
+                         IDDRE1                                       r  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[4].iddr_inst/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock eth2_rx fall edge)   -4.000    -4.000 f  <hidden>
+    D4                                                0.000    -4.000 f  eth2_rgmii_rxc
+                         net (fo=0)                   0.000    -4.000    eth2_rgmii_rxc_IBUF_inst/I
+    D4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.530    -3.470 f  eth2_rgmii_rxc_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000    -3.470    eth2_rgmii_rxc_IBUF_inst/OUT
+    D4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000    -3.470 f  eth2_rgmii_rxc_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=2, routed)           0.477    -2.993    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/rgmii_rxc
+    BUFGCE_X0Y85         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.044    -2.949 f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/clk_io_bufg/O
+    X1Y3 (CLOCK_ROOT)    net (fo=10, routed)          0.728    -2.221    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/clk_io
+    BITSLICE_RX_TX_X0Y175
+                         IDDRE1                                       f  VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[4].iddr_inst/C
+                         clock pessimism              0.000    -2.221    <hidden>
+                         clock uncertainty            0.025    -2.196    <hidden>
+    BITSLICE_RX_TX_X0Y175
+                         IDDRE1 (Hold_ISERDES_BITSLICE_COMPONENT_RX_TX_C_D)
+                                                      0.147    -2.049    VCU_INIT_i/pl_eth2/mac/inst/engine/rgmii_phy_if_inst/rx_ssio_ddr_inst/data_iddr_inst/iddr[4].iddr_inst
+  -------------------------------------------------------------------
+                         required time                          2.049    <hidden>
+                         arrival time                          -1.640    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.409    <hidden>
+
+
+
+

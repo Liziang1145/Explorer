@@ -1,0 +1,34 @@
+[
+  {
+    "file": "arm_command_engine.v",
+    "sha256": "f73a84a0b21ddd9d75db21df74433e28f88c962ebdad96212cb654e7063cdaf9"
+  },
+  {
+    "file": "can_axil_endpoint.v",
+    "sha256": "a5b874548ffcf35aae286bf62b4d976053f966caf29f85d248247670139f18cd"
+  },
+  {
+    "file": "can_core_service.v",
+    "sha256": "faacd36389aaebf547f24acbe127609f13c302764323460910c0673b16e731aa"
+  },
+  {
+    "file": "can_passive_monitor.v",
+    "sha256": "7772e7ecfab4212d112c8ca2e9c3c61054767fcbec078b191da4949df2c7786b"
+  },
+  {
+    "file": "can_path_control.v",
+    "sha256": "daddd865cc89213ec6cf6a98137a7bd411281e4c76877045c60d996787fb1345"
+  },
+  {
+    "file": "can_path_owner.v",
+    "sha256": "75f25e1bfe9d7f1c118b6a9e9e743bd3b5361c08163cce8954c1f93e32c89ff9"
+  },
+  {
+    "file": "pl_shadow.v",
+    "sha256": "3983a202a1cbee0860c5775b6cc27448ea357bae747caf276d078f2d4ecc721b"
+  },
+  {
+    "file": "pl_stream_monitor.v",
+    "sha256": "08a42483ad1e9c98302adca819ef4b9483bf447e2bd186fe2541f9bc1011327d"
+  }
+]

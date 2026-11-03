@@ -1,0 +1,77 @@
+[
+  {
+    "elapsed_ms": 3048.458,
+    "ok": true,
+    "read_only": true,
+    "execution_enabled": false,
+    "search": {
+      "direct": true,
+      "iterations": 0
+    },
+    "path_nodes": 147,
+    "timed_points": 298,
+    "mesh_pose_checks": 374,
+    "mesh_distance_checks": 5439,
+    "error": null
+  },
+  {
+    "elapsed_ms": 3117.666,
+    "ok": true,
+    "read_only": true,
+    "execution_enabled": false,
+    "search": {
+      "direct": true,
+      "iterations": 0
+    },
+    "path_nodes": 147,
+    "timed_points": 298,
+    "mesh_pose_checks": 374,
+    "mesh_distance_checks": 5439,
+    "error": null
+  },
+  {
+    "elapsed_ms": 3218.338,
+    "ok": true,
+    "read_only": true,
+    "execution_enabled": false,
+    "search": {
+      "direct": true,
+      "iterations": 0
+    },
+    "path_nodes": 147,
+    "timed_points": 298,
+    "mesh_pose_checks": 374,
+    "mesh_distance_checks": 5439,
+    "error": null
+  },
+  {
+    "elapsed_ms": 3282.525,
+    "ok": true,
+    "read_only": true,
+    "execution_enabled": false,
+    "search": {
+      "direct": true,
+      "iterations": 0
+    },
+    "path_nodes": 147,
+    "timed_points": 298,
+    "mesh_pose_checks": 374,
+    "mesh_distance_checks": 5439,
+    "error": null
+  },
+  {
+    "elapsed_ms": 3130.172,
+    "ok": true,
+    "read_only": true,
+    "execution_enabled": false,
+    "search": {
+      "direct": true,
+      "iterations": 0
+    },
+    "path_nodes": 147,
+    "timed_points": 298,
+    "mesh_pose_checks": 374,
+    "mesh_distance_checks": 5439,
+    "error": null
+  }
+]

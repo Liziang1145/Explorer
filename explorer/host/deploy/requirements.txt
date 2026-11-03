@@ -1,0 +1,12 @@
+# AIPC host-side Python dependencies (indicative; pin to your installed versions)
+numpy
+scipy
+opencv-python
+ultralytics
+trimesh
+shapely
+python-can
+requests
+websockets
+# ROCm-enabled torch must be installed from the AMD wheel index, not from PyPI
+# torch  (install per https://rocm.docs.amd.com/)

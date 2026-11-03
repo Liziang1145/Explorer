@@ -1,0 +1,11 @@
+Lifecycle actual-CTU matrix: PASS296; delays10us,100us,1ms,10ms,100ms; configured100ms timeout checked.
+Service lifecycle unit: PASS19; true BOF, disabled/start timeouts, MODE byte masks, native stop.
+Owner: PASS68; AUTO/manual/unlimited retries.
+Command queue: PASS533.
+AXI endpoint: PASS11.
+Shadow compatibility: PASS49391.
+Actual CTU dual-node bus: PASS3007; six ARM frames ACKed; native standard/extended/RTR/RX, arbitration, no-ACK,35 data-phase errors causing real bus-off, manual PS return.
+C11 ABI size/offset assertions: PASS.
+All pass flags checked; process exit alone not used as a pass.
+Long lifecycle run started before debug-only reserved bits16..19 were populated. Final RTL (including these probe bits) was recompiled and passed service lifecycle and actual CTU regression. Functional lifecycle logic unchanged during the long run.
+No new board, Linux kernel module, actuator or concurrent1h acceptance performed here.

@@ -1,0 +1,71 @@
+{
+  "schema": "apex-quest-scene/1",
+  "vertices": 410071,
+  "triangles": 780279,
+  "colored_only": true,
+  "full_resolution": true,
+  "source_frame": "independent_FAST_LIVO2_world",
+  "units": "metre",
+  "bounds": [
+    [
+      -13.950570106506348,
+      -0.12045500427484512,
+      -5.2807841300964355
+    ],
+    [
+      3.8848583698272705,
+      0.8493760228157043,
+      7.245167255401611
+    ]
+  ],
+  "source_to_display": [
+    [
+      0.9924435906655771,
+      0.002446489179054691,
+      -0.12267735747689244,
+      0.10906935516637244
+    ],
+    [
+      -0.12270174956705586,
+      0.019787839325458245,
+      -0.9922463011107743,
+      0.882181247250581
+    ],
+    [
+      -4.336808689942018e-19,
+      0.999801208293692,
+      0.01993850281423817,
+      -0.01772682171884476
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "floor_plane_source": [
+    0.12270174956705586,
+    -0.019787839325458245,
+    0.9922463011107743,
+    -0.882181247250581
+  ],
+  "floor_fit": {
+    "sample_inliers": 18013,
+    "sample_count": 30000,
+    "residual_p95_m": 0.03791997918051172,
+    "purpose": "Display leveling only, not navigation calibration"
+  },
+  "source_glb_sha256": "83a871c41979e98c14665e200048016813d08d23d7a1e0220e36214f004e02a1",
+  "vr_glb_sha256": "6f04ce659e60ce3a7a78d3e44f9999c645b50bb393e83b94408366e6ca9ef3cd",
+  "vr_glb_bytes": 19206540,
+  "navigation_control": false,
+  "semantic_object_ids": false,
+  "validation": {
+    "all_color_supported": true,
+    "valid_indices": true,
+    "finite_positions": true,
+    "proper_rotation": true,
+    "glb_length_valid": true
+  }
+}

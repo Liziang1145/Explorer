@@ -1,0 +1,51 @@
+{
+  "physical_commands": 0,
+  "passed": true,
+  "tests": [
+    {
+      "test": "frame_gpu_failure_cpu_retry",
+      "accepted": true,
+      "equivalent": true,
+      "hits": 1442689
+    },
+    {
+      "test": "low_memory_cpu",
+      "passed": true,
+      "policy": {
+        "available_memory": 6442450944,
+        "cpu_count": 32,
+        "load_1m": 2,
+        "cpu_workers": 1,
+        "nice": 15,
+        "raw_navigation_independent": true,
+        "gpu_workers": 1,
+        "geometry_chunk_points": 1000000,
+        "backend": "cpu",
+        "fallback_reason": "host memory reserve",
+        "time": 1793641474.0006664
+      }
+    },
+    {
+      "test": "gpu_process_failure_cpu_resume",
+      "passed": true,
+      "policy": {
+        "available_memory": 25769803776,
+        "cpu_count": 32,
+        "load_1m": 2,
+        "cpu_workers": 4,
+        "nice": 15,
+        "raw_navigation_independent": true,
+        "gpu_workers": 2,
+        "geometry_chunk_points": 1000000,
+        "backend": "cpu_fallback",
+        "fallback_reason": "GPU worker exited; continuing saved frame journal",
+        "time": 1793641474.001121,
+        "gpu": {
+          "free": 8589934592,
+          "name": "test-gpu"
+        },
+        "measured_speedup_vs_cpu4": 1.86
+      }
+    }
+  ]
+}

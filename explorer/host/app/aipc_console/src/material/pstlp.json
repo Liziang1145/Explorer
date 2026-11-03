@@ -1,0 +1,1347 @@
+{
+  "method": "URDF同源FK＋二进制STL唯一顶点＋cKDTree最近顶点距离",
+  "limitation": "非三角形级精确距离、非连续碰撞证明；未包含两指与持物",
+  "pose_count": 24,
+  "pairs_per_pose": 10,
+  "worst_by_pair": {
+    "link1-link3": {
+      "vertex_min_mm": 69.34494352797243,
+      "case": "zero"
+    },
+    "link1-link4": {
+      "vertex_min_mm": 45.78795741879121,
+      "case": "zero"
+    },
+    "link1-link5": {
+      "vertex_min_mm": 43.749547127529695,
+      "case": "zero"
+    },
+    "link1-gripper_base": {
+      "vertex_min_mm": 74.82267992303818,
+      "case": "zero"
+    },
+    "link2-link4": {
+      "vertex_min_mm": 45.00714487470515,
+      "case": "zero"
+    },
+    "link2-link5": {
+      "vertex_min_mm": 43.12155596239647,
+      "case": "zero"
+    },
+    "link2-gripper_base": {
+      "vertex_min_mm": 75.23195968557569,
+      "case": "zero"
+    },
+    "link3-link5": {
+      "vertex_min_mm": 11.424191994367787,
+      "case": "planned_140"
+    },
+    "link3-gripper_base": {
+      "vertex_min_mm": 85.532778316548,
+      "case": "planned_147"
+    },
+    "link4-gripper_base": {
+      "vertex_min_mm": 62.515389367803095,
+      "case": "planned_59"
+    }
+  },
+  "minimum_vertex_distance_mm": 11.424191994367787,
+  "poses": [
+    {
+      "case": "zero",
+      "q_deg": [
+        0.0,
+        3.21,
+        -3.27,
+        -0.17,
+        -0.46,
+        0.0
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 69.34494352797243
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 45.78795741879121
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 43.749547127529695
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 74.82267992303818
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 45.00714487470515
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 43.12155596239647
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 75.23195968557569
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 13.66569037385685
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 126.89046045534499
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.56178508094774
+        }
+      ],
+      "min_vertex_distance_mm": 13.66569037385685
+    },
+    {
+      "case": "start",
+      "q_deg": [
+        38.8,
+        93.80000000000001,
+        -43.2,
+        57.2,
+        -60.4,
+        -35.8
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 202.17746643042804
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 208.6469032245279
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 207.48159404190258
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 282.47792497959625
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 181.09236044936324
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 189.37589780297654
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 250.98940228358023
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.76626046769368
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 86.35680167181079
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.52362697212223
+        }
+      ],
+      "min_vertex_distance_mm": 11.76626046769368
+    },
+    {
+      "case": "pos3",
+      "q_deg": [
+        149.0,
+        100.60000000000001,
+        -34.3,
+        -50.6,
+        -61.4,
+        31.3
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 175.82332762684732
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 168.1549729692897
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 206.63634391269582
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 251.86058896449143
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 152.07749551204995
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 196.7095874488918
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 249.2636715086028
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.440411369532193
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.53277831654803
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.541032800994294
+        }
+      ],
+      "min_vertex_distance_mm": 11.440411369532193
+    },
+    {
+      "case": "planned_00",
+      "q_deg": [
+        38.8,
+        93.80000000000001,
+        -43.2,
+        57.2,
+        -60.4,
+        -35.8
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 202.17746643042804
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 208.6469032245279
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 207.48159404190258
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 282.47792497959625
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 181.09236044936324
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 189.37589780297654
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 250.98940228358023
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.76626046769368
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 86.35680167181079
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.52362697212223
+        }
+      ],
+      "min_vertex_distance_mm": 11.76626046769368
+    },
+    {
+      "case": "planned_07",
+      "q_deg": [
+        39.92299727845641,
+        93.86929565783579,
+        -43.10930421253846,
+        56.10146001254446,
+        -60.41019053791702,
+        -35.116214905767464
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 201.93120519341045
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 208.31745564987708
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 207.06418802220261
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 283.4355279062317
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 180.85767092830062
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 189.19435223665187
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 251.20472040566617
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.826994003607815
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 86.33581988865338
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.520232798598364
+        }
+      ],
+      "min_vertex_distance_mm": 11.826994003607815
+    },
+    {
+      "case": "planned_15",
+      "q_deg": [
+        43.9566201561774,
+        94.11819434720515,
+        -42.7835397514521,
+        52.15568373107148,
+        -60.446793286353696,
+        -32.66017048566694
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 201.04721710917102
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 207.12089027958766
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 205.5980394783012
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 286.7924263096266
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 180.03036683647187
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 188.6309039256722
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 252.020579021634
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.767408630557746
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 86.33614945362686
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.517651445975986
+        }
+      ],
+      "min_vertex_distance_mm": 11.767408630557746
+    },
+    {
+      "case": "planned_22",
+      "q_deg": [
+        49.647236491174624,
+        94.46933945680571,
+        -42.32395276976902,
+        46.58900096416857,
+        -60.49843227305965,
+        -29.195194477696756
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 199.72183737157692
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 205.4446547167246
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 203.78158095047186
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 291.28377884787557
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 178.82833856951194
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 187.96967536284754
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 253.28047691200072
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.782385633237398
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 86.30492622778866
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.5337533446937
+        }
+      ],
+      "min_vertex_distance_mm": 11.782385633237398
+    },
+    {
+      "case": "planned_29",
+      "q_deg": [
+        55.66329334004826,
+        94.8405661952117,
+        -41.83808247979647,
+        40.70396531708527,
+        -60.553024440472306,
+        -25.532060044308178
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 198.3135767480888
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 203.6579044483592
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 202.18509960073482
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 295.67746230988354
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 177.58864874527129
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 187.3100152863574
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 254.68088935451604
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.673199398035376
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 86.31725147103613
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.52575052117643
+        }
+      ],
+      "min_vertex_distance_mm": 11.673199398035376
+    },
+    {
+      "case": "planned_37",
+      "q_deg": [
+        62.53878688161816,
+        95.26482532481855,
+        -41.28280214839927,
+        33.97821029184722,
+        -60.6154154889439,
+        -21.34562069186408
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 196.70662193426713
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 201.6228897529965
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 200.83650110737503
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 300.1927837810724
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 176.1424000221402
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 186.8603468182525
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 256.2760019202586
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.798116751291644
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 86.18160074464397
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.52359382098537
+        }
+      ],
+      "min_vertex_distance_mm": 11.798116751291644
+    },
+    {
+      "case": "planned_44",
+      "q_deg": [
+        68.5548437304918,
+        95.63605206322454,
+        -40.79693185842671,
+        28.093174644763916,
+        -60.67000765635653,
+        -17.682486258475496
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 195.30280452059
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 199.85493771925135
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 200.06861027789245
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 303.652003302603
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 174.86960763307084
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 186.714476987966
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 257.7929062255196
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.675059613530534
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 86.13985773837027
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.52048646545384
+        }
+      ],
+      "min_vertex_distance_mm": 11.675059613530534
+    },
+    {
+      "case": "planned_51",
+      "q_deg": [
+        74.57090057936543,
+        96.00727880163055,
+        -40.31106156845416,
+        22.20813899768062,
+        -60.72459982376919,
+        -14.019351825086913
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 193.8595064246712
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 198.06445619952825
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 199.6827437272112
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 306.61086653748976
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 173.57039243166565
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 186.85253540973002
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 259.2628082077739
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.616116086844476
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 86.13133920842675
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.51634088296522
+        }
+      ],
+      "min_vertex_distance_mm": 11.616116086844476
+    },
+    {
+      "case": "planned_59",
+      "q_deg": [
+        81.44639412093532,
+        96.4315379312374,
+        -39.75578123705696,
+        15.482383972442571,
+        -60.78699087224079,
+        -9.832912472642823
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 192.18284458437523
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 196.03104533586801
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 199.6867378540094
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 309.29147998976543
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 171.84793170615524
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 187.268116014683
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 260.87487556301295
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.830265204106466
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 86.05875682947685
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.515389367803095
+        }
+      ],
+      "min_vertex_distance_mm": 11.830265204106466
+    },
+    {
+      "case": "planned_66",
+      "q_deg": [
+        87.46245096980897,
+        96.8027646696434,
+        -39.2699109470844,
+        9.597348325359278,
+        -60.84158303965342,
+        -6.169778039254238
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 190.71784667497536
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 194.26346707934414
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 200.0594154078302
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 310.9325725254279
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 170.36172260699936
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 187.8702876976871
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 262.26481143488803
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.591295610750086
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 86.01618216038462
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.51801034462379
+        }
+      ],
+      "min_vertex_distance_mm": 11.591295610750086
+    },
+    {
+      "case": "planned_74",
+      "q_deg": [
+        94.33794451137884,
+        97.22702379925025,
+        -38.71463061568719,
+        2.87159330012123,
+        -60.90397408812502,
+        -1.98333868681015
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 189.04605382245222
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 192.2189190052605
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 200.86762761094712
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 311.7266774599333
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 168.64919035960077
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 188.81701709452935
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 263.7920679625137
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.617981393376903
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.97834234572674
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.525163921063275
+        }
+      ],
+      "min_vertex_distance_mm": 11.617981393376903
+    },
+    {
+      "case": "planned_81",
+      "q_deg": [
+        100.35400136025247,
+        97.59825053765623,
+        -38.22876032571464,
+        -3.013442346962047,
+        -60.958566255537676,
+        1.6797957465784228
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 187.58444424084985
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 190.4435898039124
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 201.85424043267923
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 309.54111793917554
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 167.1451449531046
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 189.76446101035177
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 263.65861348320203
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.695127956428278
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.89310409244793
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.52324788467495
+        }
+      ],
+      "min_vertex_distance_mm": 11.695127956428278
+    },
+    {
+      "case": "planned_88",
+      "q_deg": [
+        106.37005820912613,
+        97.96947727606224,
+        -37.74289003574209,
+        -8.898477994045349,
+        -61.01315842295032,
+        5.342930179967009
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 186.1248553403853
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 187.56634632419272
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 202.79055702426479
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 304.6545694859459
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 165.6533058236712
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 190.39058392217524
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 262.1755506190165
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.532099660757309
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.94069191085208
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.51924523304805
+        }
+      ],
+      "min_vertex_distance_mm": 11.532099660757309
+    },
+    {
+      "case": "planned_96",
+      "q_deg": [
+        113.24555175069597,
+        98.39373640566909,
+        -37.18760970434489,
+        -15.624233019283375,
+        -61.075549471421915,
+        9.529369532411089
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 184.4595739439766
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 182.99948079096745
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 203.70821308191077
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 298.04545056302817
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 163.9290693252546
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 191.26395357826516
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 260.3318528367961
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.621829794868852
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.85399777040213
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.51948967877602
+        }
+      ],
+      "min_vertex_distance_mm": 11.621829794868852
+    },
+    {
+      "case": "planned_103",
+      "q_deg": [
+        119.26160859956963,
+        98.76496314407508,
+        -36.70173941437233,
+        -21.509268666366676,
+        -61.13014163883456,
+        13.192503965799668
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 183.00502246451302
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 179.48804080323936
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 204.697774899332
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 291.5454835926163
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 162.41924892001944
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 192.13550529408883
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 258.8033729470991
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.573503821221339
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.7529697031483
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.546974477796546
+        }
+      ],
+      "min_vertex_distance_mm": 11.573503821221339
+    },
+    {
+      "case": "planned_110",
+      "q_deg": [
+        125.27766544844327,
+        99.13618988248108,
+        -36.215869124399774,
+        -27.39430431344995,
+        -61.1847338062472,
+        16.85563839918824
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 181.55296680866658
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 176.46774044996698
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 205.82274444054175
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 284.48195927696514
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 160.9223242880021
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 193.07813614992247
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 257.1498842479169
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.501674760186948
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.7324776981335
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.557433822919286
+        }
+      ],
+      "min_vertex_distance_mm": 11.501674760186948
+    },
+    {
+      "case": "planned_118",
+      "q_deg": [
+        132.1531589900131,
+        99.56044901208793,
+        -35.66058879300257,
+        -34.12005933868797,
+        -61.2471248547188,
+        21.042077751632323
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 179.89665282663242
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 173.59636574529526
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 207.22636330755728
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 275.76471969398665
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 159.02991942903193
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 194.20687326087963
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 255.3069983165459
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.617954395145329
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.6508097639764
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.54543673821132
+        }
+      ],
+      "min_vertex_distance_mm": 11.617954395145329
+    },
+    {
+      "case": "planned_125",
+      "q_deg": [
+        138.16921583888677,
+        99.93167575049392,
+        -35.17471850303002,
+        -40.00509498577128,
+        -61.301717022131456,
+        24.7052121850209
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 178.4502683283332
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 171.58831964862244
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 208.5162560485231
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 267.61635299380885
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 156.3976803255249
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 195.20890670175498
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 253.83873111730455
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.475652764882415
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.66174558198894
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.56870859636385
+        }
+      ],
+      "min_vertex_distance_mm": 11.475652764882415
+    },
+    {
+      "case": "planned_132",
+      "q_deg": [
+        143.85653330921812,
+        100.28261730038733,
+        -34.7153979450813,
+        -45.568550732610845,
+        -61.35332607358635,
+        28.16817953764552
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 177.0854943921491
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 170.1634308389419
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 209.75451893932933
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 259.50549976623233
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 154.03137035845523
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 196.0226419460735
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 252.3324360194048
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.513436081070758
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.64703518572794
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.54880621540988
+        }
+      ],
+      "min_vertex_distance_mm": 11.513436081070758
+    },
+    {
+      "case": "planned_140",
+      "q_deg": [
+        147.8831365261129,
+        100.53108283464218,
+        -34.39020040760069,
+        -49.50746023153335,
+        -61.38986512274148,
+        30.619949735954442
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 176.12079969588473
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 168.60284647740778
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 207.69357141372262
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 253.54409433921683
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 152.4808008525827
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 196.56446783503162
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 250.9744257815044
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.424191994367787
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.55647744211859
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.54076180467566
+        }
+      ],
+      "min_vertex_distance_mm": 11.424191994367787
+    },
+    {
+      "case": "planned_147",
+      "q_deg": [
+        149.0,
+        100.60000000000001,
+        -34.300000000000004,
+        -50.60000000000001,
+        -61.399999999999984,
+        31.30000000000001
+      ],
+      "pairs": [
+        {
+          "pair": "link1-link3",
+          "vertex_min_mm": 175.82332762684732
+        },
+        {
+          "pair": "link1-link4",
+          "vertex_min_mm": 168.1549729692898
+        },
+        {
+          "pair": "link1-link5",
+          "vertex_min_mm": 206.63634391269585
+        },
+        {
+          "pair": "link1-gripper_base",
+          "vertex_min_mm": 251.86058896449148
+        },
+        {
+          "pair": "link2-link4",
+          "vertex_min_mm": 152.07749551204998
+        },
+        {
+          "pair": "link2-link5",
+          "vertex_min_mm": 196.70958744889182
+        },
+        {
+          "pair": "link2-gripper_base",
+          "vertex_min_mm": 249.26367150860284
+        },
+        {
+          "pair": "link3-link5",
+          "vertex_min_mm": 11.440411369532221
+        },
+        {
+          "pair": "link3-gripper_base",
+          "vertex_min_mm": 85.532778316548
+        },
+        {
+          "pair": "link4-gripper_base",
+          "vertex_min_mm": 62.541032800994266
+        }
+      ],
+      "min_vertex_distance_mm": 11.440411369532221
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+max slack=0.082
+min slack=0.010

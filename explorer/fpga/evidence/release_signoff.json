@@ -1,0 +1,18 @@
+{
+  "approved_offline_release": true,
+  "board_qualified": false,
+  "bit_generation": "PASS",
+  "artifact_consistency": "PASS",
+  "functional_regressions": "PASS",
+  "timing": "PASS",
+  "routing_errors": 0,
+  "drc_errors": 0,
+  "drc_critical": 0,
+  "drc_warnings": 12,
+  "cdc_baseline_critical": 95,
+  "cdc_final_critical": 96,
+  "cdc_added_debug_only_review": "reports/cdc_review.json",
+  "linux_patch_apply_checks": "PASS",
+  "target_kernel_module_compile": "NOT_RUN",
+  "prior_design_preserved": true
+}

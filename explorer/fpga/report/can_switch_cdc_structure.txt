@@ -1,0 +1,12 @@
+PASS VCU_INIT_i/can_path0/inst/monitor/rx_sync_reg[0] -> VCU_INIT_i/can_path0/inst/monitor/rx_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/can_path0/inst/monitor/tx_sync_reg[0] -> VCU_INIT_i/can_path0/inst/monitor/tx_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/can_path0/inst/ownership/pl_sync_reg[0] -> VCU_INIT_i/can_path0/inst/ownership/pl_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/can_path0/inst/ownership/ps_sync_reg[0] -> VCU_INIT_i/can_path0/inst/ownership/ps_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/can_path0/inst/ownership/rx_sync_reg[0] -> VCU_INIT_i/can_path0/inst/ownership/rx_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/can_path1/inst/monitor/rx_sync_reg[0] -> VCU_INIT_i/can_path1/inst/monitor/rx_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/can_path1/inst/monitor/tx_sync_reg[0] -> VCU_INIT_i/can_path1/inst/monitor/tx_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/can_path1/inst/ownership/pl_sync_reg[0] -> VCU_INIT_i/can_path1/inst/ownership/pl_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/can_path1/inst/ownership/ps_sync_reg[0] -> VCU_INIT_i/can_path1/inst/ownership/ps_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/can_path1/inst/ownership/rx_sync_reg[0] -> VCU_INIT_i/can_path1/inst/ownership/rx_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/pl_can_core0/U0/can_inst/bus_sampling_inst/can_rx_sig_sync_inst/rff_reg -> VCU_INIT_i/pl_can_core0/U0/can_inst/bus_sampling_inst/can_rx_sig_sync_inst/sync_reg/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/pl_can_core1/U0/can_inst/bus_sampling_inst/can_rx_sig_sync_inst/rff_reg -> VCU_INIT_i/pl_can_core1/U0/can_inst/bus_sampling_inst/can_rx_sig_sync_inst/sync_reg/D; both ASYNC_REG; no extra first-stage fanout

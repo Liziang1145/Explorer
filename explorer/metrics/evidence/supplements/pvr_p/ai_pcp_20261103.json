@@ -1,0 +1,413 @@
+{
+  "title": "建图、导航、语义证据、千问辅助、彩色点云与VR工程路径索引",
+  "date": "2026-11-03",
+  "basis": "已有源码快照、部署清单与工作说明；本次未联网复核，不代表当前设备在线状态。",
+  "entries": [
+    {
+      "path": "/home/apex/Strata/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/Strata/strata-iq3_s.json",
+      "document_section": "6.2 证据检索、任务生成与执行"
+    },
+    {
+      "path": "/home/apex/arm_console.py",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/base_drive.py",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/long_capture/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/long_capture/sessions/20261030T153351Z-60940b9a/",
+      "document_section": "12. 已有结果与原始证据：可引用，但不得扩大口径"
+    },
+    {
+      "path": "/home/apex/long_capture/validation/",
+      "document_section": "12. 已有结果与原始证据：可引用，但不得扩大口径"
+    },
+    {
+      "path": "/home/apex/long_capture/workbench_adapter.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "5d6c186ca421c341f4da0e90bb4e36361885095f18c897425653c19eb8d364f8",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/mapping_native/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/mapping_native/config/",
+      "document_section": "4.1 正式几何估计"
+    },
+    {
+      "path": "/home/apex/mapping_native/install/fast_lio/lib/fast_lio/fastlio_mapping",
+      "document_section": "4.1 正式几何估计"
+    },
+    {
+      "path": "/home/apex/mapping_native/live_monitor/",
+      "document_section": "4.1 正式几何估计"
+    },
+    {
+      "path": "/home/apex/mapping_native/src/FAST_LIO/",
+      "document_section": "4.1 正式几何估计"
+    },
+    {
+      "path": "/home/apex/mapping_native/src/livox_ros_driver2/",
+      "document_section": "4.1 正式几何估计"
+    },
+    {
+      "path": "/home/apex/md-service/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/md-service/mapping_gateway.py",
+      "document_section": "9.4 工作台文件与入口",
+      "snapshot_sha256": "ce00b0240e154bc6721dd4eba91c149aee442e7fa4b9fdaf75899abed8bbaee5",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/md-service/public/",
+      "document_section": "9.4 工作台文件与入口"
+    },
+    {
+      "path": "/home/apex/md-service/public/map-pipeline.js",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "5b4308feaf2f67f8eb84c60ae73dd695288e700c1b6fe1bc1de7a7c2d1f6987c",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/md-service/public/monitor-semantic.html",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "4a10f9c8c750b5afce84f78ece7a9d2b874ae2e3aa9ee7428f18f72a4a55a410",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/md-service/public/semantic-current.js",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "58195dcc57935f14186e9ea8ecfc47dc792cb7c19484470bb45fe634a719be99",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/monitor_hub/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/monitor_hub/evidence_store.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "1195c88669a7b63fc0457bc42e58e444ac0d8705649b54fdb60af11335100daa",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/monitor_hub/evidence_tasks.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "43d4ff148a1dc8ec5a92bc98ca21684e31e9f12609f745076901009c2005d9e5",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/monitor_hub/intent_gateway.py",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/monitor_hub/motion_log.py",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/monitor_hub/rectangle_motion.py",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/monitor_hub/route_gateway.py",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/monitor_hub/run/drive-audit.jsonl",
+      "document_section": "6.2 证据检索、任务生成与执行"
+    },
+    {
+      "path": "/home/apex/monitor_hub/run/qwen-tasks/",
+      "document_section": "6.2 证据检索、任务生成与执行"
+    },
+    {
+      "path": "/home/apex/monitor_hub/scene_tasks.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "607d4676fc08f234006011c8dee6a2e13a55153361b71a2cd3f365aa4b1454c6",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/monitor_hub/server.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "478b326137d390068a85595fc33a15146e3cbf520b3427cbf894e3c8b92fc7af",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/monitor_hub/smooth_path.py",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/navigation_native/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/navigation_native/live_scan_bridge.py",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/navigation_native/measurements/",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/navigation_native/nav_core.py",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/navigation_native/nav_server.py",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/navigation_native/rectangle_plan.py",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/navigation_native/run/active-map.json",
+      "document_section": "5.1 新版自动发布入口"
+    },
+    {
+      "path": "/home/apex/navigation_native/static/drive.js",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/navigation_native/vehicle_frame.py",
+      "document_section": "5.2 规划、定位与运动执行"
+    },
+    {
+      "path": "/home/apex/qwen_task_bridge.py",
+      "document_section": "6.2 证据检索、任务生成与执行"
+    },
+    {
+      "path": "/home/apex/research/acceptance_metrics_20261030/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/autonomous_exploration_20261030/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/colored_mapping_1cm_20261028/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/colored_mapping_20261028/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/fisheye_mapping_20261030/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/fisheye_mapping_20261030/benchmark_frame.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "8a3f6ed0ff2bd3302d225d136015e4c3cd08c8b6551500622068de84b891c2dd",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/fisheye_mapping_20261030/benchmark_gpu.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "e21bd1985823faf77569a47c8c57c33215bc986e8b89d4bb64a6135ddc28562f",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/fisheye_mapping_20261030/benchmark_parallel.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "bceb99bf48dc0b1f052cdcc375cb292e935036a105ee84aae0d4b55e551f1a1e",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/fisheye_mapping_20261030/color_gpu.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "bb0602492172464f2a257cf22f3c3637537c072eaf301d6a8ff31658641cca12",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/fisheye_mapping_20261030/dense_products.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "7cb44539039a1998beea38ec6de86da7f7fe5f26d0b453d77406b7592d7191d9",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/fisheye_mapping_20261030/dual_color.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "9e9ac6a36d35d932dc05f13d88705076d74b53d89e079dd5b66e0b72a6a08250",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/fisheye_mapping_20261030/launch.py",
+      "document_section": "4.2 长时间独立采集",
+      "snapshot_sha256": "46dc41e1535d5cef7b8d6522475a84a864ccb6f600d5b438d9c77e2d30269168",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/fisheye_mapping_20261030/run_coloring.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "cc5d4d31f70eab3d2584f56369c10cbe241927d627ad99bae2ceebe0c0a95561",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/floor3_diagnostic_20261031/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/full_cloud_preview_20261028/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/fusion_semantic_20261027/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/fusion_semantic_20261027/fast_livo/",
+      "document_section": "11. 历史研究与归档：报告如何取舍"
+    },
+    {
+      "path": "/home/apex/research/grasp_camera_calibration_20261101/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/map_navigation_pipeline_20261031/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/map_navigation_pipeline_20261031/build_pipeline.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "a994f0c40359ea0103d87e67b7324d8e5a3c8b4d677756dc9a417cc4bbfe9cfd",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/map_navigation_pipeline_20261031/finish_navigation.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "a669453f214fd52e8270c6a359ee83f3f7007577ed867537d996d5e39fc5d50a",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/map_navigation_pipeline_20261031/navigation_geometry.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "b2ac492d81af1b609d67b324ef2283ef36ba9784a7378a7f82df3b7b78b5bea4",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/map_navigation_pipeline_20261031/pipeline_manager.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "1b13097c3d2e80acc627c2c468fef08d125dad44428bada84111001a5f177d0c",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/map_navigation_pipeline_20261031/semantic_pipeline.py",
+      "document_section": "6.1 从像素标签到可追溯对象",
+      "snapshot_sha256": "a31ffe2853a75316695aab2efb510bf2249b3c1f36cf84d985407a9e55d5c912",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/map_navigation_pipeline_20261031/test_v3.py",
+      "document_section": "最新链路部署清单",
+      "snapshot_sha256": "ba44220c32101a071967cbc78e596f5d6f15c96312abc36d2402e86a74da8600",
+      "sha256_source": "mapping_pipeline_v3_20261103/release-manifest.json"
+    },
+    {
+      "path": "/home/apex/research/mapping_pipeline_v3_20261103/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/mapping_pipeline_v3_20261103/verification/",
+      "document_section": "12. 已有结果与原始证据：可引用，但不得扩大口径"
+    },
+    {
+      "path": "/home/apex/research/mapping_pipeline_v3_20261103/交付说明.md",
+      "document_section": "7. 彩色点云、静态净化与 AMD GPU"
+    },
+    {
+      "path": "/home/apex/research/mesh_scene_20261028/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/multicamera_calibration_20261030/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/quest_scene_20261028/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/research/vr_cloud_stream_20261030/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/rocm-services-20261102/native_launcher.sh",
+      "document_section": "7. 彩色点云、静态净化与 AMD GPU"
+    },
+    {
+      "path": "/home/apex/semantic_mapping/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/semantic_mapping/config/calibration/",
+      "document_section": "9.2 相机标定与坐标统一"
+    },
+    {
+      "path": "/home/apex/semantic_mapping/fusion_core.py",
+      "document_section": "6.1 从像素标签到可追溯对象"
+    },
+    {
+      "path": "/home/apex/semantic_mapping/instance_quality.py",
+      "document_section": "6.1 从像素标签到可追溯对象"
+    },
+    {
+      "path": "/home/apex/semantic_mapping/lidar_semantics.py",
+      "document_section": "6.1 从像素标签到可追溯对象"
+    },
+    {
+      "path": "/home/apex/tlz-v2/tlz2/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/tlz-v2/tlz2/direct_gateway.py",
+      "document_section": "8. VR 场景传输：本分工服务端与队友终端的边界"
+    },
+    {
+      "path": "/home/apex/tlz-v2/tlz2/native_hevc.py",
+      "document_section": "8. VR 场景传输：本分工服务端与队友终端的边界"
+    },
+    {
+      "path": "/home/apex/tlz-v2/tlz2/vr_live_cloud.py",
+      "document_section": "8. VR 场景传输：本分工服务端与队友终端的边界"
+    },
+    {
+      "path": "/home/apex/vision_yolo/",
+      "document_section": "3. AI PC 工程位置总表"
+    },
+    {
+      "path": "/home/apex/vision_yolo/models/yolo26m-seg.pt",
+      "document_section": "6.1 从像素标签到可追溯对象"
+    },
+    {
+      "path": "/home/apex/vla_motion_planner.py",
+      "document_section": "6.2 证据检索、任务生成与执行"
+    },
+    {
+      "path": "/home/ubuntu/chassis_relay.py",
+      "document_section": "10. 端口、服务和报告中的硬件边界"
+    },
+    {
+      "path": "/home/ubuntu/piper_dual_arm_teleop/",
+      "document_section": "10. 端口、服务和报告中的硬件边界"
+    },
+    {
+      "path": "/usr/local/lib/aipc-vr-live/vr_receiver.py",
+      "document_section": "8. VR 场景传输：本分工服务端与队友终端的边界"
+    }
+  ]
+}

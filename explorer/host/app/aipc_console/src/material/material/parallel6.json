@@ -1,0 +1,26 @@
+[
+  {
+    "target": "放置拾取位置1",
+    "workers": 6,
+    "total_s": 11.020025199999509,
+    "mesh_pose_checks": 286,
+    "mesh_distance_checks": 6001,
+    "minimum_mesh_clearance_cm": 1.1613762153907201
+  },
+  {
+    "target": "放置拾取位置2",
+    "workers": 6,
+    "total_s": 9.459781500001554,
+    "mesh_pose_checks": 286,
+    "mesh_distance_checks": 5973,
+    "minimum_mesh_clearance_cm": 1.1531206390389828
+  },
+  {
+    "target": "放置拾取位置3",
+    "workers": 6,
+    "total_s": 9.246492499994929,
+    "mesh_pose_checks": 286,
+    "mesh_distance_checks": 5901,
+    "minimum_mesh_clearance_cm": 1.1424073494164375
+  }
+]

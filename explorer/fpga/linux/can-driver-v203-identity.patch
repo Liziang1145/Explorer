@@ -1,0 +1,11 @@
+--- a/driver/can_switch.c
++++ b/driver/can_switch.c
+@@ -210,7 +210,7 @@
+  struct kcs*m;int rc,irq;
+  m=kzalloc(sizeof(*m),GFP_KERNEL);if(!m)return -ENOMEM;kref_init(&m->refs);mutex_init(&m->lock);m->dev=&pdev->dev;platform_set_drvdata(pdev,m);
+  m->base=devm_platform_ioremap_resource(pdev,0);if(IS_ERR(m->base)){rc=PTR_ERR(m->base);goto fail;}
+- if(rd(m,0)!=0x4b434132||rd(m,4)!=0x20000||rd(m,8)!=0x26110302||rd(m,12)!=0xff||rd(m,16)!=99999001){rc=-ENODEV;goto fail;}
++ if(rd(m,0)!=0x4b434132||rd(m,4)!=0x20001||rd(m,8)!=0x26110303||rd(m,12)!=0x1ff||rd(m,16)!=99999001){rc=-ENODEV;goto fail;}
+  m->ch=rd(m,0x14);if(m->ch>1||(rd(m,0x20)&31)!=0||(rd(m,0x48)&1)||rd(m,0x68)!=0x0202cafd){rc=-EBUSY;goto fail;}
+  m->ps_base=devm_ioremap(&pdev->dev,m->ch?0xff070000:0xff060000,0x1000);if(!m->ps_base){rc=-ENOMEM;goto fail;}
+  irq=platform_get_irq_byname(pdev,"native");m->ctrl_irq=platform_get_irq_byname(pdev,"control");if(irq<0||m->ctrl_irq<0){rc=-EINVAL;goto fail;}

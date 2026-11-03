@@ -1,0 +1,12 @@
+{
+  "comparison": "unique rule + destination pin",
+  "baseline_critical": 95,
+  "new_critical": 96,
+  "added": [
+    [
+      "CDC-10",
+      "VCU_INIT_i/ila_can_lifecycle1/inst/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>/<hidden>"
+    ]
+  ],
+  "removed": []
+}

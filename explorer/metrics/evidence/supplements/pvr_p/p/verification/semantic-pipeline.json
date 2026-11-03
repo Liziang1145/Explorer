@@ -1,0 +1,30 @@
+{
+  "state": "complete",
+  "session": "20261030T153351Z-60940b9a",
+  "release": "/home/apex/long_capture/sessions/20261030T153351Z-60940b9a/navigation/05a8461ab27c7750",
+  "product": "/home/apex/long_capture/sessions/20261030T153351Z-60940b9a/semantic-products/ecec492a15f197d5",
+  "objects": 96,
+  "confirmed_objects": 45,
+  "relations": 10,
+  "accepted_frames": 840,
+  "rejected_frames": 5,
+  "seconds": 342.2848182680027,
+  "policy": {
+    "recorded_rgb_frames": 2534,
+    "selected_pairs": 845,
+    "rate_sampled_frames": 1688,
+    "rejected_pairs": 1,
+    "semantic_hz": 2.0,
+    "device_to_host_offset": {
+      "0": 1793373923.76761
+    },
+    "hardware_sync": false,
+    "point_limit": null,
+    "frame_limit": null
+  },
+  "map_revision": "ab61e89c134678faadf1bad0bdd0b44fd62d32783d9b9339bf66bfeecc5fc229",
+  "scene_revision": "aea033f1abeeeb2f11e2566cfc3a3948abcc6d41a9f9e3f7857ed8a6c3e23c2f",
+  "validation_only": false,
+  "raw_preserved": true,
+  "motion_sent": false
+}

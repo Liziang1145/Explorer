@@ -1,0 +1,26 @@
+PASS PIN can0_tx AC12 LVCMOS33
+PASS PIN can0_rx AD12 LVCMOS33
+PASS PIN can1_tx AE10 LVCMOS33
+PASS PIN can1_rx AF10 LVCMOS33
+PASS PIN can2_tx AD11 LVCMOS33
+PASS PIN can2_rx AD10 LVCMOS33
+PASS CAN0 functional path and TX/RX observation tap
+PASS CAN1 functional path and TX/RX observation tap
+PASS CAN2 functional path and TX/RX observation tap
+PASS GPIO0 package pin, functional I/O/T and observation taps
+PASS GPIO1 package pin, functional I/O/T and observation taps
+PASS GPIO2 package pin, functional I/O/T and observation taps
+PASS GPIO3 package pin, functional I/O/T and observation taps
+PASS GPIO4 package pin, functional I/O/T and observation taps
+PASS GPIO5 package pin, functional I/O/T and observation taps
+PASS GPIO6 package pin, functional I/O/T and observation taps
+PASS GPIO7 package pin, functional I/O/T and observation taps
+PASS ILA probe0 6 bits -> can_observed
+PASS ILA probe1 8 bits -> gpio_i_observed
+PASS ILA probe2 8 bits -> gpio_o_observed
+PASS ILA probe3 8 bits -> gpio_t_observed
+PASS ILA probe4 2 bits -> resetn_observed
+PASS ILA probe5 1 bits -> sample_tick
+PASS ILA probe6 32 bits -> timestamp
+PASS 32 pairs of preserved ASYNC_REG synchronizers; meta fanout only to second stage
+DEBUG_CORES VCU_INIT_i/xvc_hub/inst/xsdbm VCU_INIT_i/ila_can_io VCU_INIT_i/ila_can_lifecycle0 VCU_INIT_i/ila_can_lifecycle1 VCU_INIT_i/ila_eth3

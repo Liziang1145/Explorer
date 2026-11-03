@@ -1,0 +1,22 @@
+#ROS
+odom_topic: /filtered_odometry
+target_odom_topic: /robot/targetOdom
+ctrl_topic: /ctrl_cmd
+
+#ctrl
+delta_distance: 0.10
+delta_yaw: 10.0
+brake_distance: 10.0
+
+p_vx: 0.5
+p_vy: 0.5
+p_wz: 1.0
+
+d_vx: 0.0
+d_vy: 0.0
+d_wz: 0.0
+
+max_v: 0.5
+max_w: 30.0
+
+state_msg_car_control_enable: /state/car_control_enable

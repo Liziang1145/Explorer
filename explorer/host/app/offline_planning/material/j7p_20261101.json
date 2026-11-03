@@ -1,0 +1,15 @@
+{
+  "status": "failed",
+  "error": "ValueError: 目标不可达：解析 IK 失败：J5 位置超出 J1～J3 工作空间",
+  "planning_time_s": 3.7800004065502435e-05,
+  "requested_j7_xyz_m": [
+    -0.1718,
+    0.7798,
+    0.101
+  ],
+  "requested_j5_xyz_m": [
+    -0.1718,
+    0.6273000000000001,
+    0.101
+  ]
+}

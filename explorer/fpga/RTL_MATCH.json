@@ -1,0 +1,10 @@
+[
+  "arm_command_engine.v",
+  "can_axil_endpoint.v",
+  "can_core_service.v",
+  "can_passive_monitor.v",
+  "can_path_control.v",
+  "can_path_owner.v",
+  "pl_shadow.v",
+  "pl_stream_monitor.v"
+]

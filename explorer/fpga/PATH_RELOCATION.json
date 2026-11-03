@@ -1,0 +1,20 @@
+{
+  "$PPRDIR/../../KR260_OPEN_MAC_20261015/dependencies/organized_20261017/KR260_J18_GPIO_20261013/dependencies/baseline/implementation_threads.tcl": "$PPRDIR/dependencies/KR260_OPEN_MAC_20261015/dependencies/organized_20261017/KR260_J18_GPIO_20261013/dependencies/baseline/implementation_threads.tcl",
+  "$PPRDIR/../../KR260_OPEN_MAC_20261015/dependencies/organized_20261017/KR260_J18_GPIO_20261013/dependencies/baseline/reference/baseline_routed.dcp": "$PPRDIR/dependencies/KR260_OPEN_MAC_20261015/dependencies/organized_20261017/KR260_J18_GPIO_20261013/dependencies/baseline/reference/baseline_routed.dcp",
+  "$PPRDIR/../../KR260_OPEN_MAC_20261015/dependencies/organized_20261017/KR260_ETH3_XVC_20261015/connect_eth3_probes.tcl": "$PPRDIR/dependencies/KR260_OPEN_MAC_20261015/dependencies/organized_20261017/KR260_ETH3_XVC_20261015/connect_eth3_probes.tcl",
+  "$PPRDIR/../../KR260_OPEN_MAC_20261015/dependencies/organized_20261017/KR260_ETH_WDT_20261015/connect_eth3_probes.tcl": "$PPRDIR/dependencies/KR260_OPEN_MAC_20261015/dependencies/organized_20261017/KR260_ETH_WDT_20261015/connect_eth3_probes.tcl",
+  "$PPRDIR/../../KR260_OPEN_MAC_20261015/dependencies/organized_20261017/KR260_ETH_WDT_V2_20261015/connect_eth3_probes.tcl": "$PPRDIR/dependencies/KR260_OPEN_MAC_20261015/dependencies/organized_20261017/KR260_ETH_WDT_V2_20261015/connect_eth3_probes.tcl",
+  "$PPRDIR/../../KR260_OPEN_MAC_20261015/implementation_threads.tcl": "$PPRDIR/dependencies/KR260_OPEN_MAC_20261015/implementation_threads.tcl",
+  "$PPRDIR/../../KR260_OPEN_MAC_20261015/connect_eth3_probes.tcl": "$PPRDIR/dependencies/KR260_OPEN_MAC_20261015/connect_eth3_probes.tcl",
+  "$PPRDIR/../../KR260_OPEN_MAC_20261015/implementation_prepare.tcl": "$PPRDIR/dependencies/KR260_OPEN_MAC_20261015/implementation_prepare.tcl",
+  "$PPRDIR/../../KR260_CAN_IO_DEBUG_20261024/implementation_prepare.tcl": "$PPRDIR/dependencies/KR260_CAN_IO_DEBUG_20261024/implementation_prepare.tcl",
+  "$PPRDIR/../../KR260_CAN_IO_DEBUG_20261024/implementation_threads.tcl": "$PPRDIR/dependencies/KR260_CAN_IO_DEBUG_20261024/implementation_threads.tcl",
+  "$PPRDIR/../../KR260_J20_J19_20261028/implementation_prepare.tcl": "$PPRDIR/dependencies/KR260_J20_J19_20261028/implementation_prepare.tcl",
+  "$PPRDIR/../../KR260_J20_J19_20261028/implementation_threads.tcl": "$PPRDIR/dependencies/KR260_J20_J19_20261028/implementation_threads.tcl",
+  "$PPRDIR/../../KR260_PL_SHADOW_20261102/implementation_prepare.tcl": "$PPRDIR/dependencies/KR260_PL_SHADOW_20261102/implementation_prepare.tcl",
+  "$PPRDIR/../../KR260_PL_SHADOW_20261102/implementation_threads.tcl": "$PPRDIR/dependencies/KR260_PL_SHADOW_20261102/implementation_threads.tcl",
+  "$PPRDIR/../../KR260_OPEN_MAC_20261015/sim/open_mac_subsystem_sim.v": "$PPRDIR/dependencies/KR260_OPEN_MAC_20261015/sim/open_mac_subsystem_sim.v",
+  "$PPRDIR/../../KR260_OPEN_MAC_20261015/sim/open_mac_tb.sv": "$PPRDIR/dependencies/KR260_OPEN_MAC_20261015/sim/open_mac_tb.sv",
+  "$PPRDIR/../../KR260_OPEN_MAC_20261015/sim/VCU_INIT_eth_buf_0.vhd": "$PPRDIR/dependencies/KR260_OPEN_MAC_20261015/sim/VCU_INIT_eth_buf_0.vhd",
+  "$PPRDIR/../../KR260_PL_SHADOW_20261102/tests/tb_shadow.sv": "$PPRDIR/dependencies/KR260_PL_SHADOW_20261102/tests/tb_shadow.sv"
+}

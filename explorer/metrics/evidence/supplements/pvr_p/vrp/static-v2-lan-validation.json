@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "windows_to_aipc": true,
+  "quest_tested": false,
+  "relay_tested": false,
+  "scene_id": "20261030t153351z-60940b9a-static-dense-v2",
+  "first": {
+    "scene_id": "20261030t153351z-60940b9a-static-dense-v2",
+    "profile": "wifi",
+    "position": [
+      -4,
+      0.8,
+      1
+    ],
+    "downloaded_blocks": 88,
+    "received_bytes": 32111866,
+    "wall_s": 12.578999999997905,
+    "cached_before": 0,
+    "near_blocks": 88,
+    "rendered": false
+  },
+  "cached": {
+    "scene_id": "20261030t153351z-60940b9a-static-dense-v2",
+    "profile": "wifi",
+    "position": [
+      -4,
+      0.8,
+      1
+    ],
+    "downloaded_blocks": 0,
+    "received_bytes": 0,
+    "wall_s": 1.4070000000065193,
+    "cached_before": 88,
+    "near_blocks": 88,
+    "rendered": false
+  },
+  "physical_commands": 0
+}

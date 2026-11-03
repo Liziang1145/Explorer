@@ -1,0 +1,1 @@
+PASS: no TEMAC or AMD AXI Ethernet buffer instances in routed netlist

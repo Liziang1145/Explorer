@@ -1,0 +1,7 @@
+PASS VCU_INIT_i/pl_shadow_0/inst/ack_sync_reg[0] -> VCU_INIT_i/pl_shadow_0/inst/ack_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/pl_shadow_0/inst/can_mon[0].mon/rx_sync_reg[0] -> VCU_INIT_i/pl_shadow_0/inst/can_mon[0].mon/rx_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/pl_shadow_0/inst/can_mon[0].mon/tx_sync_reg[0] -> VCU_INIT_i/pl_shadow_0/inst/can_mon[0].mon/tx_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/pl_shadow_0/inst/can_mon[1].mon/rx_sync_reg[0] -> VCU_INIT_i/pl_shadow_0/inst/can_mon[1].mon/rx_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/pl_shadow_0/inst/can_mon[1].mon/tx_sync_reg[0] -> VCU_INIT_i/pl_shadow_0/inst/can_mon[1].mon/tx_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/pl_shadow_0/inst/streams/req_sync_reg[0] -> VCU_INIT_i/pl_shadow_0/inst/streams/req_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout
+PASS VCU_INIT_i/pl_shadow_0/inst/streams/reset_sync_reg[0] -> VCU_INIT_i/pl_shadow_0/inst/streams/reset_sync_reg[1]/D; both ASYNC_REG; no extra first-stage fanout

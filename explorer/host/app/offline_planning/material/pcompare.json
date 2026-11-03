@@ -1,0 +1,94 @@
+{
+  "method": "同一左臂起始位、位置1/2/3目标、姿态与随机种子；分别运行粗模型和FCL精确网格",
+  "records": [
+    {
+      "target": "pos1",
+      "mode": "coarse",
+      "elapsed_s": 1.0230083000005834,
+      "duration_s": 2.939617136894404,
+      "timed_poses": 148,
+      "path_nodes_before_timing": 112,
+      "search": {
+        "direct": true,
+        "iterations": 0
+      }
+    },
+    {
+      "target": "pos1",
+      "mode": "exact",
+      "elapsed_s": 64.42751409999983,
+      "duration_s": 2.939617136894404,
+      "timed_poses": 148,
+      "path_nodes_before_timing": 112,
+      "search": {
+        "direct": true,
+        "iterations": 0
+      },
+      "mesh_pose_checks": 429,
+      "mesh_distance_checks": 36036,
+      "minimum_mesh_clearance_cm": 1.1613762153907201,
+      "same_timed_trajectory_as_coarse": true
+    },
+    {
+      "target": "pos2",
+      "mode": "coarse",
+      "elapsed_s": 0.6784096000010322,
+      "duration_s": 2.939617136894404,
+      "timed_poses": 148,
+      "path_nodes_before_timing": 112,
+      "search": {
+        "direct": true,
+        "iterations": 0
+      }
+    },
+    {
+      "target": "pos2",
+      "mode": "exact",
+      "elapsed_s": 65.78323869999986,
+      "duration_s": 2.939617136894404,
+      "timed_poses": 148,
+      "path_nodes_before_timing": 112,
+      "search": {
+        "direct": true,
+        "iterations": 0
+      },
+      "mesh_pose_checks": 429,
+      "mesh_distance_checks": 36036,
+      "minimum_mesh_clearance_cm": 1.1531173696344992,
+      "same_timed_trajectory_as_coarse": true
+    },
+    {
+      "target": "pos3",
+      "mode": "coarse",
+      "elapsed_s": 0.6629130999990593,
+      "duration_s": 2.939617136894404,
+      "timed_poses": 148,
+      "path_nodes_before_timing": 112,
+      "search": {
+        "direct": true,
+        "iterations": 0
+      }
+    },
+    {
+      "target": "pos3",
+      "mode": "exact",
+      "elapsed_s": 63.100233400000434,
+      "duration_s": 2.939617136894404,
+      "timed_poses": 148,
+      "path_nodes_before_timing": 112,
+      "search": {
+        "direct": true,
+        "iterations": 0
+      },
+      "mesh_pose_checks": 429,
+      "mesh_distance_checks": 36036,
+      "minimum_mesh_clearance_cm": 1.1424191994367736,
+      "same_timed_trajectory_as_coarse": true
+    }
+  ],
+  "limitations": [
+    "精确模式不含完整底盘／支架网格、持物和动态环境",
+    "离散轨迹复核不是数学意义上的连续碰撞证明",
+    "结果是本机离线测量，不代表KR260或AIPC耗时"
+  ]
+}

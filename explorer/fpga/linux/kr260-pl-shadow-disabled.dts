@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+/* Optional additive overlay. Compile/install on deployment side only after checking
+ * live root #address-cells=2, #size-cells=2 and 0x80300000 is unclaimed.
+ * No FPGA firmware loading and no old node/property changes are included. */
+/ {
+    fragment@0 {
+        target-path = "/";
+        __overlay__ {
+            kr260_pl_shadow: pl-shadow@80300000 {
+                compatible = "local,kr260-pl-shadow-v1";
+                reg = <0x0 0x80300000 0x0 0x00010000>;
+                status = "disabled";
+            };
+        };
+    };
+};

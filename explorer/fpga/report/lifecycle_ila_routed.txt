@@ -1,0 +1,3 @@
+PASS channel0: all512 probe bits and PL0 clock connected
+PASS channel1: all512 probe bits and PL0 clock connected
+DEBUG_CORES VCU_INIT_i/xvc_hub/inst/xsdbm VCU_INIT_i/ila_can_io VCU_INIT_i/ila_can_lifecycle0 VCU_INIT_i/ila_can_lifecycle1 VCU_INIT_i/ila_eth3

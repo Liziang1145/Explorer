@@ -1,0 +1,729 @@
+{
+  "target_xyz_m": [
+    -0.1556,
+    0.1936,
+    0.2884
+  ],
+  "events": [
+    "已按本次授权解除软件停止"
+  ],
+  "samples": [
+    {
+      "t": 1793453338.5284398,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.79,
+        92.99,
+        -43.54,
+        56.95,
+        -60.85,
+        -35.75
+      ],
+      "sent": 10,
+      "error": null
+    },
+    {
+      "t": 1793453338.67297,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        91.9,
+        -44.23,
+        57.07,
+        -61.02,
+        -36.5
+      ],
+      "sent": 12,
+      "error": null
+    },
+    {
+      "t": 1793453338.803599,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        91.9,
+        -44.23,
+        57.07,
+        -61.02,
+        -36.5
+      ],
+      "sent": 15,
+      "error": null
+    },
+    {
+      "t": 1793453338.9280095,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        91.9,
+        -44.23,
+        57.07,
+        -61.02,
+        -36.5
+      ],
+      "sent": 18,
+      "error": null
+    },
+    {
+      "t": 1793453339.0728662,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        91.9,
+        -44.23,
+        57.07,
+        -61.02,
+        -36.5
+      ],
+      "sent": 20,
+      "error": null
+    },
+    {
+      "t": 1793453339.189704,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        91.9,
+        -44.23,
+        57.07,
+        -61.02,
+        -36.5
+      ],
+      "sent": 23,
+      "error": null
+    },
+    {
+      "t": 1793453339.3319228,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        91.9,
+        -44.23,
+        57.07,
+        -61.02,
+        -36.5
+      ],
+      "sent": 26,
+      "error": null
+    },
+    {
+      "t": 1793453339.456817,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        91.9,
+        -44.23,
+        57.07,
+        -61.02,
+        -36.5
+      ],
+      "sent": 28,
+      "error": null
+    },
+    {
+      "t": 1793453339.587826,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        91.9,
+        -44.23,
+        57.07,
+        -61.02,
+        -36.5
+      ],
+      "sent": 31,
+      "error": null
+    },
+    {
+      "t": 1793453339.7275171,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        91.9,
+        -44.23,
+        57.07,
+        -61.02,
+        -36.5
+      ],
+      "sent": 33,
+      "error": null
+    },
+    {
+      "t": 1793453339.8527966,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        91.9,
+        -44.23,
+        57.07,
+        -61.02,
+        -36.5
+      ],
+      "sent": 36,
+      "error": null
+    },
+    {
+      "t": 1793453340.0265381,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.79,
+        88.87,
+        -47.56,
+        60.62,
+        -57.81,
+        -42.86
+      ],
+      "sent": 39,
+      "error": null
+    },
+    {
+      "t": 1793453340.4044216,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.79,
+        88.87,
+        -47.56,
+        60.62,
+        -57.81,
+        -42.86
+      ],
+      "sent": 47,
+      "error": null
+    },
+    {
+      "t": 1793453340.527769,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.79,
+        88.87,
+        -47.56,
+        60.62,
+        -57.81,
+        -42.86
+      ],
+      "sent": 50,
+      "error": null
+    },
+    {
+      "t": 1793453340.669999,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.79,
+        88.87,
+        -47.56,
+        60.62,
+        -57.81,
+        -42.86
+      ],
+      "sent": 52,
+      "error": null
+    },
+    {
+      "t": 1793453340.8116772,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.79,
+        88.87,
+        -47.56,
+        60.62,
+        -57.81,
+        -42.86
+      ],
+      "sent": 55,
+      "error": null
+    },
+    {
+      "t": 1793453340.962535,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.79,
+        88.87,
+        -47.56,
+        60.62,
+        -57.81,
+        -42.86
+      ],
+      "sent": 58,
+      "error": null
+    },
+    {
+      "t": 1793453341.0907907,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.79,
+        88.87,
+        -47.56,
+        60.62,
+        -57.81,
+        -42.86
+      ],
+      "sent": 61,
+      "error": null
+    },
+    {
+      "t": 1793453341.218415,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.79,
+        88.87,
+        -47.56,
+        60.62,
+        -57.81,
+        -42.86
+      ],
+      "sent": 63,
+      "error": null
+    },
+    {
+      "t": 1793453341.3465254,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.79,
+        88.87,
+        -47.56,
+        60.62,
+        -57.81,
+        -42.86
+      ],
+      "sent": 66,
+      "error": null
+    },
+    {
+      "t": 1793453341.4741263,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        86.75,
+        -49.85,
+        62.97,
+        -55.58,
+        -47.38
+      ],
+      "sent": 68,
+      "error": null
+    },
+    {
+      "t": 1793453341.6123283,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        86.75,
+        -49.85,
+        62.97,
+        -55.58,
+        -47.38
+      ],
+      "sent": 71,
+      "error": null
+    },
+    {
+      "t": 1793453341.7319396,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "running",
+        "message": "左臂精确网格受控运动：六轴同时到位中",
+        "sent_at": 1793453338.0410087
+      },
+      "joints_deg": [
+        38.73,
+        86.75,
+        -49.85,
+        62.97,
+        -55.58,
+        -47.38
+      ],
+      "sent": 74,
+      "error": null
+    },
+    {
+      "t": 1793453341.8782964,
+      "status": {
+        "seq": 1,
+        "which": "vla_exact_test",
+        "state": "done",
+        "message": "左臂精确网格受控运动已完成（已到位并释放）",
+        "sent_at": 1793453338.0410087,
+        "finished_at": 1793453341.755568
+      },
+      "joints_deg": [
+        38.73,
+        86.75,
+        -49.85,
+        62.97,
+        -55.58,
+        -47.38
+      ],
+      "sent": 74,
+      "error": null
+    }
+  ],
+  "before": {
+    "ok": true,
+    "joints_deg": [
+      38.79,
+      92.99,
+      -43.54,
+      57.01,
+      -60.85,
+      -35.75
+    ]
+  },
+  "accepted": {
+    "ok": true,
+    "side": "left",
+    "move_seq": 1,
+    "duration_s": 3.1862154628956265,
+    "velocity_limit_rad_s": 0.15,
+    "acceleration_limit_rad_s2": 0.4,
+    "collision_mode": "exact",
+    "mesh_distance_checks": 5544,
+    "minimum_mesh_clearance_cm": 1.1598641637018978,
+    "start_xyz_m": [
+      -0.1551637618928659,
+      0.19305378710951293,
+      0.24308769651688944
+    ],
+    "target_xyz_m": [
+      -0.1556,
+      0.1936,
+      0.2884
+    ],
+    "displacement_norm_m": 0.04531769521007619
+  },
+  "final_status": {
+    "ok": true,
+    "raw": "can2: FPGA_CAN1        UP             <NOARP,UP,LOWER_UP,ECHO> \ncan1: FPGA_CAN0        UP             <NOARP,UP,LOWER_UP,ECHO> \ndeploy: 66871",
+    "can2": "UP",
+    "can1": "UP",
+    "deploy": "66871",
+    "control": {
+      "entry": {
+        "right": null,
+        "left": null
+      },
+      "active": false,
+      "sent": 74,
+      "hz": 20,
+      "mask": "0x0015",
+      "send_stats": {
+        "n": 73,
+        "p50_ms": 50.0,
+        "p95_ms": 50.2,
+        "p99_ms": 50.6,
+        "max_ms": 50.6,
+        "late_ticks": 1
+      },
+      "mode": "arms",
+      "vr_motion_scale": 1.0,
+      "vr_motion_scale_text": "普通",
+      "b_long_press_s": 2.0,
+      "vr_buttons": {
+        "available": true,
+        "valid": 15,
+        "pressed": 0,
+        "valid_names": [
+          "A",
+          "B",
+          "X",
+          "Y"
+        ],
+        "pressed_names": [],
+        "bits": {
+          "A": {
+            "valid": true,
+            "pressed": false
+          },
+          "B": {
+            "valid": true,
+            "pressed": false
+          },
+          "X": {
+            "valid": true,
+            "pressed": false
+          },
+          "Y": {
+            "valid": true,
+            "pressed": false
+          }
+        },
+        "fresh": true,
+        "age_ms": 3,
+        "revision": 1
+      },
+      "base": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "active": false,
+        "reason": "未在底盘模式（按 Y 切换）",
+        "sent": 0
+      },
+      "target": "192.168.137.1:54321",
+      "reason": "未开始",
+      "error": null,
+      "ik": null,
+      "vr": false,
+      "vr_info": "",
+      "move": null,
+      "move_seq": 1,
+      "move_result": {
+        "right": null,
+        "left": {
+          "seq": 1,
+          "which": "vla_exact_test",
+          "state": "done",
+          "message": "左臂精确网格受控运动已完成（已到位并释放）",
+          "sent_at": 1793453338.0410087,
+          "finished_at": 1793453341.755568
+        }
+      },
+      "transfer": {
+        "task_id": null,
+        "state": "idle",
+        "stage": "idle",
+        "source": null,
+        "message": "尚未执行左臂搬运",
+        "resume_vr": false,
+        "updated_at": 1793453264.692741
+      },
+      "right": [
+        0.1514,
+        0.2885,
+        0.2659
+      ],
+      "right_target_point": "j5",
+      "right_rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "joints": [
+        -0.6981,
+        1.6057,
+        -0.8552,
+        -1.0243,
+        -0.9697,
+        0.6583
+      ],
+      "calib": {
+        "right": {
+          "t": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "yaw": 0.0,
+          "s": 0.0
+        },
+        "left": {
+          "t": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "yaw": 0.0,
+          "s": 0.0
+        }
+      },
+      "remaining": 0,
+      "left": {
+        "active": false,
+        "joints_deg": [
+          38.79,
+          87.5,
+          -49.43,
+          63.2,
+          -55.16,
+          -47.38
+        ],
+        "target": [
+          -0.1556,
+          0.1936,
+          0.2384
+        ],
+        "target_point": "j5",
+        "rpy_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "grip": 0.0,
+        "vr": false,
+        "vr_info": "定点动作完成：锚点清空",
+        "move": null,
+        "reason": "左臂精确网格受控运动已完成（已到位并释放）"
+      }
+    },
+    "safety": {
+      "epoch": "94dc8720f44f4078985ebd0319a55375",
+      "stopped": false,
+      "pending": false,
+      "results": {
+        "base": "正在提交零速断使能",
+        "arms": "正在撤销双臂和 VR 会话"
+      }
+    }
+  },
+  "after": {
+    "ok": true,
+    "joints_deg": [
+      38.73,
+      86.75,
+      -49.85,
+      62.97,
+      -55.58,
+      -47.38
+    ]
+  },
+  "released": true,
+  "actual_fk": {
+    "before_xyz_m": [
+      -0.1551637618928659,
+      0.19305378710951293,
+      0.24308769651688944
+    ],
+    "after_xyz_m": [
+      -0.1545570451955242,
+      0.192711853367601,
+      0.2932808303660619
+    ],
+    "delta_m": [
+      0.0006067166973416915,
+      -0.00034193374191193726,
+      0.050193133849172455
+    ]
+  }
+}

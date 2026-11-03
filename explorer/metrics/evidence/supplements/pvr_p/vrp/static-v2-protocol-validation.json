@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "scene_id": "20261030t153351z-60940b9a-static-dense-v2",
+  "full_points": 39707841,
+  "tile_points": 39707841,
+  "blocks": 1219,
+  "coarse_points": 117299,
+  "coarse_gzip_bytes": 1642373,
+  "full_gzip_bytes": 521544138,
+  "maximum_block_raw_bytes": 983040,
+  "cases": [
+    {
+      "center": [
+        -4,
+        1.6,
+        1
+      ],
+      "near_blocks": 66,
+      "actual_points_inside_3m": 666205,
+      "candidate_points": 1829947,
+      "pending_gzip_bytes": 23957496
+    },
+    {
+      "center": [
+        -4.8,
+        1.6,
+        0.2
+      ],
+      "near_blocks": 65,
+      "actual_points_inside_3m": 682417,
+      "candidate_points": 1864370,
+      "pending_gzip_bytes": 24312257
+    },
+    {
+      "center": [
+        -7,
+        1.6,
+        -1
+      ],
+      "near_blocks": 60,
+      "actual_points_inside_3m": 649159,
+      "candidate_points": 1649814,
+      "pending_gzip_bytes": 21260849
+    }
+  ],
+  "checks": [
+    "auth",
+    "single-byte-range",
+    "reconnect-resume",
+    "etag-mismatch",
+    "invalid-range",
+    "cached-block-dedup",
+    "invalid-scene",
+    "nan-pose",
+    "exhaustive-3m-coverage",
+    "all-block-sha256",
+    "all-block-lossless-gzip"
+  ],
+  "quest_test": false,
+  "relay_test": false,
+  "timestamp": 1793386576.6484942
+}

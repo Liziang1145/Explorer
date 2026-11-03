@@ -1,0 +1,6 @@
+PASS VCU_INIT_i/eth2_recovery_reset/peripheral_aresetn[0] -> VCU_INIT_i/pl_eth2/s_axi_lite_resetn
+PASS VCU_INIT_i/eth2_recovery_reset/peripheral_aresetn[0] -> VCU_INIT_i/eth_dma2/axi_resetn
+PASS port2 isolated from port3
+PASS VCU_INIT_i/eth3_recovery_reset/peripheral_aresetn[0] -> VCU_INIT_i/pl_eth3/s_axi_lite_resetn
+PASS VCU_INIT_i/eth3_recovery_reset/peripheral_aresetn[0] -> VCU_INIT_i/eth_dma3/axi_resetn
+PASS port3 isolated from port2

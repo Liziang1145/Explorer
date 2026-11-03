@@ -1,0 +1,86 @@
+[
+  {
+    "path": "/api/v1/core-metrics/status",
+    "file": "已登录_api__v1__core-metrics__status.json",
+    "status": 200,
+    "bytes": 2387795,
+    "sha256": "daa184c5dea7b9ce65f480cd08a66e5e5fdafdeaea68c91e43d53bdb44ca0adc"
+  },
+  {
+    "path": "/api/v1/core-metrics/vla/status",
+    "file": "已登录_api__v1__core-metrics__vla__status.json",
+    "status": 200,
+    "bytes": 112337,
+    "sha256": "2ba6d03d29601d68226fcebd55107f02bd5ce971528cbc3b2e9f793d58a539d8"
+  },
+  {
+    "path": "/api/v1/submissions/queues?kind=code",
+    "file": "已登录_api__v1__submissions__queues_kind_code.json",
+    "status": 200,
+    "bytes": 1318,
+    "sha256": "9e781381ad992a37289fc5498a1841f413e154a003e6eac77ca9c5dceb75c379"
+  },
+  {
+    "path": "/api/v1/submissions/entries?queue=vr&kind=code&limit=10&offset=0",
+    "file": "已登录_api__v1__submissions__entries_queue_vr_kind_code_limit_10_offset_0.json",
+    "status": 200,
+    "bytes": 803,
+    "sha256": "50b39f30273d73c902ba2eee11686452d1cc56afd8bb0655803bf73eb62a1ac5"
+  },
+  {
+    "path": "/api/v1/submissions/entries?queue=ground&kind=code&limit=10&offset=0",
+    "file": "已登录_api__v1__submissions__entries_queue_ground_kind_code_limit_10_offset_0.json",
+    "status": 200,
+    "bytes": 810,
+    "sha256": "2ee56550148d55e65f85ab18ae0da7ba91f8f15ea4d58ee4f609d31386c66e54"
+  },
+  {
+    "path": "/api/v1/submissions/entries?queue=aipc-general&kind=code&limit=10&offset=0",
+    "file": "已登录_api__v1__submissions__entries_queue_aipc-general_kind_code_limit_10_offset_0.json",
+    "status": 200,
+    "bytes": 61,
+    "sha256": "b105b92fb38bb143f910a3e7aa174490df449958dab3b6bc9a6675d9b93a641e"
+  },
+  {
+    "path": "/hub/api/status",
+    "file": "已登录_hub__api__status.json",
+    "status": 200,
+    "bytes": 526,
+    "sha256": "10bb4a21f27a8de41a6309e9410e75f5d8703058a29af6c4be2c8e02390a2880"
+  },
+  {
+    "path": "/navigation/api/status",
+    "file": "已登录_navigation__api__status.json",
+    "status": 200,
+    "bytes": 2112,
+    "sha256": "37870466a42c446a8e175b01f2e710956f73018330f8eb78d549f343bc165bcb"
+  },
+  {
+    "path": "/navigation/api/map",
+    "file": "已登录_navigation__api__map.json",
+    "status": 200,
+    "bytes": 1358352,
+    "sha256": "91a0f836ad6a53998fd680263d4a784cbe870216bc04ecf2f8d7d13346f27474"
+  },
+  {
+    "path": "/navigation/api/replays",
+    "file": "已登录_navigation__api__replays.json",
+    "status": 200,
+    "bytes": 134,
+    "sha256": "6b6e45efa3868f442b7edb88aceeaf1a603bb373e969532ddf456e2969fcf3d5"
+  },
+  {
+    "path": "/hub/api/drive/status",
+    "file": "已登录_hub__api__drive__status.json",
+    "status": 200,
+    "bytes": 5224,
+    "sha256": "6da608eee133f2cc7e6b666efb4a55a3642c45d7ad94bb095eb8ec2773c3f3c6"
+  },
+  {
+    "path": "/hub/api/drive/logs",
+    "file": "已登录_hub__api__drive__logs.json",
+    "status": 200,
+    "bytes": 1033631,
+    "sha256": "be51b49ae12a704e961792955e15ba479911103c6f7387035818564d4b87ad91"
+  }
+]

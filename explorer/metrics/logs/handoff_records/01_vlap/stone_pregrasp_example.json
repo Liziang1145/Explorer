@@ -1,0 +1,64 @@
+{
+  "ok": true,
+  "read_only": true,
+  "execution_enabled": false,
+  "target": {
+    "input_frame": "B: X右/Y前/Z上，底盘顶面中心，m；参考点为J7夹爪中心",
+    "reference_j7_b_m": [
+      -0.1718,
+      0.7798,
+      0.101
+    ],
+    "pregrasp_height_m": 0.1,
+    "pregrasp_j7_b_m": [
+      -0.1718,
+      0.7798,
+      0.201
+    ],
+    "pregrasp_j5_b_m": [
+      -0.1718,
+      0.6273000000000001,
+      0.201
+    ],
+    "arm_base_b_m": [
+      -0.15255,
+      0.18375,
+      0.005
+    ],
+    "pregrasp_j7_arm_m": [
+      -0.019250000000000017,
+      0.5960500000000001,
+      0.196
+    ],
+    "pregrasp_j5_arm_m": [
+      -0.019250000000000017,
+      0.4435500000000001,
+      0.196
+    ],
+    "direction_b": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "roll_rad": 0.0,
+    "side": "left"
+  },
+  "intent_preview_not_sent": {
+    "intent": "tcp_dir_abs",
+    "side": "left",
+    "p1": [
+      -1.9250000000000016,
+      59.60500000000001,
+      19.6
+    ],
+    "direction": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "theta": 0.0,
+    "client": "stone-grasp-trial-preview-only",
+    "safety_epoch": "NOT_PROVIDED_PREVIEW_ONLY"
+  },
+  "warning": "仅坐标换算；尚未进行IK、碰撞检查或实机验收"
+}

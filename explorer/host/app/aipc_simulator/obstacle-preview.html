@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>双臂与支架 · 障碍物核对</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f6fa;color:#182b42;font:15px/1.6 system-ui,"Microsoft YaHei",sans-serif}main{max-width:1500px;margin:32px auto;padding:0 24px}header{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}h1{font-size:28px;margin:4px 0}h2{font-size:18px;margin:0 0 14px}.eyebrow{color:#506b88;font-size:12px;letter-spacing:2px}.muted{color:#62758b}header p{margin:4px 0}.pill{background:#e7edf8;padding:6px 12px;border-radius:20px;font-size:13px;white-space:nowrap}.layout{display:grid;grid-template-columns:minmax(0,1fr) 365px;gap:20px}.card{background:#fff;border:1px solid #dbe3ec;border-radius:16px;padding:22px}.toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}button,select{font:inherit;border:1px solid #cbd7e5;border-radius:8px;background:white;padding:7px 12px;cursor:pointer;color:#243d5e}button:hover{background:#edf3fc}button.active{background:#2c568f;color:white;border-color:#2c568f}canvas{display:block;width:100%;height:570px;touch-action:none;cursor:grab}.legend{display:flex;gap:22px;flex-wrap:wrap;font-size:13px}.swatch{display:inline-block;width:20px;height:4px;vertical-align:middle;margin-right:6px;background:#7746bb}.arm{background:#de8b24}.left-arm{background:#2283bd}.candidate{background:#139579}.note{background:#f7f4fd;border-left:3px solid #7746bb;padding:12px 14px;margin-top:18px}table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}td,th{text-align:right;border-bottom:1px solid #e5ebf2;padding:10px 3px}td:first-child,th:first-child{text-align:left}th{font-size:13px;color:#6a7c91}input[type=checkbox]{accent-color:#2c568f}input[type=number]{width:62px;padding:5px 4px;border:1px solid #dbe3ec;border-radius:5px;font:inherit;text-align:right}ul{padding-left:20px}.foot{font-size:13px;margin-top:12px}.coords{margin:0;font-size:14px}.row{margin-top:16px}#status{min-height:24px;color:#6a4797}@media(max-width:1000px){.layout{grid-template-columns:1fr}canvas{height:480px}.card{padding:16px}main{padding:0 12px;margin:18px auto}header{align-items:flex-start}.pill{display:none}} 
+</style><main>
+<header><div><div class="eyebrow">GEOMETRY REVIEW · 03</div><h1>双臂与支架 · 障碍物核对</h1><p class="muted">原点：左臂底座　·　单位：厘米　·　X 向右 / Y 向前 / Z 向上</p></div><span class="pill">独立几何演示</span></header>
+<div class="layout"><section class="card"><div class="toolbar"><button class="active" data-view="iso">立体视图</button><button data-view="top">俯视 XY</button><button data-view="front">正视 XZ</button><button data-view="side">右侧视 YZ</button><button id="reset-view">重置视角</button></div>
+<canvas id="scene" aria-label="左右臂底座与支架三维几何示意"></canvas>
+<div class="legend"><span><i class="swatch"></i>支架：1–3 / 2–3 / 3–4</span><span><i class="swatch left-arm"></i>左臂参照骨架</span><span><i class="swatch arm"></i>右臂参照骨架</span><span><i class="swatch candidate"></i>候选门形架</span><span>网格间距 10 cm</span></div><p class="muted foot">拖动旋转，滚轮缩放。节点标签显示厘米坐标。正交视图中重合的节点会自然重叠。</p>
+</section><aside class="card"><h2>方案对比</h2><label><input id="show-current" type="checkbox" checked> 现有支架（紫色）</label><br><label><input id="show-candidate" type="checkbox" checked> 后置门形架（绿色）</label>
+<div class="note">候选示意：两根后置立柱＋顶部横梁＋后侧斜撑。参数为初步设想，尚未验证底盘安装空间、视场与承载。</div>
+<div class="row"><label>横梁高度 <input id="portal-height" type="number" min="30" max="100" step="1" value="45"> cm</label></div>
+<div class="row"><label>底座后移 <input id="portal-back" type="number" min="20" max="70" step="1" value="31"> cm</label></div>
+<p class="muted foot">立柱间距暂为 31 cm，与双臂底座间距一致；后侧斜撑脚再后移 10 cm。横梁中点标示传感器安装区，未假设相机与雷达的具体尺寸或视场。</p><h2 class="row">底座位置（厘米）</h2><p class="coords">左臂：<b>(0, 0, 0)</b><br>右臂：<b>(31, 0, 0)</b><br>右臂位于左臂右侧 31 cm，同前后、同高度。</p><h2 class="row">支架节点 · 相对左臂底座</h2><p class="muted coords">后方为 Y 负值，前方为 Y 正值。</p><table><thead><tr><th>节点</th><th>X 右</th><th>Y 前</th><th>Z 上</th></tr></thead><tbody id="points"></tbody></table>
+<div class="row"><button id="restore">恢复给定坐标</button></div><p class="muted foot">可直接编辑坐标核对；改动仅保留在当前页面。</p>
+<h2 class="row">连接关系</h2><div id="lengths"></div><div class="note">仅建立 1–3、2–3、3–4 三根杆。没有添加 1–2 横杆，也没有填充三角面。</div>
+<div class="row"><label><input id="show-left" type="checkbox" checked> 显示左臂参照</label>　<label><input id="show-right" type="checkbox" checked> 显示右臂参照</label></div><div class="row"><select id="pose" aria-label="双臂参照姿态"><option value="zero">Z 字位置（六轴 0°）</option><option value="default">各自默认目标姿态</option></select></div>
+<p class="muted foot">双臂使用各自现有预览姿态；底座坐标轴暂按同向绘制，右臂沿 X 平移 31 cm。这里显示选定姿态，不读取实机反馈。</p><p id="status"></p><p class="muted foot">支架线宽仅用于显示。杆径、接头尺寸和避碰余量待确认；本页用于核对几何，尚未接入碰撞检测。</p>
+</aside></div></main><script>
+const $=id=>document.getElementById(id);
+const original=[[0,-31,0],[31,-31,0],[16,-16,16],[16,4,30]],edges=[[0,2],[1,2],[2,3]];let points=original.map(p=>p.slice());
+ const OFF=[0,0,0]; // FK local origin is each arm base. Scene units are cm.
+ const FR=[[0,-1,0],[1,0,0],[0,0,1]];
+ const _rt=(x,y,z,r,p,yy)=>{const cr=Math.cos(r),sr=Math.sin(r),cp=Math.cos(p),sp=Math.sin(p),cy=Math.cos(yy),sy=Math.sin(yy);
+   const Rx=[[1,0,0],[0,cr,-sr],[0,sr,cr]],Ry=[[cp,0,sp],[0,1,0],[-sp,0,cp]],Rz=[[cy,-sy,0],[sy,cy,0],[0,0,1]];
+   const m=(a,b)=>a.map((row,i)=>b[0].map((_,j)=>row[0]*b[0][j]+row[1]*b[1][j]+row[2]*b[2][j]));
+   return {R:m(m(Rz,Ry),Rx),t:[x,y,z]};};
+ const DTF=[_rt(0,0,0.123,0,0,0),_rt(0,0,0,Math.PI/2,-0.1359,-Math.PI),_rt(0.28503,0,0,0,0,-1.7939),_rt(-0.021984,-0.25075,0,Math.PI/2,0,0),_rt(0,0,0,-Math.PI/2,0,0),_rt(0,-0.091,0,Math.PI/2,0,0)];
+ const BASE={R:[[1,0,0],[0,1,0],[0,0,1]],t:[0,0,0]};
+ const mm=(a,b)=>a.map((row,i)=>b[0].map((_,j)=>row[0]*b[0][j]+row[1]*b[1][j]+row[2]*b[2][j]));
+ const mv=(a,v)=>[a[0][0]*v[0]+a[0][1]*v[1]+a[0][2]*v[2],a[1][0]*v[0]+a[1][1]*v[1]+a[1][2]*v[2],a[2][0]*v[0]+a[2][1]*v[1]+a[2][2]*v[2]];
+ const TLO=[-0.5,-0.1,-0.25],THI=[0.5,0.55,0.6];
+ function fkPos(q){let R=BASE.R,t=BASE.t;for(let i=0;i<6;i++){const tt=mv(R,DTF[i].t);t=[t[0]+tt[0],t[1]+tt[1],t[2]+tt[2]];R=mm(mm(R,DTF[i].R),_rt(0,0,0,0,0,q[i]).R);}return mv(FR,t);}
+
+ function fkAll(q){let R=[[1,0,0],[0,1,0],[0,0,1]],t=[0,0,0];const P=[t.slice()];for(let i=0;i<6;i++){const tt=mv(R,DTF[i].t);t=[t[0]+tt[0],t[1]+tt[1],t[2]+tt[2]];P.push(t.slice());R=mm(mm(R,DTF[i].R),_rt(0,0,0,0,0,q[i]).R);}return P.map(p=>{const u=mv(FR,p);return[u[0]-OFF[0],u[1]-OFF[1],u[2]-OFF[2]];});}
+
+const canvas=$('scene'),ctx=canvas.getContext('2d');let yaw=.7,elev=.55,zoom=1,drag=null,view='iso';
+function setView(v){view=v;const angles={iso:[.7,.55],top:[0,Math.PI/2],front:[0,0],side:[Math.PI/2,0]};[yaw,elev]=angles[v];document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===v));draw();}
+function proj(p){const c=Math.cos(yaw),s=Math.sin(yaw),ce=Math.cos(elev),se=Math.sin(elev),x=c*p[0]-s*p[1],depth=s*p[0]+c*p[1];const scale=Math.min(canvas.clientWidth/105,canvas.clientHeight/90)*zoom;return [canvas.clientWidth*.43+x*scale,canvas.clientHeight*.60-(p[2]*ce+depth*se)*scale,depth*ce-p[2]*se];}
+function line(a,b,color,width,dash=[]){const x=proj(a),y=proj(b);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.setLineDash(dash);ctx.beginPath();ctx.moveTo(x[0],x[1]);ctx.lineTo(y[0],y[1]);ctx.stroke();ctx.setLineDash([]);}
+function label(p,text,color,dy=0){const q=proj(p);ctx.font='600 13px system-ui';ctx.lineWidth=4;ctx.strokeStyle='white';ctx.strokeText(text,q[0]+10,q[1]-10+dy);ctx.fillStyle=color;ctx.fillText(text,q[0]+10,q[1]-10+dy);}
+function dot(p,color,r=6){const q=proj(p);ctx.beginPath();ctx.arc(q[0],q[1],r,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();ctx.strokeStyle='white';ctx.lineWidth=2;ctx.stroke();}
+function draw(){const ratio=devicePixelRatio||1;canvas.width=Math.round(canvas.clientWidth*ratio);canvas.height=Math.round(canvas.clientHeight*ratio);ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);ctx.lineCap='round';
+for(let n=-50;n<=50;n+=10){line([n,-50,0],[n,50,0],'#e0e7ef',1);line([-50,n,0],[50,n,0],'#e0e7ef',1);}
+[[[40,0,0],'#d34848','+X 右'],[[0,40,0],'#269461','+Y 前'],[[0,0,45],'#297dc0','+Z 上']].forEach(([p,c,t])=>{line([0,0,0],p,c,2);label(p,t,c);});
+line([0,0,0],[0,-45,0],'#94a3b8',1,[4,4]);label([0,-45,0],'后方 −Y','#64748b');
+for(const spec of [{side:'left',name:'左',base:[0,0,0],color:'#2283bd',degrees:[38.8,93.8,-43.2,57.2,-60.4,-35.8]},{side:'right',name:'右',base:[31,0,0],color:'#de8b24',degrees:[-40,92,-49,-58.6866,-55.5593,37.7190]}]){
+ if(!$('show-'+spec.side).checked)continue;
+ const q=($('pose').value==='zero'?[0,0,0,0,0,0]:spec.degrees).map(n=>n*Math.PI/180);
+ const arm=fkAll(q).map(p=>p.map((n,i)=>n*100+spec.base[i]));
+ for(let i=1;i<arm.length;i++)line(arm[i-1],arm[i],spec.color,4);
+ arm.forEach((p,i)=>{dot(p,spec.color,4);if(i>0)label(p,spec.name+' J'+i,spec.color,i%2?0:15);});
+}
+line([0,0,0],[31,0,0],'#64748b',1.5,[4,4]);label([15.5,0,0],'底座间距 31 cm','#64748b',44);
+if($('show-current').checked){
+edges.slice().sort((a,b)=>(proj(points[a[0]])[2]+proj(points[a[1]])[2])-(proj(points[b[0]])[2]+proj(points[b[1]])[2])).forEach(([a,b])=>{line(points[a],points[b],'#fff',11);line(points[a],points[b],'#7746bb',7);});
+points.forEach((p,i)=>{dot(p,'#7746bb',7);label(p,'P'+(i+1)+' ('+p.join(', ')+')','#63359b',i===0?15:0);});}
+if($('show-candidate').checked){
+ const h=Number($('portal-height').value),back=Number($('portal-back').value);
+ if(Number.isFinite(h)&&h>=30&&h<=100&&Number.isFinite(back)&&back>=20&&back<=70){
+  const nodes=[[0,-back,0],[31,-back,0],[0,-back,h],[31,-back,h],[0,-back-10,0],[31,-back-10,0]];
+  [[0,2],[1,3],[2,3],[4,2],[5,3]].forEach(([a,b])=>line(nodes[a],nodes[b],'#139579',5));
+  nodes.forEach(p=>dot(p,'#139579',4));
+  const mount=[15.5,-back,h];dot(mount,'#139579',8);label(mount,'传感器安装区（候选）','#08735b');
+  label(nodes[2],'横梁高 '+h+' cm','#08735b',-20);
+ }
+}
+dot([0,0,0],'#2283bd',7);label([0,0,0],'左底座 O (0, 0, 0)','#17608b',25);dot([31,0,0],'#de8b24',7);label([31,0,0],'右底座 (31, 0, 0)','#9c621e',25);}
+function lengths(){$('lengths').textContent=edges.map(([a,b])=>`${a+1}–${b+1}：${Math.hypot(...points[a].map((n,i)=>n-points[b][i])).toFixed(2)} cm`).join('　');}
+function renderInputs(){$('points').replaceChildren();points.forEach((p,i)=>{const row=document.createElement('tr'),name=document.createElement('td');name.textContent='P'+(i+1);row.append(name);p.forEach((v,j)=>{const cell=document.createElement('td'),input=document.createElement('input');input.type='number';input.step='.1';input.value=v;input.setAttribute('aria-label',`P${i+1} ${'XYZ'[j]} 厘米`);input.oninput=()=>{const n=Number(input.value);if(input.value===''||!Number.isFinite(n)){$('status').textContent='请输入有效坐标';return;}points[i][j]=n;$('status').textContent='已更新本页几何';lengths();draw();};cell.append(input);row.append(cell);});$('points').append(row);});lengths();}
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));$('reset-view').onclick=()=>{zoom=1;setView('iso');};$('restore').onclick=()=>{points=original.map(p=>p.slice());renderInputs();draw();$('status').textContent='已恢复给定坐标';};$('pose').onchange=$('show-left').onchange=$('show-right').onchange=draw;$('show-current').onchange=$('show-candidate').onchange=draw;for(const id of ['portal-height','portal-back'])$(id).oninput=()=>{const h=Number($('portal-height').value),b=Number($('portal-back').value);$('status').textContent=h>=30&&h<=100&&b>=20&&b<=70?'候选尺寸已更新':'请输入高度 30–100 cm、后移 20–70 cm';draw();};
+canvas.onpointerdown=e=>{if(e.button!==0)return;drag=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId);};canvas.onpointermove=e=>{if(!drag)return;yaw+=(e.clientX-drag[0])*.008;elev=Math.max(-1.4,Math.min(Math.PI/2,elev+(e.clientY-drag[1])*.008));drag=[e.clientX,e.clientY];document.querySelectorAll('[data-view]').forEach(b=>b.classList.remove('active'));draw();};canvas.onpointerup=canvas.onpointercancel=canvas.onlostpointercapture=()=>drag=null;canvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.4,Math.min(3,zoom*Math.exp(-e.deltaY*.001)));draw();},{passive:false});addEventListener('resize',draw);renderInputs();draw();
+</script></html>

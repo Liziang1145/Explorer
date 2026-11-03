@@ -1,0 +1,19 @@
+[
+  "/components/can_path0/ports/debug_bus",
+  "/components/can_path0/ports/irq_control/parameters",
+  "/components/can_path0/ports/irq_control/type",
+  "/components/can_path0/ports/irq_native/parameters",
+  "/components/can_path0/ports/irq_native/type",
+  "/components/can_path1/ports/debug_bus",
+  "/components/can_path1/ports/irq_control/parameters",
+  "/components/can_path1/ports/irq_control/type",
+  "/components/can_path1/ports/irq_native/parameters",
+  "/components/can_path1/ports/irq_native/type",
+  "/components/ila_can_lifecycle0",
+  "/components/ila_can_lifecycle1",
+  "/design_tree/ila_can_lifecycle0",
+  "/design_tree/ila_can_lifecycle1",
+  "/nets/can_path0_debug_bus",
+  "/nets/can_path1_debug_bus",
+  "/nets/zynq_ultra_ps_e_0_pl_clk0/ports"
+]

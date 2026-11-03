@@ -1,0 +1,57 @@
+
+plugins {
+    id 'com.android.application' version '8.1.4'
+}
+
+android {
+
+    compileSdk 34
+    ndkVersion "23.2.8568313"
+    buildToolsVersion = "34.0.0"
+    namespace 'org.khronos.openxr.cloud_demo'
+
+    defaultConfig {
+        applicationId "org.khronos.openxr.cloud_demo"
+        // for Vulkan, need at least 24
+        minSdkVersion 24
+        // versionName = project.versionOpenXR.toString() + project.versionQualifier
+        // versionCode = project.versionOpenXR.getVersionCode()
+        resValue "string", "app_name", "cloud_demo"
+
+        ndk {
+            abiFilters "arm64-v8a"
+        }
+
+        externalNativeBuild {
+            cmake {
+                arguments '-DBUILD_API_LAYERS=OFF',
+                        '-DBUILD_TESTS=ON',
+                        '-DBUILD_LOADER=ON',
+                        '-DBUILD_CONFORMANCE_TESTS=OFF',
+                        '-DBUILD_ALL_EXTENSIONS=ON'
+                targets "openxr_loader", "cloud_demo"
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            // res.srcDir 'android_resources'
+            jniLibs.srcDirs = ['third_party/dynamic']
+            assets.srcDirs = ['android_resources']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    externalNativeBuild {
+       cmake {
+            path "${rootProject.projectDir}/CMakeLists.txt"
+        }
+    }
+}

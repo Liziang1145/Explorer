@@ -1,0 +1,171 @@
+{
+  "captured_utc": "2026-11-02T13:18:29Z",
+  "hostname": "apex",
+  "kernel": "7.0.0-38-generic",
+  "architecture": "x86_64",
+  "versions": {
+    "aiohttp": "3.13.3",
+    "psutil": "7.1.0",
+    "firefox": [
+      "Mozilla Firefox 149.0.2"
+    ],
+    "weston": [
+      "weston 14.0.2"
+    ],
+    "ffmpeg": [
+      "ffmpeg version 8.0.1-3ubuntu2 Copyright (c) 2000-2025 the FFmpeg developers"
+    ]
+  },
+  "units_loaded": {
+    "ground-display": "ActiveState=active\nSubState=running\nFragmentPath=/etc/systemd/system/ground-display.service\nDropInPaths=\nUnitFileState=enabled\nNeedDaemonReload=yes\nMainPID=5581\nExecStart={ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 /usr/local/lib/ground-display/server.py ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\n",
+    "tlz-display": "ActiveState=active\nSubState=running\nFragmentPath=/etc/systemd/system/tlz-display.service\nDropInPaths=\nUnitFileState=enabled\nNeedDaemonReload=yes\nMainPID=5594\nExecStart={ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 /usr/local/lib/tlz-kiosk/session.py ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\n",
+    "tlz-kiosk-auth": "ActiveState=active\nSubState=running\nFragmentPath=/etc/systemd/system/tlz-kiosk-auth.service\nDropInPaths=\nUnitFileState=enabled\nNeedDaemonReload=yes\nMainPID=5244\nExecStart={ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 /usr/local/lib/tlz-kiosk/auth.py ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\n",
+    "tlz-display-watch": "ActiveState=active\nSubState=running\nFragmentPath=/etc/systemd/system/tlz-display-watch.service\nDropInPaths=\nUnitFileState=enabled\nNeedDaemonReload=yes\nMainPID=5272\nExecStart={ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 /usr/local/lib/tlz-kiosk/watch.py ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\n",
+    "ground-legacy-entry": "ActiveState=active\nSubState=running\nFragmentPath=/etc/systemd/system/ground-legacy-entry.service\nDropInPaths=\nUnitFileState=enabled\nNeedDaemonReload=yes\nMainPID=5254\nExecStart={ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 /usr/local/lib/ground-display/legacy_entry.py ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\n",
+    "ground-network-retry.timer": "ActiveState=active\nSubState=waiting\nFragmentPath=/etc/systemd/system/ground-network-retry.timer\nDropInPaths=\nUnitFileState=enabled\nNeedDaemonReload=yes\n"
+  },
+  "health": {
+    "ok": true,
+    "role": "read-only-ground-display",
+    "protocol": "TLZ/2.0",
+    "hotspot_enabled": false
+  },
+  "login_http": 200,
+  "display": {
+    "state": {
+      "layout": "custom",
+      "leftPercent": 33,
+      "video": "auto",
+      "hud": true,
+      "view": {
+        "azimuth": -0.09240039062500019,
+        "elevation": 0.7572000427246095,
+        "radius": 14,
+        "center": [
+          0,
+          0,
+          0
+        ]
+      },
+      "revision": 100,
+      "streamRevision": 2,
+      "panels": [
+        "camera1",
+        "camera2",
+        "camera3",
+        "camera4",
+        "camera",
+        "vr"
+      ],
+      "updated_at": 1793464669.6078835
+    },
+    "physical": {
+      "revision": 100,
+      "layout": "custom",
+      "video": "auto",
+      "visibility": "visible",
+      "camera": {
+        "kind": "camera",
+        "supported": true,
+        "ready": true,
+        "width": 1280,
+        "height": 720,
+        "frames": 103233,
+        "dropped": 33,
+        "fps": 30,
+        "frame_age_ms": 4,
+        "restarts": 89873,
+        "buffer": 0.12703200000032666,
+        "error": ""
+      },
+      "depth": {
+        "fps": 0,
+        "ready": false,
+        "frame_age_ms": null,
+        "mode": "waiting"
+      },
+      "vr": {
+        "fps": 0,
+        "ready": false
+      },
+      "camera1": {
+        "stalled": false,
+        "buffer": 0.36666699999977936,
+        "drop_ratio": 0,
+        "fps": 29.990003332222592,
+        "width": 1280,
+        "height": 720,
+        "quality": "native",
+        "bitrate": 1929783.4055314895,
+        "frames": 80716,
+        "ready": true,
+        "frame_age_ms": 994
+      },
+      "camera2": {
+        "stalled": false,
+        "buffer": 0.08118999999987864,
+        "drop_ratio": 0,
+        "fps": 29.990003332222592,
+        "width": 1408,
+        "height": 1376,
+        "quality": "native",
+        "bitrate": 4001978.00733089,
+        "frames": 103081,
+        "ready": true,
+        "frame_age_ms": 994
+      },
+      "camera3": {
+        "stalled": false,
+        "buffer": 0.08951999999999316,
+        "drop_ratio": 0,
+        "fps": 29.656781072975676,
+        "width": 1920,
+        "height": 1088,
+        "quality": "native",
+        "bitrate": 4338073.975341553,
+        "frames": 102672,
+        "ready": true,
+        "frame_age_ms": 994
+      },
+      "camera4": {
+        "stalled": false,
+        "buffer": 0.0854629999998906,
+        "drop_ratio": 0,
+        "fps": 29.656781072975676,
+        "width": 1920,
+        "height": 1088,
+        "quality": "native",
+        "bitrate": 4218777.740753083,
+        "frames": 348,
+        "ready": true,
+        "frame_age_ms": 994
+      },
+      "received": 174700.467711323,
+      "age_ms": 98
+    }
+  },
+  "links": {
+    "snapshot": {
+      "age_ms": 293.59,
+      "error": null,
+      "rtt_ms": 7.08
+    },
+    "operator": {
+      "age_ms": 87.36,
+      "error": null,
+      "rtt_ms": 2.49
+    },
+    "media-status": {
+      "age_ms": 293.4,
+      "error": null,
+      "rtt_ms": 7.54
+    }
+  },
+  "vr": {
+    "reachable": false,
+    "host": "192.168.137.115",
+    "relay": "AIPC",
+    "receiver_policy_revision": 2,
+    "stream_generation": 39
+  }
+}

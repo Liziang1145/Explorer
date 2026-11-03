@@ -1,0 +1,117 @@
+[
+  {
+    "path": "long_capture/workbench_adapter.py",
+    "sha256": "5d6c186ca421c341f4da0e90bb4e36361885095f18c897425653c19eb8d364f8",
+    "before_sha256": "f196fecb894767f0034b59b1243c7609d5b6ead88219272c479e1976b293a364"
+  },
+  {
+    "path": "md-service/mapping_gateway.py",
+    "sha256": "ce00b0240e154bc6721dd4eba91c149aee442e7fa4b9fdaf75899abed8bbaee5",
+    "before_sha256": "7325af3ccd67f343dd706b8ad4c5178879ebbb326331b8c65b4e566cbf6e1356"
+  },
+  {
+    "path": "monitor_hub/evidence_store.py",
+    "sha256": "1195c88669a7b63fc0457bc42e58e444ac0d8705649b54fdb60af11335100daa",
+    "before_sha256": "3a5b6187a9de370dd38e4ad728e9af8de6f56d26920705515fd4605676857621"
+  },
+  {
+    "path": "monitor_hub/evidence_tasks.py",
+    "sha256": "43d4ff148a1dc8ec5a92bc98ca21684e31e9f12609f745076901009c2005d9e5",
+    "before_sha256": "c4f9129378957d4f4d32958e0fdf935a01aa61ed64847d5c1dd4c022e40b78c2"
+  },
+  {
+    "path": "monitor_hub/scene_tasks.py",
+    "sha256": "607d4676fc08f234006011c8dee6a2e13a55153361b71a2cd3f365aa4b1454c6",
+    "before_sha256": "0e0b68a129efddc012be0fbe98c83c9e26bc35e82d9910ee3aaf831aed81af5e"
+  },
+  {
+    "path": "monitor_hub/server.py",
+    "sha256": "478b326137d390068a85595fc33a15146e3cbf520b3427cbf894e3c8b92fc7af",
+    "before_sha256": "41b939e758d20296d97fc2e606230b7b04c980a96c2fd685c917398b46372296"
+  },
+  {
+    "path": "md-service/public/map-pipeline.js",
+    "sha256": "5b4308feaf2f67f8eb84c60ae73dd695288e700c1b6fe1bc1de7a7c2d1f6987c",
+    "before_sha256": "fc27e70b08749041dd66fc15d552971deafe340ca518a0d4cb3e8b4dcdc07842"
+  },
+  {
+    "path": "md-service/public/monitor-semantic.html",
+    "sha256": "4a10f9c8c750b5afce84f78ece7a9d2b874ae2e3aa9ee7428f18f72a4a55a410",
+    "before_sha256": "c53791a1d3b5528d270109645bfc329ba1b12c15374e846a357c34fd2d8e8249"
+  },
+  {
+    "path": "md-service/public/semantic-current.js",
+    "sha256": "58195dcc57935f14186e9ea8ecfc47dc792cb7c19484470bb45fe634a719be99",
+    "before_sha256": null
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/benchmark_frame.py",
+    "sha256": "8a3f6ed0ff2bd3302d225d136015e4c3cd08c8b6551500622068de84b891c2dd",
+    "before_sha256": null
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/benchmark_gpu.py",
+    "sha256": "e21bd1985823faf77569a47c8c57c33215bc986e8b89d4bb64a6135ddc28562f",
+    "before_sha256": null
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/benchmark_parallel.py",
+    "sha256": "bceb99bf48dc0b1f052cdcc375cb292e935036a105ee84aae0d4b55e551f1a1e",
+    "before_sha256": null
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/color_gpu.py",
+    "sha256": "bb0602492172464f2a257cf22f3c3637537c072eaf301d6a8ff31658641cca12",
+    "before_sha256": null
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/dense_products.py",
+    "sha256": "7cb44539039a1998beea38ec6de86da7f7fe5f26d0b453d77406b7592d7191d9",
+    "before_sha256": "e826639b67593e3d467bf1325ce2235e6aea615ee93af57239082e431bf9370b"
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/dual_color.py",
+    "sha256": "9e9ac6a36d35d932dc05f13d88705076d74b53d89e079dd5b66e0b72a6a08250",
+    "before_sha256": "1494e50950718f47d6df99b8d856d2c3ef55e3e88f2f8de2cd57b6de2bb64119"
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/launch.py",
+    "sha256": "46dc41e1535d5cef7b8d6522475a84a864ccb6f600d5b438d9c77e2d30269168",
+    "before_sha256": "6df438fd0d7b203f5029dc2c8f9d46c4183f797714c324e0cf198c7b2b272412"
+  },
+  {
+    "path": "research/fisheye_mapping_20261030/run_coloring.py",
+    "sha256": "cc5d4d31f70eab3d2584f56369c10cbe241927d627ad99bae2ceebe0c0a95561",
+    "before_sha256": null
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/build_pipeline.py",
+    "sha256": "a994f0c40359ea0103d87e67b7324d8e5a3c8b4d677756dc9a417cc4bbfe9cfd",
+    "before_sha256": "8b5a87ebbacedec45322e6458cc10599d89b2645893197e457465cb4651cf798"
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/finish_navigation.py",
+    "sha256": "a669453f214fd52e8270c6a359ee83f3f7007577ed867537d996d5e39fc5d50a",
+    "before_sha256": null
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/navigation_geometry.py",
+    "sha256": "b2ac492d81af1b609d67b324ef2283ef36ba9784a7378a7f82df3b7b78b5bea4",
+    "before_sha256": null
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/pipeline_manager.py",
+    "sha256": "1b13097c3d2e80acc627c2c468fef08d125dad44428bada84111001a5f177d0c",
+    "before_sha256": "4896c15c7081f267accccc1d9f870cc6eda646e46b43f549dbd94997b85d2e0b"
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/semantic_pipeline.py",
+    "sha256": "a31ffe2853a75316695aab2efb510bf2249b3c1f36cf84d985407a9e55d5c912",
+    "before_sha256": null
+  },
+  {
+    "path": "research/map_navigation_pipeline_20261031/test_v3.py",
+    "sha256": "ba44220c32101a071967cbc78e596f5d6f15c96312abc36d2402e86a74da8600",
+    "before_sha256": null
+  }
+]

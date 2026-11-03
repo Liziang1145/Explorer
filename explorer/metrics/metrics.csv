@@ -1,0 +1,58 @@
+metric_name,category,value,unit,measurement_condition,trials_duration,evidence_file
+closed_loop_grasp_success_rate,core,92,%,fixed workspace and existing test procedure; success = object reaches target pose,50 trials,metrics/logs/vr_latency/vla-215-reference.json
+vr_input_to_encoder_feedback_p50,system,148.08,ms,Quest input event to encoder feedback arrival; N=54 after outlier removal,54 samples,metrics/logs/vr_latency/
+vr_input_to_encoder_feedback_p95,system,175.46,ms,same as above,54 samples,metrics/logs/vr_latency/
+vr_input_to_encoder_feedback_p99,system,191.81,ms,same as above; P99 equals max in retained sample,54 samples,metrics/logs/vr_latency/
+language_to_precheck_total_p50,core,4001.88,ms,user utterance received to read-only pre-check result returned,215 requests / 11 batches,metrics/logs/vr_latency/vla-215-reference.json
+language_to_precheck_total_p95,core,4435.58,ms,same as above,215 requests,metrics/logs/vr_latency/vla-215-reference.json
+language_to_precheck_total_p99,core,4621.64,ms,same as above,215 requests,metrics/logs/vr_latency/vla-215-reference.json
+language_to_precheck_total_max,core,4722.66,ms,same as above,215 requests,metrics/logs/vr_latency/vla-215-reference.json
+precheck_completion_rate,core,100,%,215 of 215 requests completed read-only pre-check,215 requests,metrics/logs/vr_latency/vla-215-reference.json
+gpu_inference_p50,ai,20.01,ms,YOLO26m-seg on ROCm GPU batch=1 640 input,215 requests,metrics/logs/vr_latency/vla-215-reference.json
+yolo_predict_cpu_p50,ai,693.93,ms,CPU baseline yolo26m-seg 640 batch=1,100 samples,metrics/logs/latency/final_100/metrics.csv
+yolo_predict_cpu_p95,ai,821.75,ms,same as above,100 samples,metrics/logs/latency/final_100/metrics.csv
+yolo_predict_cpu_p99,ai,939.07,ms,same as above,100 samples,metrics/logs/latency/final_100/metrics.csv
+yolo_predict_cpu_max,ai,949.31,ms,same as above,100 samples,metrics/logs/latency/final_100/metrics.csv
+planning_collision_serial,control,5316.367,ms,identical input single-process FCL mesh check,1 regression,metrics/logs/planning_perf/optimization_results.json
+planning_collision_parallel4,control,1217.463,ms,identical input four-process FCL mesh check,1 regression,metrics/logs/planning_perf/optimization_results.json
+planning_collision_speedup,control,4.367,x,same trajectory and per-pose verdicts,1 regression,metrics/logs/planning_perf/optimization_results.json
+dual_arm_trajectory_before,control,10.7262,s,enhanced coupled trajectory baseline,9 offline tests,metrics/logs/planning_perf/
+dual_arm_trajectory_after,control,8.5183,s,after jerk post-processing,9 offline tests,metrics/logs/planning_perf/
+dual_arm_nonwait_reduction,control,20.77,%,non-waiting time only,9 offline tests,metrics/logs/planning_perf/
+dual_arm_jerk_violations_before,control,30,count,jerk limit violations,9 offline tests,metrics/logs/planning_perf/
+dual_arm_jerk_violations_after,control,0,count,after post-processing,9 offline tests,metrics/logs/planning_perf/
+dual_arm_min_clearance,control,2.508,cm,worst discrete margin over 4056 poses,4056 poses,metrics/logs/planning_perf/
+colored_point_cloud_full,perception,39939891,count,one recorded session full product,1 session,metrics/logs/handoff_records/
+colored_point_cloud_light_5cm,perception,579633,count,5 cm voxel light product,1 session,metrics/logs/handoff_records/
+nav_geometry_frames,perception,1969,count,5049 source frames reduced at 10 cm voxel max 5 Hz,1 session,metrics/logs/handoff_records/
+nav_geometry_points,perception,3921724,count,same session,1 session,metrics/logs/handoff_records/
+nav_holdout_rmse_a,perception,5.14,cm,hold-out scan match against same historical map; not external ground truth,2 scans,metrics/logs/handoff_records/
+nav_holdout_rmse_b,perception,5.90,cm,same as above,2 scans,metrics/logs/handoff_records/
+nav_route_length_checked,perception,13.46,m,rectangular-footprint sweep passed offline; no motion commanded,1 archived route,metrics/logs/handoff_records/
+semantic_accept_pairs,perception,840,count,845 pairs evaluated,1 session,metrics/logs/handoff_records/
+semantic_reject_pairs,perception,5,count,same as above,1 session,metrics/logs/handoff_records/
+rocm_coloring_cpu4,ai,3.860674,s,full coloring of 8 real image tasks 5M points each,8 tasks,metrics/logs/handoff_records/
+rocm_coloring_rocm2,ai,2.071080,s,same input,8 tasks,metrics/logs/handoff_records/
+rocm_coloring_speedup,ai,1.864087,x,ROCm2 vs CPU4,8 tasks,metrics/logs/handoff_records/
+tcp_uplink_throughput,comm,20.00,Mbit/s,PS TCP payload AIPC->KR260 sequential rate-limited 150 MB 60 s SHA-256 verified,1 window / 60 s,fpga/evidence/
+tcp_downlink_throughput,comm,20.00,Mbit/s,KR260->AIPC same archive round,1 window / 60 s,fpga/evidence/
+can_feedback_frames_after_recovery,comm,9120,count,FPGA_CAN0 frames received in 3 s after dual-port recovery,3 s window,metrics/logs/handoff_records/
+can_feedback_frames_other_port,comm,9130,count,FPGA_CAN1 frames received in 3 s after recovery,3 s window,metrics/logs/handoff_records/
+base_station_fps_low,comm,29.66,fps,single state snapshot RGB plus four cameras,1 snapshot,metrics/logs/handoff_records/
+base_station_fps_high,comm,30.00,fps,same snapshot,1 snapshot,metrics/logs/handoff_records/
+base_station_http_rtt,comm,7.54,ms,AIPC request range 2.49-7.54 ms same snapshot,1 snapshot,metrics/logs/handoff_records/
+fpga_wns,timing,0.082,ns,Vivado 2026.1 xck26-sfvc784 routed this build,236925 endpoints,fpga/report/final_timing.rpt
+fpga_whs,timing,0.010,ns,same build,235424 endpoints,fpga/report/final_timing.rpt
+fpga_wpws,timing,0.333,ns,same build,84201 endpoints,fpga/report/final_timing.rpt
+fpga_tns_failing_endpoints,timing,0,count,same build,236925 endpoints,fpga/report/final_timing.rpt
+fpga_drc_errors,timing,0,count,same build,same build,fpga/report/final_drc.rpt
+fpga_lut_usage,resource,41.28,%,48349 of 117120 CLB LUTs,same build,fpga/report/final_utilization.rpt
+fpga_ff_usage,resource,31.79,%,74455 of 234240 CLB registers,same build,fpga/report/final_utilization.rpt
+fpga_bram_usage,resource,89.24,%,128.5 of 144 block RAM tiles,same build,fpga/report/final_utilization.rpt
+fpga_dsp_usage,resource,0.00,%,0 of 1248 DSPs,same build,fpga/report/final_utilization.rpt
+camera_reprojection_rms,perception,0.309,px,54 chessboard corners 9x6 35 mm at 70 mm plane,1 calibration,metrics/logs/camera_calibration/
+camera_reprojection_max,perception,0.77,px,same calibration,1 calibration,metrics/logs/camera_calibration/
+camera_depth_plane_deviation,perception,-0.2,mm,79197 depth points vs 70 mm nominal plane,1 calibration,metrics/logs/camera_calibration/
+vr_latency_raw_p99,system,420.53,ms,before 3xIQR screening; N=56; P99 equals max because ceil(0.99*56)=56,56 samples,metrics/logs/vr_latency/vr-cleaning-20261103-193754.json
+vr_latency_raw_max,system,420.53,ms,same as above; the excluded sample had board_to_can=317.82 ms vs 0.14 ms typical,56 samples,metrics/logs/vr_latency/vr-cleaning-20261103-193754.json
+board_to_can_spike_max,comm,317.82,ms,worst observed board-to-CAN segment in the VR chain; typical 0.14 ms; cause pending,1 event,metrics/logs/vr_latency/vr-cleaning-20261103-193754.json

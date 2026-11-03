@@ -1,0 +1,250 @@
+--- a/rtl/can_core_service.v
++++ b/rtl/can_core_service.v
+@@ -2,12 +2,14 @@
+ // ARM completion is reported only after TX_STATUS becomes TXOK/ERROR/ABORTED.
+ module can_core_service #(parameter CLK_HZ=99999001)(
+  input clk,resetn,core_resetn,input [1:0] owner,target,input [2:0] phase,input stop_core,
+- input [63:0] cycles,
++ input [63:0] cycles,input [31:0] lifecycle_timeout_ms,
+  input host_valid,host_write,input [11:0] host_addr,input [31:0] host_wdata,input [3:0] host_strb,
+  output host_ready,output reg host_done=0,output reg [31:0] host_rdata=0,output reg host_denied=0,
+  input frame_valid,input [10:0] frame_id,input [63:0] frame_data,frame_deadline,
+  output frame_ready,output reg frame_done=0,output reg [2:0] frame_result=0,
+  output reg initialized=0,output core_stopped,output backend_idle,
++ output reg core_operational=0,output reg [31:0] mode_shadow=0,err_status=0,
++ output [31:0] debug_state,
+  output reg [31:0] fault_bits=0,error_counters=0,device_id=0,tx_status=32'h8888,
+  output reg [31:0] apb_addr=0,output reg apb_sel=0,apb_enable=0,apb_write=0,
+  output reg [31:0] apb_wdata=0,output reg [3:0] apb_strb=0,output [2:0] apb_prot,
+@@ -20,19 +22,23 @@
+  reg [10:0] id_hold=0; reg [63:0] data_hold=0,deadline_hold=0;
+  reg [13:0] poll_div=0; reg poll_pending=0,counter_pending=0;
+  reg [3:0] fd_bad=0; reg expired=0;
++ reg [31:0] life_div=0,life_age=0;
++ wire enabled=mode_shadow[22]; // CTU 2.2 ENA is bit22; bit7 is ACF, not ENA.
++ wire in_run=(phase==0&&(owner==1||owner==2));
++ assign debug_state={12'b0,apb_error,apb_ready,counter_pending,poll_pending,core_operational,enabled,initialized,stopped,stop_sent,active,launched,expired,job,bus_state,apb_enable,apb_sel};
+  wire native_allowed=(owner==1&&phase==0)||(target==1&&phase==4);
+  wire probe_allowed=(owner==0&&phase==0);
+  wire host_is_fmt=(host_addr==12'h100||host_addr==12'h200||host_addr==12'h300||host_addr==12'h400);
+  wire host_fmt_fd=host_is_fmt&&host_strb[0]&&host_wdata[7];
+  wire host_enable_fd=host_addr==12'h004&&host_strb[0]&&host_wdata[4];
+  wire host_ready_cmd=host_addr==12'h074&&host_strb[0]&&host_wdata[1];
+- wire host_bad_ready=host_ready_cmd&&((phase!=0||owner!=1)||(|(fd_bad&host_wdata[11:8])));
++ wire host_bad_ready=host_ready_cmd&&((phase!=0||owner!=1||!core_operational)||(|(fd_bad&host_wdata[11:8])));
+  // In PS mode permit identification/status reads only; Linux must acquire PL first to configure.
+  wire host_ok=(!host_write&&(native_allowed||probe_allowed))||
+               (host_write&&native_allowed&&!host_fmt_fd&&!host_enable_fd&&!host_bad_ready);
+  wire can_accept=(bus_state==0&&initialized&&!stop_core&&!active&&!poll_pending&&!counter_pending);
+  assign host_ready=can_accept&&host_valid;
+- assign frame_ready=can_accept&&!host_valid&&owner==2&&phase==0;
++ assign frame_ready=can_accept&&!host_valid&&owner==2&&phase==0&&core_operational;
+  assign core_stopped=!core_resetn||(stopped&&!active&&bus_state==0);
+  assign backend_idle=(bus_state==0&&!active);
+  assign apb_prot=0;
+@@ -49,7 +55,17 @@
+   bus_state<=0;apb_sel<=0;apb_enable<=0;initialized<=0;init_step<=0;active<=0;
+   launched<=0;stop_sent<=0;stopped<=0;poll_div<=0;poll_pending<=0;counter_pending<=0;
+   fault_bits<=0;error_counters<=0;device_id<=0;fd_bad<=0;expired<=0;tx_status<=32'h8888;
++  mode_shadow<=0;err_status<=0;core_operational<=0;life_div<=0;life_age<=0;
+  end else begin
++  // Native disable/reset is an explicit expected stop/configuration transaction.
++  // Never infer a runtime bus-off from CTU's documented disabled/reset BOF state.
++  if(!in_run||stop_core||core_operational)begin life_div<=0;life_age<=0;end
++  else if(life_div==CLK_HZ/1000-1)begin
++   life_div<=0;
++   if(life_age<lifecycle_timeout_ms)life_age<=life_age+1;
++   else fault_bits<=fault_bits|(enabled?32'h100:32'h80);
++  end else life_div<=life_div+1;
++  if(stop_core)core_operational<=0;
+   if(poll_div==9999)begin poll_div<=0;poll_pending<=1;end else poll_div<=poll_div+1;
+   if(!stop_core&&!expired&&!(active&&cycles>=deadline_hold))begin stop_sent<=0;stopped<=0;end
+   if(active&&cycles>=deadline_hold)expired<=1;
+@@ -102,9 +118,24 @@
+      case(job)
+       J_INIT:begin
+        init_step<=init_step+1;
++       if(init_step==5&&!apb_error)begin mode_shadow<=target==2?32'h00400080:0;core_operational<=0;end
+        if(init_step==6)begin device_id<=apb_rdata;initialized<=1;if(apb_rdata!=32'h0202cafd)fault_bits<=fault_bits|32'h10;end
+       end
+-      J_HOST:begin host_done<=1;host_rdata<=apb_rdata;host_denied<=apb_error;end
++      J_HOST:begin
++       host_done<=1;host_rdata<=apb_rdata;host_denied<=apb_error;
++       if(apb_write&&apb_addr[11:0]==12'h004&&!apb_error)begin
++        if(apb_strb[0]&&apb_wdata[0])begin mode_shadow<=0;core_operational<=0;end
++        else begin
++         if(apb_strb[0])mode_shadow[7:0]<=apb_wdata[7:0];
++         if(apb_strb[1])mode_shadow[15:8]<=apb_wdata[15:8];
++         if(apb_strb[2])begin
++          mode_shadow[23:16]<=apb_wdata[23:16];
++          if(!apb_wdata[22]||!enabled)core_operational<=0;
++         end
++         if(apb_strb[3])mode_shadow[31:24]<=apb_wdata[31:24];
++        end
++       end
++      end
+       J_FILL:fill_step<=fill_step+1;
+       J_TX:begin
+        tx_status<=apb_rdata;
+@@ -123,7 +154,15 @@
+         if(expired&&!stop_core)begin expired<=0;stop_sent<=0;end
+        end
+       end
+-      J_FAULT:begin if(apb_rdata[18])fault_bits<=fault_bits|32'h2;counter_pending<=1;end
++      J_FAULT:begin
++       err_status<=apb_rdata;counter_pending<=1;
++       if(enabled&&!stop_core&&!apb_error)begin
++        if(!apb_rdata[18]&&(apb_rdata[16]||apb_rdata[17]))core_operational<=1;
++        if(in_run&&core_operational&&apb_rdata[18])begin
++         fault_bits<=fault_bits|32'h2;core_operational<=0;
++        end
++       end
++      end
+       J_COUNTER:error_counters<=apb_rdata;
+      endcase
+     end else if(bus_wait==1023)begin
+--- a/rtl/can_path_owner.v
++++ b/rtl/can_path_owner.v
+@@ -3,7 +3,7 @@
+  input clk,resetn,input rx_raw,ps_tx_raw,pl_tx_raw,
+  input prepare,input [1:0] requested_owner,input confirm,input commit,input [31:0] token,
+  input heartbeat,input [31:0] fault_in,input clear_faults,input [31:0] clear_mask,
+- input core_initialized,core_stopped,backend_idle,
++ input core_initialized,core_stopped,backend_idle,input core_operational,input [31:0] lifecycle_timeout_ms,
+  input [31:0] idle_cycles,lease_ms,retry_ms,retry_limit,
+  input auto_enable,input [1:0] preferred_owner,input clear_retries,
+  output reg [1:0] owner=0,output reg [2:0] phase=0,output reg [1:0] target=0,
+@@ -16,11 +16,13 @@
+  localparam RUN=0,DRAIN=1,RESET=2,INIT=3,READY=4,FAULT_DRAIN=5,FAULT=6;
+  (* ASYNC_REG="TRUE" *) reg [1:0] rx_sync=3,ps_sync=3,pl_sync=3;
+  reg [31:0] quiet=0,ms_div=0,lease_age=0,retry_age=0,fault_wait=0;
++ reg [31:0] config_age=0;
+  reg [4:0] reset_count=0; reg confirmed=0;
+  wire ms_tick=(ms_div==CLK_HZ/1000-1);
+  wire line_quiet=(quiet>=idle_cycles) && rx_sync[1] && ps_sync[1] && pl_sync[1];
+  wire lease_expired=(owner==2 && phase==RUN && lease_age>=lease_ms);
+- wire [31:0] live_fault=fault_in | (lease_expired?32'h1:32'h0);
++ wire config_expired=(phase==INIT||phase==READY)&&config_age>=lifecycle_timeout_ms;
++ wire [31:0] live_fault=fault_in | (lease_expired?32'h1:32'h0) | (config_expired?32'h40:0);
+  assign quiet_count=quiet;
+  assign tx_pin=(owner==0)?ps_tx_raw:((owner==1||owner==2)?pl_tx_raw:1'b1);
+  assign ps_rx=(owner==0)?rx_raw:1'b1;
+@@ -33,8 +35,9 @@
+   if(!resetn)begin
+    owner<=0;phase<=RUN;target<=0;generation<=1;faults<=0;result<=0;retry_count<=0;
+    action_request<=0;core_resetn<=0;quiet<=0;ms_div<=0;lease_age<=0;retry_age<=0;
+-   fault_wait<=0;reset_count<=0;confirmed<=0;forced_isolations<=0;
++   fault_wait<=0;reset_count<=0;confirmed<=0;forced_isolations<=0;config_age<=0;
+   end else begin
++   if(phase!=INIT&&phase!=READY)config_age<=0;else if(ms_tick&&config_age!=32'hffffffff)config_age<=config_age+1;
+    if(rx_sync[1]&&ps_sync[1]&&pl_sync[1]&&(phase!=DRAIN||(confirmed&&core_stopped&&backend_idle)))begin if(quiet!=32'hffffffff)quiet<=quiet+1;end else quiet<=0;
+    if(ms_tick)begin
+     ms_div<=0;if(lease_age!=32'hffffffff)lease_age<=lease_age+1;
+@@ -69,7 +72,7 @@
+     INIT:if(core_initialized)phase<=READY;
+     READY:if(commit)begin
+      if(token!=generation||!confirmed)result<=2;
+-     else if(!line_quiet||!backend_idle)result<=3;
++     else if(!line_quiet||!backend_idle||(target!=0&&!core_operational))result<=3;
+      else begin owner<=target;phase<=RUN;lease_age<=0;retry_age<=0;result<=0;changed<=1;action_request<=0;end
+     end
+     FAULT_DRAIN:begin
+--- a/rtl/can_path_control.v
++++ b/rtl/can_path_control.v
+@@ -4,7 +4,10 @@
+  (* X_INTERFACE_INFO="xilinx.com:signal:reset:1.0 s_axi_aresetn RST", X_INTERFACE_PARAMETER="POLARITY ACTIVE_LOW" *) input s_axi_aresetn,
+  input can_rx_raw,ps_tx,pl_tx,output can_tx,ps_rx,pl_rx,
+  (* X_INTERFACE_INFO="xilinx.com:signal:reset:1.0 core_resetn RST", X_INTERFACE_PARAMETER="POLARITY ACTIVE_LOW" *) output core_resetn,output [63:0] timestamp,
+- input core_irq,output irq_native,output irq_control,
++ input core_irq,
++ (* X_INTERFACE_INFO="xilinx.com:signal:interrupt:1.0 irq_native INTERRUPT", X_INTERFACE_PARAMETER="SENSITIVITY LEVEL_HIGH" *) output irq_native,
++ (* X_INTERFACE_INFO="xilinx.com:signal:interrupt:1.0 irq_control INTERRUPT", X_INTERFACE_PARAMETER="SENSITIVITY LEVEL_HIGH" *) output irq_control,
++ output [511:0] debug_bus,
+  output [31:0] apb_addr,output apb_sel,apb_enable,apb_write,
+  output [31:0] apb_wdata,output [3:0] apb_strb,output [2:0] apb_prot,
+  input [31:0] apb_rdata,input apb_ready,apb_error,
+@@ -28,7 +31,7 @@
+  (* X_INTERFACE_INFO="xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output wire  s_axi_rvalid,
+  (* X_INTERFACE_INFO="xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input  s_axi_rready);
+  wire clk=s_axi_aclk,resetn=s_axi_aresetn;
+- localparam BUILD=32'h26110302;
++ localparam BUILD=32'h26110303;
+  reg [63:0] cycles=0;assign timestamp=cycles;
+  wire wvalid,rvalid;reg wready,rready;wire [15:0] waddr,raddr;wire [31:0] wdata;wire [3:0] wstrb;reg [31:0] rdata;
+  can_axil_endpoint endpoint(.clk(clk),.resetn(resetn),
+@@ -37,17 +40,18 @@
+  .rd_valid(rvalid),.rd_ready(rready),.rd_addr(raddr),.rd_data(rdata));
+  wire [1:0] owner,target,action;wire [2:0] phase;wire [31:0] generation,faults,owner_result,retries,quiet,forced;
+  wire stop_core,arm_run,changed,fault_event,initialized,core_stopped,backend_idle;
+- wire [31:0] core_faults,errors,device_id,tx_status;
++ wire [31:0] core_faults,errors,device_id,tx_status,mode_shadow,err_status,service_debug;
++ wire core_operational;reg [31:0] lifecycle_timeout_ms=1000;
+  reg prepare=0,confirm=0,commit=0,heartbeat=0,clear_faults=0,clear_retries=0;
+  reg [1:0] requested=0,preferred=2;reg [31:0] token=0,clear_mask=0;
+  reg auto_enable=0;reg [31:0] lease_ms=100,retry_ms=1000,retry_limit=0;
+- reg [31:0] irq_status=0,irq_mask=1,event_mask=32'hffffffff;
++ reg [31:0] irq_status=0,irq_mask=1,event_mask=0;
+  reg [31:0] fault_errors=0,fault_tx_status=0;reg [63:0] fault_cycle=0;
+  wire group_fault;
+  can_path_owner #(.CLK_HZ(CLK_HZ)) ownership(.clk(clk),.resetn(resetn),.rx_raw(can_rx_raw),.ps_tx_raw(ps_tx),.pl_tx_raw(pl_tx),
+  .prepare(prepare),.requested_owner(requested),.confirm(confirm),.commit(commit),.token(token),.heartbeat(heartbeat),
+  .fault_in(core_faults|(group_fault?32'h20:0)),.clear_faults(clear_faults),.clear_mask(clear_mask),
+- .core_initialized(initialized),.core_stopped(core_stopped),.backend_idle(backend_idle&&!host_pending),
++ .core_initialized(initialized),.core_operational(core_operational),.lifecycle_timeout_ms(lifecycle_timeout_ms),.core_stopped(core_stopped),.backend_idle(backend_idle&&!host_pending),
+  .idle_cycles(CLK_HZ/1000000*11+11),.lease_ms(lease_ms),.retry_ms(retry_ms),.retry_limit(retry_limit),
+  .auto_enable(auto_enable),.preferred_owner(preferred),.clear_retries(clear_retries),
+  .owner(owner),.phase(phase),.target(target),.generation(generation),.faults(faults),.result(owner_result),.retry_count(retries),
+@@ -64,10 +68,10 @@
+  wire frame_valid,frame_ready,frame_done;wire [2:0] frame_result,frame_index;wire [10:0] frame_id;
+  wire [63:0] frame_data,frame_deadline,active_trace;wire [31:0] active_seq,active_generation;
+  can_core_service #(.CLK_HZ(CLK_HZ)) service(.clk(clk),.resetn(resetn),.core_resetn(core_resetn),.owner(owner),.target(target),.phase(phase),
+- .stop_core(stop_core),.cycles(cycles),.host_valid(host_pending&&!host_sent&&!host_complete),.host_write(host_is_write),
++ .stop_core(stop_core),.cycles(cycles),.lifecycle_timeout_ms(lifecycle_timeout_ms),.host_valid(host_pending&&!host_sent&&!host_complete),.host_write(host_is_write),
+  .host_addr(host_addr),.host_wdata(host_data),.host_strb(host_strb),.host_ready(host_ready),.host_done(host_done),.host_rdata(host_read),.host_denied(host_denied),
+  .frame_valid(frame_valid),.frame_ready(frame_ready),.frame_id(frame_id),.frame_data(frame_data),.frame_deadline(frame_deadline),.frame_done(frame_done),.frame_result(frame_result),
+- .initialized(initialized),.core_stopped(core_stopped),.backend_idle(backend_idle),.fault_bits(core_faults),.error_counters(errors),.device_id(device_id),.tx_status(tx_status),
++ .initialized(initialized),.core_operational(core_operational),.mode_shadow(mode_shadow),.err_status(err_status),.debug_state(service_debug),.core_stopped(core_stopped),.backend_idle(backend_idle),.fault_bits(core_faults),.error_counters(errors),.device_id(device_id),.tx_status(tx_status),
+  .apb_addr(apb_addr),.apb_sel(apb_sel),.apb_enable(apb_enable),.apb_write(apb_write),.apb_wdata(apb_wdata),.apb_strb(apb_strb),.apb_prot(apb_prot),
+  .apb_rdata(apb_rdata),.apb_ready(apb_ready),.apb_error(apb_error));
+  wire full_write=wstrb==15&&waddr[1:0]==0;
+@@ -119,8 +123,9 @@
+   if(native_w)wready=host_pending&&host_is_write&&host_complete;
+   if(native_r)begin rready=host_pending&&!host_is_write&&host_complete;rdata=host_read_hold;end
+   else case(raddr)
+-   16'h000:rdata=32'h4b434132;16'h004:rdata=32'h00020000;16'h008:rdata=BUILD;16'h00c:rdata=32'h000000ff;
++   16'h000:rdata=32'h4b434132;16'h004:rdata=32'h00020001;16'h008:rdata=BUILD;16'h00c:rdata=32'h000001ff;
+    16'h010:rdata=CLK_HZ;16'h014:rdata=CHANNEL;16'h018:rdata=cycles[31:0];16'h01c:rdata=cycles[63:32];
++   16'h0d0:rdata=mode_shadow;16'h0d4:rdata=err_status;16'h0d8:rdata=service_debug;16'h0dc:rdata=lifecycle_timeout_ms;
+    16'h020:rdata={23'b0,initialized,core_resetn,target,phase,owner};16'h024:rdata=generation;16'h028:rdata=faults;16'h02c:rdata=owner_result;
+    16'h030:rdata=token;16'h048:rdata={22'b0,preferred,7'b0,auto_enable};16'h04c:rdata=lease_ms;16'h050:rdata=retry_ms;16'h054:rdata=retry_limit;
+    16'h058:rdata=retries;16'h05c:rdata={30'b0,action};16'h060:rdata=quiet;16'h064:rdata=forced;
+@@ -135,14 +140,19 @@
+    end
+   endcase
+  end
++ assign debug_bus={
++  {14'b0,frame_index,frame_result,frame_done,frame_ready,frame_valid,engine_busy,validating,queue_count},
++  service_debug,
++  {8'b0,host_pending,host_sent,host_complete,prepare,confirm,commit,heartbeat,stop_core,core_operational,initialized,core_resetn,can_rx_raw,ps_tx,pl_tx,can_tx,backend_idle,core_stopped,owner,phase,target},
++  quiet,tx_status,apb_rdata,apb_wdata,apb_addr,mode_shadow,errors,err_status,core_faults,faults,generation,cycles[31:0],32'h43414e33};
+  integer i,fbi;
+  always @(posedge clk)begin
+   prepare<=0;confirm<=0;commit<=0;heartbeat<=0;clear_faults<=0;clear_retries<=0;
+   event_head<=events[event_rd];event_pref<=event_rd;event_ready<=event_pref==event_rd;
+   if(!resetn)begin
+-   cycles<=0;fault_errors<=0;fault_tx_status<=0;fault_cycle<=0;token<=0;auto_enable<=0;preferred<=2;lease_ms<=100;retry_ms<=1000;retry_limit<=0;
++   cycles<=0;lifecycle_timeout_ms<=1000;fault_errors<=0;fault_tx_status<=0;fault_cycle<=0;token<=0;auto_enable<=0;preferred<=2;lease_ms<=100;retry_ms<=1000;retry_limit<=0;
+    host_pending<=0;host_sent<=0;host_complete<=0;host_wait<=0;denied_count<=0;control_result<=0;
+-   irq_status<=0;irq_mask<=1;event_mask<=32'hffffffff;event_count<=0;event_wr<=0;event_rd<=0;event_ready<=0;event_lost<=0;
++   irq_status<=0;irq_mask<=1;event_mask<=0;event_count<=0;event_wr<=0;event_rd<=0;event_ready<=0;event_lost<=0;
+    feedback_valid<=0;feedback_valid_snap<=0;snap_seq<=0;
+    for(i=0;i<20;i=i+1)begin feedback[i]<=0;feedback_snap[i]<=0;end
+   end else begin
+@@ -181,6 +191,7 @@
+      16'h0a0:if(wdata==1)begin for(i=0;i<20;i=i+1)feedback_snap[i]<=feedback[i];feedback_valid_snap<=feedback_valid;snap_seq<=snap_seq+1;end
+      16'h0b4:event_mask<=wdata;
+      16'h0b8:control_result<=0;
++     16'h0dc:if(wdata>=100&&wdata<=5000&&owner==0&&phase==0)lifecycle_timeout_ms<=wdata;else control_result<=2;
+     endcase
+    end
+    if(fault_event)begin irq_status[0]<=1;fault_errors<=errors;fault_tx_status<=tx_status;fault_cycle<=cycles;end

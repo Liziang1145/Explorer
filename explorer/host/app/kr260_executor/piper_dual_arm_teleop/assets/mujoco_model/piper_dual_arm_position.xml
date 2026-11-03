@@ -1,0 +1,50 @@
+<mujoco model="piper dual arm position control">
+  <include file="piper_dual_arm.xml"/>
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.1 0.1 0.1" specular="0 0 0"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="120" elevation="-20"/>
+  </visual>
+
+  <worldbody>
+    <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
+    
+    <geom name="floor" size="0 0 0.05" type="plane" material="groundplane" pos="0 0 0"/>
+
+    <body name="left_hand_target" pos="0.5 0.2 0.3" quat="1 0 0 0" mocap="true">
+      <!-- <geom type="box" size=".05 .05 .05" contype="0" conaffinity="0" rgba=".6 .3 .3 .5"/> -->
+      <!-- <site type="sphere" size="0.01" rgba="0 0 1 1" group="1"/> -->
+      <site pos="0 0 0.05" size="0.003 0.003 0.05" type="box" name="left_hand_mocap_site1" rgba="0 0 1 1"/>
+      <site pos="0 0.05 0" size="0.003 0.05 0.003" type="box" name="left_hand_mocap_site2" rgba="0 1 0 1"/>
+      <site pos="0.05 0 0" size="0.05 0.003 0.003" type="box" name="left_hand_mocap_site3" rgba="1 0 0 1"/>
+    </body>
+    <body name="right_hand_target" pos="0.5 -0.2 0.3" quat="1 0 0 0" mocap="true">
+      <!-- <geom type="box" size=".05 .05 .05" contype="0" conaffinity="0" rgba=".6 .3 .3 .5"/> -->
+      <!-- <site type="sphere" size="0.01" rgba="0 0 1 1" group="1"/> -->
+      <site pos="0 0 0.05" size="0.003 0.003 0.05" type="box" name="right_hand_mocap_site1" rgba="0 0 1 1"/>
+      <site pos="0 0.05 0" size="0.003 0.05 0.003" type="box" name="right_hand_mocap_site2" rgba="0 1 0 1"/>
+      <site pos="0.05 0 0" size="0.05 0.003 0.003" type="box" name="right_hand_mocap_site3" rgba="1 0 0 1"/>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="left_arm_joint1" joint="left_arm_joint1" kp="200" kv="10" ctrllimited="true" ctrlrange="-2.618 2.168"/>
+    <position name="left_arm_joint2" joint="left_arm_joint2" kp="200" kv="10" ctrllimited="true" ctrlrange="0 3.14"/>
+    <position name="left_arm_joint3" joint="left_arm_joint3" kp="200" kv="10" ctrllimited="true" ctrlrange="-2.967 0"/>
+    <position name="left_arm_joint4" joint="left_arm_joint4" kp="20" kv="1" ctrllimited="true" ctrlrange="-1.745 1.745"/>
+    <position name="left_arm_joint5" joint="left_arm_joint5" kp="20" kv="1" ctrllimited="true" ctrlrange="-1.22 1.22"/>
+    <position name="left_arm_joint6" joint="left_arm_joint6" kp="10" kv="0.5" ctrllimited="true" ctrlrange="-2.0944 2.0944"/>
+    <position name="left_arm_joint7" joint="left_arm_joint7" kp="200" user="1" forcelimited="false"/>
+    <position name="left_arm_joint8" joint="left_arm_joint8" kp="200" user="1" forcelimited="false"/>
+
+    <position name="right_arm_joint1" joint="right_arm_joint1" kp="200" kv="10" user="1" ctrllimited="true" ctrlrange="-2.618 2.168"/>
+    <position name="right_arm_joint2" joint="right_arm_joint2" kp="200" kv="10" ctrllimited="true" ctrlrange="0 3.14"/>
+    <position name="right_arm_joint3" joint="right_arm_joint3" kp="200" kv="10" ctrllimited="true" ctrlrange="-2.967 0"/>
+    <position name="right_arm_joint4" joint="right_arm_joint4" kp="20" kv="1" ctrllimited="true" ctrlrange="-1.745 1.745"/>
+    <position name="right_arm_joint5" joint="right_arm_joint5" kp="20" kv="1" ctrllimited="true" ctrlrange="-1.22 1.22"/>
+    <position name="right_arm_joint6" joint="right_arm_joint6" kp="10" kv="0.5" ctrllimited="true" ctrlrange="-2.0944 2.0944"/>
+    <position name="right_arm_joint7" joint="right_arm_joint7" kp="200" user="1" forcelimited="false"/>
+    <position name="right_arm_joint8" joint="right_arm_joint8" kp="200" user="1" forcelimited="false"/>
+
+  </actuator>
+</mujoco>
