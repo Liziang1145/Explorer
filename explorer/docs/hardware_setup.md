@@ -26,7 +26,7 @@ Single 48 V / 20 Ah ternary lithium pack.
 | B | 48 -> 12 V | KR260, MWB505G switch, LiDAR |
 
 > Final connector, fuse and harness specifications are to be confirmed against
-> the delivered build; the diagram is in `report/design_report_v1_9.docx` figure 2.3.
+> the delivered build; the diagram is in `report/design_report.pdf` figure 2.3.
 
 ## 3. Mechanical interface
 
