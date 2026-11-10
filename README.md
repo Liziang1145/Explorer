@@ -68,10 +68,7 @@ AIPC（Ryzen AI Max+ 395）承担端侧推理与任务调度：
 
 指标口径、样本量与证据路径见 `explorer/metrics/README.md`；原始报告见 `explorer/fpga/report/`。
 
-## 未声称项
 
-导航无统一成功率；无成对 TCP RTT 分布；无 mAP/mIoU；无物理端到端延迟；独立硬件急停未接入。
-完整清单见 `explorer/docs/compliance.md`。
 
 ## 许可
 
