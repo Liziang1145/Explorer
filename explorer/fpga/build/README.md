@@ -41,8 +41,14 @@ payload matches the `.bit.bin` and that the XSA embeds the same bitstream:
 Verify a candidate delivery against the manifest before using it:
 
 ```bash
-sha256sum kr260_pl_can_fix.bit   # must equal the value above
+python fpga/build/check_delivery.py /path/to/KR260_PL_CAN_FIX_DELIVERY_20261104.zip
+python fpga/build/check_delivery.py /path/to/extracted/delivery/
 ```
+
+The script reads `fpga/evidence/artifact_consistency.json`, compares size and
+SHA-256 for all four files, and exits non-zero on `NOT FOUND` or `MISMATCH`.
+It accepts a directory or a zip, so it can be pointed at the delivery archive
+without extracting it.
 
 > **Do not substitute an earlier build.** A 2026-10-30 `kr260_j20_j19.bit`
 > exists in the handoff archives; it has the same byte length but a different
