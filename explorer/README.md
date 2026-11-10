@@ -51,7 +51,8 @@ explorer/
 │   ├── scripts/           re-runnable measurement and analysis scripts
 │   └── evidence/          handoff checks and supplementary material
 ├── report/
-│   └── design_report_v1_9.docx   design report
+│   ├── design_report.pdf         design report (final)
+│   └── history/                  superseded report builds
 ├── cad/                   printed-part STL/STEP and dimension sheets
 └── skill/                 reusable deployment and diagnostics skills
 ```
@@ -137,7 +138,7 @@ State these explicitly; they are tracked in `docs/compliance.md` section 5.
 - **Timing figures are aligned.** `fpga/report/final_timing.rpt` and the
   `fpga_wns` row of `metrics/metrics.csv` report **WNS +0.082 ns / WHS +0.010 ns
   / WPWS +0.333 ns** for the 2026-11-03 CAN-switch build, and
-  `report/design_report_v1_9.docx` now states the same values.
+  `report/design_report.pdf` states the same values.
 
 ## 5. Third-party components
 
